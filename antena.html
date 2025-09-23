@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de Escuelas con Huertos - Proyecto GORRIÓN</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <link rel="stylesheet" href="CSS/estilosantena.css">
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <!-- ENCABEZADO -->
+  <header>
+    <div class="logo-izq">
+      <img src="Imagenes/logo-universidad.png" alt="UPAtl">
+    </div>
+
+    <div class="titulo">
+      <h1>ANTENA</h1>
+    </div>
+
+    <div class="logo-der">
+      <img src="Imagenes/logo-proyecto.png" alt="Proyecto GORRIÓN">
+    </div>
+  </header>
+
+  <!-- Menú -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="que-es-gorrion.html">¿Qué es GORRIÓN?</a></li>
+      <li><a href="antena.html" class="activo">Antena</a></li>
+      <li><a href="vinculos.html">Vínculos Gorrión</a></li>
+      <li><a href="eventos.html">Eventos y Jornadas</a></li>
+      <li><a href="semillero.html">Semillero de lectura</a></li>
+      <li><a href="nido.html">Nido de aprendizaje</a></li>
+      <li><a href="voces.html">Voces Gorrión</a></li>
+      <li><a href="acceso.html">Acceso</a></li>
+    </ul>
+  </nav>
+
+  <!-- Mapa -->
+  <div id="map"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Proyecto Gorrión - Universidad Politécnica de Atlautla
+  </footer>
+
+  <script>
+    // Inicializar mapa
+    var map = L.map('map').setView([19.03, -98.82], 12);
+
+    // Capa base
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Escuelas con coordenadas
+    var escuelas = [
+      { nombre: "Universidad Politécnica de Atlautla", municipio: "Atlautla", coords: [19.035155236732237, -98.7878873906034], archivo: "atlautla.html" },
+      { nombre: "Escuela Preparatoria Oficial No. 50", municipio: "Ecatzingo", coords: [18.96227283483901, -98.73928974738551], archivo: "ecatzingo.html" },
+      { nombre: "Escuela Preparatoria Oficial No. 177", municipio: "Ozumba", coords: [19.036332108887727, -98.79229255583213], archivo: "ozumba.html" },
+      { nombre: "Universidad Intercultural del Estado de México (UIEM)", municipio: "Tepetlixpa", coords: [19.021773987486366, -98.82335186625443], archivo: "tepetlixpa.html" },
+      { nombre: "CBT Dr Carlos Sosa Moss", municipio: "Juchitepec", coords: [19.102157905541322, -98.88744597806611], archivo: "juchitepec.html" }
+    ];
+
+    // Definir ícono de mascota
+    var iconoMascota = L.icon({
+      iconUrl: 'Imagenes/mascota.png',
+      iconSize: [70, 70],
+      iconAnchor: [35, 70],
+      popupAnchor: [0, -75]
+    });
+
+    // Crear marcadores
+    escuelas.forEach(function(escuela) {
+      L.marker(escuela.coords, { icon: iconoMascota }).addTo(map)
+        .bindPopup(`
+          <div class="popup-card">
+            <img src="Imagenes/mascota.png" alt="Mascota" class="popup-img">
+            <h3>${escuela.nombre}</h3>
+            <p><b>Municipio:</b> ${escuela.municipio}</p>
+            <button onclick="window.location.href='${escuela.archivo}'">Saber más</button>
+          </div>
+        `);
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

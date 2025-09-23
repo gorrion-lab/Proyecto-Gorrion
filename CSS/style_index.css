@@ -1,0 +1,402 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tipografía general */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f0fdf4;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #fff;
+    color: #008000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Logo Gorrión */
+.logo-derecho {
+    justify-self: center;
+    height: 140px;
+}
+.logo-derecho img {
+    height: 100%;
+    width: auto;
+}
+
+/* Logo Universidad */
+.logo-izquierdo {
+    justify-self: center;
+    height: 90px;
+}
+.logo-izquierdo img {
+    height: 100%;
+    width: auto;
+}
+
+/* Títulos principales */
+header h1 {
+    text-align: center;
+    font-size: 35px;
+    color: #008000;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+header h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 5px;
+    color: #4e3b31;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+/* Menú */
+nav {
+  background: #008000;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  display: block;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.activo {
+  background: #006400;
+}
+
+
+/* Bienvenida */
+.bienvenida {
+    text-align: center;
+    padding: 50px 15px;
+}
+
+.bienvenida h2 {
+    font-size: 35px;
+    text-align: center;
+    color: #008000;
+    margin-bottom: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.bienvenida p {
+    font-size: 22px;
+    text-align: center;
+    color: #444;
+}
+
+/* Carrusel */
+.carrusel {
+    display: flex;
+    justify-content: center;
+    margin: 35px auto;
+    max-width: 1000px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    background-color: #fff;
+}
+
+.carrusel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .logo-derecho { height: 100px; }
+    .logo-izquierdo { height: 70px; }
+    header h1 { font-size: 1.5em; }
+    header h2 { font-size: 1em; }
+    nav ul li a { font-size: 1em; padding: 10px 16px; }
+}
+
+/* Mascota interactiva */
+.mascota-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column; /* globo arriba, mascota abajo */
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Animación de balanceo de la mascota */
+@keyframes balanceo {
+    0% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(-3deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(-5px) rotate(3deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+.mascota {
+    width: 180px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: aparecer 1s ease;
+}
+
+.mascota.hablando {
+    animation: balanceo 0.6s ease-in-out infinite;
+}
+
+
+/* Globo de diálogo */
+.globo-texto {
+    display: none;
+    background: #f1faee;
+    border: 2px solid #008000;
+    border-radius: 15px;
+    padding: 12px 18px;
+    font-size: 15px;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 10px;
+    text-align: center;
+    max-width: 220px;
+    animation: deslizar 0.5s ease;
+    position: relative;
+}
+
+.globo-texto::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: #008000 transparent transparent transparent;
+}
+
+/* Animaciones */
+@keyframes aparecer {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes deslizar {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== SECCIÓN DESCUBRE MÁS ===== */
+.descubre-mas {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.descubre-mas h2 {
+  color: #008000; /* Verde institucional */
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.iconos-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.icono {
+  width: 180px;
+  padding: 20px;
+  border-radius: 15px;
+  background: #f9f9f9;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s, background 0.3s;
+  cursor: pointer;
+}
+
+.icono img {
+  width: 70px;
+  margin-bottom: 10px;
+}
+
+.icono p {
+  font-weight: bold;
+  color: #333;
+}
+
+.icono:hover {
+  background: #e6f5e6;
+  transform: translateY(-5px);
+}
+
+/* ===== SECCIÓN TESTIMONIOS ===== */
+.testimonios {
+  text-align: center;
+  padding: 40px 20px;
+  background: #f0fff0;
+}
+
+.testimonios h2 {
+  color: #008000;
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.testimonios-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tarjeta-testimonio {
+  width: 280px;
+  padding: 20px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  font-style: italic;
+}
+
+.tarjeta-testimonio span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #555;
+}
+
+
+/* Página ¿Qué es GORRIÓN? */
+.contenido {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contenido h2 {
+  color: #008000;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 15px;
+}
+
+.contenido p, 
+.contenido ul {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  padding-left: 25px;   /* 🔹 agrega espacio desde el borde izquierdo */
+  list-style-position: outside; /* asegura que los bullets estén fuera */
+}
+
+.contenido ul li {
+  margin-bottom: 12px;
+}
+/* Ajuste general para que el footer esté al final */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Que el contenido empuje al footer hacia abajo */
+main, section, .mascota-container, .carrusel {
+  flex: 1;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #008000;
+  color: white;
+  margin-top: 40px;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+}
+
+/* ===== ESTILOS DESCUBRE MÁS ===== */
+.descubre-mas {
+  padding: 50px 20px; /* un poco más de espacio */
+  text-align: center;
+}
+
+.descubre-mas h2 {
+  margin-bottom: 40px; /* más separación del título */
+  font-size: 32px; /* título más grande */
+}
+
+.iconos-container {
+  display: flex;
+  gap: 80px; /* más espacio entre tarjetas */
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.icono {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+  padding: 20px; /* aumenta el tamaño de la "tarjeta" */
+  border-radius: 12px; /* esquinas redondeadas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* sombra ligera */
+  background-color: #f9f9f9; /* fondo suave para la tarjeta */
+}
+
+.icono-img {
+  width: 140px; /* imágenes más grandes */
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.icono p {
+  margin-top: 15px;
+  font-size: 18px; /* texto un poco más grande */
+  font-weight: 500;
+}
+
+/* Animación hover */
+.icono:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* sombra más intensa al pasar el mouse */
+}
+
+/* Para que el enlace no afecte la tarjeta */
+.icono-link {
+  text-decoration: none;
+  color: inherit;
+}

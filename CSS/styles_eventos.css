@@ -1,0 +1,140 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f0fdf4;
+  color: #333;
+}
+
+/* ENCABEZADO */
+header {
+  display: flex;
+  justify-content: space-between; /* logo izq - título - logo der */
+  align-items: center;
+  padding: 15px 30px;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header .logo-izq img {
+  height: 90px;   /* Tamaño logo izquierdo */
+}
+
+header .logo-der img {
+  height: 130px;  /* Tamaño logo derecho */
+}
+
+header .titulo h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  color: #008000;
+  margin: 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Menú */
+nav {
+  background: #008000;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  display: block;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.activo {
+  background: #006400;
+}
+
+/* Calendario embed */
+.calendario-embed {
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+/* Agri flotante */
+.agri-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  text-align: center;
+}
+
+.agri-float img {
+  width: 150px;
+  transition: transform 0.3s;
+}
+
+.agri-float p {
+  background-color: #fff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  margin-top: 5px;
+  font-weight: 600;
+  color: black;
+  transition: color 0.3s;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background-color: #008000;
+  color: #fff;
+  margin-top: 20px;
+}
+/* ======= MEDIA QUERY PARA CELULARES ======= */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column; /* Apilar: logo izq - título - logo der */
+    text-align: center;
+    gap: 10px;
+  }
+
+  header .logo-izq img,
+  header .logo-der img {
+    height: 60px; /* Reducir tamaño logos en móvil */
+    width: auto;
+  }
+
+  header .titulo h1 {
+    font-size: 24px; /* Título más pequeño */
+  }
+
+  nav ul {
+    flex-direction: column; /* Menú en columna */
+  }
+
+  nav ul li a {
+    padding: 10px;
+  }
+
+  .agri-float img {
+    width: 100px; /* Mascota más pequeña en móvil */
+  }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nido Gorrión - Nido de Aprendizaje</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style_videos.css">
+</head>
+<body>
+  <!-- Encabezado -->
+  <div class="header-container">
+    <div class="logo-izquierdo">
+      <img src="Imagenes/logo-univercidad.png" alt="Logo Universidad">
+    </div>
+    
+    <header>
+      <h1>Nido Gorrión</h1>
+      <h2>Nido de Aprendizaje - Videos Educativos</h2>
+    </header>
+    
+    <div class="logo-derecho">
+      <img src="Imagenes/logo-proyecto.png" alt="Logo Gorrión">
+    </div>
+  </div>
+
+  <!-- Menú de navegación compacto -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="que-es-gorrion.html">¿Qué es GORRIÓN?</a></li>
+      <li><a href="antena.html">Antena</a></li>
+      <li><a href="vinculos.html">Vínculos Gorrión</a></li>
+      <li><a href="eventos.html">Eventos y Jornadas</a></li>
+      <li><a href="semillero.html">Semillero de Lectura</a></li>
+      <li><a href="nido.html" class="activo">Nido de Aprendizaje</a></li>
+      <li><a href="voces.html">Voces Gorrión</a></li>
+      <li><a href="acceso.html">Acceso</a></li>
+    </ul>
+  </nav>
+
+  <!-- Barra de búsqueda -->
+  <div class="barra-busqueda">
+    <div class="contenedor-busqueda">
+      <input type="text" id="buscarInput" placeholder="Buscar videos..." class="input-busqueda">
+      <button onclick="buscarVideos()" class="boton-busqueda">Buscar</button>
+      <button onclick="limpiarBusqueda()" class="boton-limpiar">Limpiar</button>
+    </div>
+    <div id="resultadoBusqueda" class="resultado-busqueda"></div>
+  </div>
+
+  <!-- Contenido dinámico -->
+  <main>
+    <div id="contenido-dinamico" class="contenido-dinamico">
+      <!-- El contenido se cargará aquí dinámicamente -->
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Nido Gorrión - Todos los derechos reservados</p>
+  </footer>
+
+  <script src="JS/Videos.js"></script>
+</body>
+</html>

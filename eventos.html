@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos y Jornadas - Proyecto GORRIÓN</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="CSS/styles_eventos.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header>
+    <div class="logo-izq">
+      <img src="Imagenes/logo-universidad.png" alt="UPAtl">
+    </div>
+
+    <div class="titulo">
+      <h1>Eventos y Jornadas</h1>
+    </div>
+
+    <div class="logo-der">
+      <img src="Imagenes/logo-proyecto.png" alt="Proyecto GORRIÓN">
+    </div>
+  </header>
+  
+
+  <!-- Menú -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="que-es-gorrion.html">¿Qué es GORRIÓN?</a></li>
+      <li><a href="antena.html">Antena</a></li>
+      <li><a href="vinculos.html">Vínculos Gorrión</a></li>
+      <li><a href="eventos.html" class="activo">Eventos y Jornadas</a></li>
+      <li><a href="semillero.html">Semillero de lectura</a></li>
+      <li><a href="nido.html">Nido de aprendizaje</a></li>
+      <li><a href="voces.html">Voces Gorrión</a></li>
+      <li><a href="acceso.html">Acceso</a></li>
+    </ul>
+  </nav>
+
+  <!-- Calendario (iframe Google Calendar) -->
+  <div class="calendario-embed">
+    <iframe 
+      src="https://calendar.google.com/calendar/embed?src=proyectogorrion7%40gmail.com&ctz=America%2FMexico_City&showTitle=0&showPrint=0&showTabs=0&showCalendars=0"
+      style="border:0" 
+      width="100%" 
+      height="600" 
+      frameborder="0" 
+      scrolling="no">
+    </iframe>
+  </div>
+
+  <!-- Agri flotante -->
+  <div class="agri-float">
+    <img src="Imagenes/agri.png" alt="Agri el Gorrión" id="agriImg">
+    <p id="fraseAgri">🌱 ¡Hola, soy Agri!</p>
+  </div>
+
+  <!-- Audio de aviso -->
+  <audio id="sonidoEvento" src="Sonidos/alerta.mp3" preload="auto"></audio>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Proyecto Gorrión - Universidad Politécnica de Atlautla
+  </footer>
+
+  <!-- JS -->
+  <script>
+    const fraseAgri = document.getElementById('fraseAgri');
+    const agriImg = document.getElementById('agriImg');
+    const sonidoEvento = document.getElementById('sonidoEvento');
+
+    const frasesNormales = [
+ "🌻 ¡Hora de explorar y divertirse un poquito!",
+  "🍃 ¡Respira profundo y sigue adelante!",
+  "🥚 ¡Pequeños pasos llevan a grandes logros!",
+  "📚 ¡Hoy es un gran día para descubrir algo interesante!"
+    ];
+
+    const fraseEvento = "🎉 ¡Atención! Se aproxima un evento importante!";
+
+    // URL del calendario público ICS
+    const urlICS = "https://calendar.google.com/calendar/ical/proyectogorrion7%40gmail.com/public/basic.ics";
+
+    let ultimoEventoDetectado = null;
+
+    async function hayEventoProximo() {
+      try {
+        const res = await fetch(urlICS);
+        const data = await res.text();
+
+        const eventos = data.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT/g) || [];
+        const ahora = new Date();
+        const proximos30min = new Date(ahora.getTime() + 30*60*1000);
+
+        for (let ev of eventos) {
+          const startMatch = ev.match(/DTSTART.*:(\d+)/);
+          if (startMatch) {
+            let fecha = startMatch[1];
+            let anio = parseInt(fecha.slice(0,4));
+            let mes = parseInt(fecha.slice(4,6)) - 1;
+            let dia = parseInt(fecha.slice(6,8));
+            let hora = parseInt(fecha.slice(9,11) || "0");
+            let min = parseInt(fecha.slice(11,13) || "0");
+            const fechaEvento = new Date(anio, mes, dia, hora, min);
+
+            if (fechaEvento > ahora && fechaEvento <= proximos30min) {
+              if (!ultimoEventoDetectado || ultimoEventoDetectado.getTime() !== fechaEvento.getTime()) {
+                ultimoEventoDetectado = fechaEvento;
+                return true;
+              }
+            }
+          }
+        }
+        return false;
+      } catch(err) {
+        console.error("Error leyendo calendario:", err);
+        return false;
+      }
+    }
+
+    function animarAgri() {
+      let arriba = false;
+
+      // Saltitos de Agri
+      setInterval(() => {
+        agriImg.style.transform = arriba ? 'translateY(0)' : 'translateY(-15px)';
+        arriba = !arriba;
+      }, 600);
+
+      // Frases y detección de eventos
+      setInterval(async () => {
+        const eventoProximo = await hayEventoProximo();
+        if (eventoProximo) {
+          fraseAgri.textContent = fraseEvento;
+          fraseAgri.style.color = 'red';
+          sonidoEvento.play();
+        } else {
+          const fraseAleatoria = frasesNormales[Math.floor(Math.random() * frasesNormales.length)];
+          fraseAgri.textContent = fraseAleatoria;
+          fraseAgri.style.color = 'green';
+        }
+      }, 5000);
+    }
+
+    animarAgri();
+  </script>
+</body>
+</html>

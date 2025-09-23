@@ -1,0 +1,274 @@
+/* ðŸŽ¨ Variables de color iguales a Semillero */
+:root {
+  --verde-fondo: #f0fdf4;     /* ðŸŒ± Verde muy claro */
+  --texto-principal: #333;    /* â›“ Gris muy oscuro */
+  --blanco: #fff;             /* âšª Blanco puro */
+  --verde: #008000;           /* ðŸŒ³ Verde puro */
+  --sombra-suave: rgba(0,0,0,0.1);
+  --sombra-fuerte: rgba(0,0,0,0.15);
+  --naranja: #d97706;         /* ðŸŸ  Naranja quemado */
+  --gris-parrafo: #444;       /* â›“ Gris medio oscuro */
+  --verde-etiqueta: #34d399;  /* ðŸ’š Verde esmeralda claro */
+}
+
+/* General */
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background-color: var(--verde-fondo);
+  color: var(--texto-principal);
+  line-height: 1.6em;
+}
+
+/* ðŸ” Barra superior */
+.topbar {
+  background-color: var(--verde);
+  color: var(--blanco);
+  padding: 12px 20px;
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px var(--sombra-suave);
+}
+
+header {
+  background-color: var(--blanco);
+  color: var(--verde);
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 2px 6px var(--sombra-suave);
+
+  display: flex;            /* mantiene los logos a los lados */
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;          /* se ajusta en pantallas pequeñas */
+}
+
+header h1 {
+  display: inline-block;
+  margin: 0;
+  font-size: clamp(25px, 4vw, 35px);  /* tamaño adaptable */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--verde);
+  text-align: center;
+  flex: 1;                   /* ocupa espacio central */
+}
+
+
+
+/* Logos con tamaños individuales */
+#logo-upa {
+  height: auto;               /* se ajusta automáticamente */
+  max-height: 90px;           /* tamaño máximo original */
+  width: auto;
+  margin-right: 5vw;          /* espacio relativo al título */
+  vertical-align: middle;
+}
+
+/* Logo Gorrion */
+#logo-gorrion {
+  height: auto;
+  max-height: 140px;          /* tamaño máximo original */
+  width: auto;
+  margin-left: 5vw;           /* espacio relativo al título */
+  vertical-align: middle;
+}
+
+
+/* Menú navegación */
+/* Menú */
+nav {
+  background: #008000;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  display: block;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.activo {
+  background: #006400;
+}
+
+
+.introduccion-voces {
+  text-align: center;       /* centra el texto debajo del tÃ­tulo */
+  font-size: 1.2	em;           /* tamaÃ±o adecuado para una introducciÃ³n */
+  color: #555;              /* un gris intermedio, elegante */
+  margin-top: 5px;         /* espacio con el tÃ­tulo */
+  max-width: 700px;         /* no tan ancho, mÃ¡s legible */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Contenido principal */
+.section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.voces {
+  padding: 10px 20px;
+  background-color: #f0f8f5;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.voces h2 {
+font-family: 'Montserrat', sans-serif;
+font-size: 28px; 
+text-align: center;
+ color: var(--verde);
+}
+
+    
+/* Contenedor principal de las tarjetas */
+.tarjetas-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* cada tarjeta ocupa mínimo 220px, máximo 1fr */
+  gap: 80px;               /* separación entre tarjetas */
+  justify-content: center; /* centra las tarjetas */
+  max-width: 900px;        /* ancho máximo para forzar múltiples filas */
+  margin: 0 auto;          /* centra el contenedor en la página */
+}
+
+
+
+/* Tarjeta Flip */
+.tarjeta {
+  width: 200px;
+  height: 300px;
+  perspective: 1000px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: aparecer 0.8s forwards;
+}
+
+.tarjeta:nth-child(1) { animation-delay: 0.2s; }
+.tarjeta:nth-child(2) { animation-delay: 0.4s; }
+.tarjeta:nth-child(3) { animation-delay: 0.6s; }
+.tarjeta:nth-child(4) { animation-delay: 0.8s; }
+
+.tarjeta-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.tarjeta:hover .tarjeta-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front y Back */
+.tarjeta-front, .tarjeta-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Imagen frontal ajustada para que se vea ovalada */
+.tarjeta-front img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50% / 30%;  /* mantiene la forma ovalada original */
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.tarjeta-front {
+  background-color: #ffffff;
+  color: #333;
+}
+
+.tarjeta-front:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.tarjeta-back {
+  background-color: #008000;
+  color: #fff;
+  transform: rotateY(180deg);
+  font-size: 0.9em;
+  text-align: justify;
+}
+
+/* Diferenciación por tipo */
+.tarjeta-lider .tarjeta-front { border: 3px solid #6B1C2D; }
+.tarjeta-colaborador .tarjeta-front { border: 3px solid #3498db; }
+.tarjeta-patrocinador .tarjeta-front { border: 3px solid #f1c40f; }
+
+/* Animación de aparición */
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Contenedor fijo */
+.mascota-container {
+  position: fixed;
+  bottom: 10vh;      /* relativo a la pantalla */
+  right: 5vw;        /* se mantiene a la derecha */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+  animation: moverY 2s ease-in-out infinite alternate;
+}
+
+.mascota {
+  width: clamp(100px, 12vw, 180px);  /* mantiene forma y tamaño proporcional */
+  height: auto;
+  border-radius: 20%;
+  object-fit: contain;
+}
+
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #008000;
+  color: white;
+  margin-top: 40px;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nido de Aprendizaje</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style_nido.css">
+</head>
+<body>
+  <!-- Encabezado -->
+  <div class="header-container">
+    <div class="logo-izquierdo">
+      <img src="Imagenes/logo-universidad.png" alt="Logo Universidad">
+    </div>
+    
+    <header>
+      <h1>Nido de Aprendizaje</h1>
+    </header>
+    
+    <div class="logo-derecho">
+      <img src="Imagenes/logo-proyecto.png" alt="Logo Gorrión">
+    </div>
+  </div>
+
+  <!-- Menú de navegación compacto -->
+  <nav>
+    <ul>
+      <li><a href="index.html" class="activo">Inicio</a></li>
+      <li><a href="que-es-gorrion.html">¿Qué es GORRIÓN?</a></li>
+      <li><a href="antena.html">Antena</a></li>
+      <li><a href="vinculos.html">Vínculos Gorrión</a></li>
+      <li><a href="eventos.html">Eventos y Jornadas</a></li>
+      <li><a href="semillero.html">Semillero de Lectura</a></li>
+      <li><a href="nido.html"class="activo">Nido de Aprendizaje</a></li>
+      <li><a href="voces.html">Voces Gorrión</a></li>
+      <li><a href="acceso.html">Acceso</a></li>
+    </ul>
+  </nav>
+
+  <!-- Secciones en horizontal -->
+  <main>
+    <div class="contenedor-horizontal">
+      <!-- Videos -->
+      <div class="card">
+        <div class="imagen">
+          <img src="Imagenes/Videos.jpg" alt="Video agricultura urbana">
+        </div>
+        <div class="contenido">
+          <h3>Videos</h3>
+          <p class="descripcion">Aprende técnicas prácticas para cultivar alimentos en tu hogar.</p>
+          <button class="boton" onclick="navegarAVideos()">Ver videos</button>
+        </div>
+      </div>
+
+      <!-- Cursos -->
+      <div class="card">
+        <div class="imagen">
+          <img src="Imagenes/Cursos.jpg" alt="Curso de huertos urbanos">
+        </div>
+        <div class="contenido">
+          <h3>Cursos</h3>
+          <p class="descripcion">Descubre cómo crear tu propio huerto en espacios reducidos.</p>
+          <button class="boton" onclick="navegarACursos()">Ver cursos</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Nido Gorrión - Todos los derechos reservados</p>
+  </footer>
+
+  <script src="JS/Botones.js"></script>
+</body>
+</html>

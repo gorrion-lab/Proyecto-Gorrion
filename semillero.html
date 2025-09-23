@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semillero de Lectura - UPA</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS\semillero.css">
+
+  
+
+<body>
+ <!-- Encabezado -->
+  <header>
+    <img id="logo-upa" src="Imagenes/logo-universidad.png" alt="UPAtl">
+    <h1>SEMILLERO DE LECTURA</h1>
+    <img id="logo-gorrion" src="Imagenes/logo-proyecto.png" alt="Proyecto GORRIÓN">
+  </header>
+
+  <!-- Menú de navegación -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="que-es-gorrion.html">¿Qué es GORRIÓN?</a></li>
+            <li><a href="antena.html">Antena</a></li>
+            <li><a href="vinculos.html">Vínculos Gorrión</a></li>
+            <li><a href="eventos.html">Eventos y Jornadas</a></li>
+            <li><a href="semillero.html"class="activo">Semillero de Lectura</a></li>
+            <li><a href="nido.html">Nido de Aprendizaje</a></li>
+            <li><a href="voces.html">Voces Gorrión</a></li>
+            <li><a href="acceso.html">Acceso</a></li>
+        </ul>
+    </nav>
+
+
+  </nav>
+
+  <section id="semillero" class="section active">
+    <div class="mascota-container">
+      <img src="Imagenes/agri.png" alt="Mascota" class="mascota">
+    </div>
+
+    <h2>Bienvenido al nido del conocimiento 🐦</h2>
+    <p class="introduccion-semillero">
+      Aquí encontrarás materiales, lecturas, guías y podcasts que forman parte de nuestro semillero de lectura.  
+      Una biblioteca interactiva que puedes explorar, visualizar y descargar.
+    </p>
+
+    <div class="tarjetas-container">
+      <div class="tarjeta">
+        <h3>Biblioteca del Nido  </h3>
+		<h3>🪶🖋️📚</h3>
+		<img src="Imagenes/libro.jpg" alt="Libros">
+        <p>Explora nuestra colección de libros y lecturas educativas.</p>
+        <div class="overlay">
+          <button onclick="mostrarContenido('libros')">Ver contenido</button>
+        </div>
+      </div>
+
+
+      <div class="tarjeta" onclick="mostrarContenido('revistas')">
+         <h3>Ramillete de Ideas </h3>
+		 <h3>🌿💡💬</h3>
+		<img src="Imagenes/ramillete.jpg" alt="revista">
+        <p>Descubre artículos, infografías y esquemas educativos que presentan la información de forma clara y visual.</p>
+		<div class="overlay">
+          <button onclick="mostrarContenido('libros')">Ver contenido</button>
+      </div>
+	  </div>
+
+      
+
+      <div class="tarjeta" onclick="mostrarContenido('podcasts')">
+         <h3>Voces al Vuelo </h3>
+		 <h3>🐦🎙️🎧</h3>
+		<img src="Imagenes/pod.jpg" alt="podcasts">
+        <p>Escucha nuestros podcasts y narraciones educativas, donde el conocimiento se comparte a través del audio.p>
+		<div class="overlay">
+          <button onclick="mostrarContenido('podcasts')">Escuchar Podcast</button>
+          
+      </div>
+	  </div>
+    </div>
+
+    <div id="contenido-dinamico" class="contenido-dinamico"></div>
+	<script src="JS/semillero.js"></script>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+  <p>© 2025 Proyecto Gorrión - Universidad Politécnica de Atlautla. Todos los derechos reservados.</p>
+</footer>
+
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,133 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tipografía general */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f0fdf4;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+}
+/* ENCABEZADO */
+header {
+display: flex;
+justify-content: space-between; /* logo izq - título - logo der */
+align-items: center;
+padding: 15px 30px;
+background: #fff;
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header .logo-izq img {
+height: 90px;   /* Tamaño logo izquierdo */
+}
+
+header .logo-der img {
+height: 130px;  /* Tamaño logo derecho */
+}
+
+header .titulo h1 {
+font-family: 'Montserrat', sans-serif;
+font-size: 35px;
+color: #008000;
+margin: 0;
+font-weight: 700;
+text-align: center;
+}
+
+/* Menú */
+nav {
+background: #008000;
+}
+
+nav ul {
+list-style: none;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+}
+
+nav ul li {
+margin: 0;
+}
+
+nav ul li a {
+  display: block;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16.5px; /* <-- tamaño de letra del menú */
+  transition: background 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.activo {
+background: #006400;
+}
+
+
+/* Estilos generales */
+body, html {
+margin: 0;
+height: 100%;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#map {
+height: calc(100vh - 160px); /* Header + menú */
+width: 100%;
+}
+
+/* Popup de los marcadores */
+.popup-card {
+font-size: 15px;
+line-height: 1.4;
+text-align: center;
+}
+.popup-card h3 {
+margin: 5px 0;
+color: #008000;
+}
+.popup-card .popup-img {
+width: 70px;
+height: auto;
+margin-bottom: 15px;
+}
+.popup-card button {
+margin-top: 8px;
+padding: 6px 12px;
+background: #008000;
+color: white;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+}
+.popup-card button:hover {
+background: #006400;
+}
+/* Ajuste general para que el footer siempre esté al final */
+body {
+min-height: 100vh;          /* La página siempre ocupará toda la pantalla */
+display: flex;
+flex-direction: column;
+}
+
+/* El mapa se expande y empuja el footer hacia abajo */
+#map {
+flex: 1;
+}
+
+/* ===== FOOTER ===== */
+footer {
+text-align: center;
+padding: 20px;
+background-color: #008000;
+color: white;
+margin-top: 40px;
+box-shadow: 0 -2px 6px rgba(0,0,0,0.1);

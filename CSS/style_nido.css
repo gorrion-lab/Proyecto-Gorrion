@@ -1,0 +1,219 @@
+body {
+  margin: 0;
+  font-family: 'Open Sans', Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Encabezado */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 15px 30px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+/* Logo Universidad */
+.logo-izquierdo {
+    justify-self: center;
+    height: 90px;
+}
+.logo-izquierdo img {
+    height: 100%;
+    width: auto;
+}
+
+/* Logo Gorrión */
+.logo-derecho {
+    justify-self: center;
+    height: 140px;
+}
+.logo-derecho img {
+    height: 100%;
+    width: auto;
+}
+
+/* Títulos principales */
+header h1 {
+    text-align: center;
+    font-size: 35px;
+    color: #008000;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+header h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 5px;
+    color: #4e3b31;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+/* Menú */
+nav {
+  background: #008000;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  display: block;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.activo {
+  background: #006400;
+}
+
+nav a:hover {
+  background: #006400;
+}
+
+main {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Contenedor horizontal - Centrado */
+.contenedor-horizontal {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  flex: 0 1 calc(33.333% - 20px);
+  min-width: 280px;
+  max-width: 32%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.imagen img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.contenido {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contenido h3 {
+  color: #008000;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.descripcion {
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.boton {
+  background-color: #008000;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+
+.boton:hover {
+  background-color: #006400;
+}
+
+footer {
+  background: #008000;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  nav a {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 900px) {
+  .card {
+    max-width: 100%;
+    flex: 0 1 100%;
+  }
+  
+  /* Menú en dos filas para tablets */
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Header más compacto para móviles */
+  .header-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .logo-izquierdo, .logo-derecho {
+    margin: 5px 0;
+  }
+  
+  header h1 {
+    font-size: 24px;
+    margin: 5px 0;
+  }
+  
+  /* Menú más compacto para móviles */
+  nav a {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+}
