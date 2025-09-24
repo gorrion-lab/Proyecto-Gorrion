@@ -6,11 +6,11 @@ const globo = document.getElementById("globo");
 
 // Frases con su audio correspondiente
 const frases = [
-    { texto: "¡Bienvenido a ¿Qué es GORRIÓN?!", audio: "../audio/gorrion1.mp3" },
-    { texto: "GORRIÓN es un proyecto de innovación social.", audio: "../audio/gorrion2.mp3" },
-    { texto: "Buscamos colaboración y organización comunitaria.", audio: "../audio/gorrion3.mp3" },
-    { texto: "El conocimiento compartido fortalece a todos.", audio: "../audio/gorrion4.mp3" },
-    { texto: "La innovación empieza con pequeñas acciones.", audio: "../audio/gorrion5.mp3" }
+    { texto: "¡Bienvenido a ¿Qué es GORRIÓN?!", audio: "audio/gorrion1.mp3" },
+    { texto: "GORRIÓN es un proyecto de innovación social.", audio: "audio/gorrion2.mp3" },
+    { texto: "Buscamos colaboración y organización comunitaria.", audio: "audio/gorrion3.mp3" },
+    { texto: "El conocimiento compartido fortalece a todos.", audio: "audio/gorrion4.mp3" },
+    { texto: "La innovación empieza con pequeñas acciones.", audio: "audio/gorrion5.mp3" }
 ];
 
 let i = 0;
