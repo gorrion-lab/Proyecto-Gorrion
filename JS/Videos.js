@@ -16,6 +16,13 @@ const videosData = [
     tipo: "youtube",
     
   },
+  {
+  id: 3,
+  titulo: "Aplicacion de feromonas",
+  descripcion: "Uso de feromonas para atraer insectos hacia trampas o para confundirlos y reducir su reproducción",
+  url: "https://www.youtube.com/embed/4cEZbX1NVjs",
+  tipo: "youtube",
+  },
 
 ];
 
