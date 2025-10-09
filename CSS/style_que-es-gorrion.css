@@ -52,14 +52,6 @@ header h1 {
   font-weight: 700;
 }
 
-header h2 {
-  font-size: 1.2rem;
-  color: #4e3b31;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  margin-top: 5px;
-}
-
 /* =================== MENÚ =================== */
 nav {
   background: #008000;
@@ -102,43 +94,28 @@ nav ul li a.activo {
   z-index: 1001;
 }
 
-/* =================== BIENVENIDA =================== */
-.bienvenida {
-  text-align: center;
-  padding: 40px 15px;
+/* =================== CONTENIDO PRINCIPAL =================== */
+.contenido {
+  padding: 40px 20px;
+  flex: 1;
 }
 
-.bienvenida h2 {
+.contenido h2 {
   font-size: 2rem;
   color: #008000;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.bienvenida p {
-  font-size: 1.2rem;
+.contenido p, .contenido ul {
+  font-size: 1.1rem;
   color: #444;
+  margin-bottom: 15px;
+  line-height: 1.6;
 }
 
-/* =================== CARRUSEL =================== */
-.carrusel {
-  display: flex;
-  justify-content: center;
-  margin: 30px auto;
-  max-width: 1000px;
-  width: 90%;
-  height: auto;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  background-color: #fff;
-}
-
-.carrusel img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+.contenido ul li {
+  margin: 8px 0;
 }
 
 /* =================== MASCOTA =================== */
@@ -163,6 +140,7 @@ nav ul li a.activo {
   animation: balanceo 0.6s ease-in-out infinite;
 }
 
+/* Globo de diálogo */
 .globo-texto {
   display: none;
   background: #f1faee;
@@ -190,87 +168,6 @@ nav ul li a.activo {
   border-color: #008000 transparent transparent transparent;
 }
 
-/* =================== DESCUBRE MÁS =================== */
-.descubre-mas {
-  text-align: center;
-  padding: 50px 20px;
-}
-
-.descubre-mas h2 {
-  color: #008000;
-  font-size: 2rem;
-  margin-bottom: 25px;
-}
-
-.iconos-container {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.icono {
-  width: 180px;
-  padding: 20px;
-  border-radius: 15px;
-  background: #f9f9f9;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s, background 0.3s;
-  cursor: pointer;
-  text-align: center;
-}
-
-.icono img {
-  width: 70px;
-  margin-bottom: 10px;
-}
-
-.icono p {
-  font-weight: bold;
-  color: #333;
-}
-
-.icono:hover {
-  background: #e6f5e6;
-  transform: translateY(-5px);
-}
-
-/* =================== TESTIMONIOS =================== */
-.testimonios {
-  text-align: center;
-  padding: 40px 20px;
-  background: #f0fff0;
-}
-
-.testimonios h2 {
-  color: #008000;
-  font-size: 2rem;
-  margin-bottom: 25px;
-}
-
-.testimonios-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.tarjeta-testimonio {
-  width: 280px;
-  padding: 20px;
-  border-radius: 15px;
-  background: white;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-  font-style: italic;
-}
-
-.tarjeta-testimonio span {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-  color: #555;
-}
-
 /* =================== FOOTER =================== */
 footer {
   text-align: center;
@@ -296,6 +193,7 @@ footer {
 }
 
 /* =================== RESPONSIVE =================== */
+
 /* Tablets */
 @media (max-width: 992px) {
   header {
@@ -311,17 +209,9 @@ footer {
     font-size: 1.8rem;
   }
 
-  .titulo-principal h2 {
-    font-size: 1rem;
-  }
-
   nav ul {
     flex-direction: column;
     align-items: center;
-  }
-
-  .mascota {
-    width: 100px;
   }
 }
 
@@ -340,35 +230,12 @@ footer {
     font-size: 1.5rem;
   }
 
-  .titulo-principal h2 {
-    font-size: 0.9rem;
-  }
-
-  .carrusel {
-    width: 95%;
-    height: auto;
-  }
-
-  .bienvenida h2 {
+  .contenido h2 {
     font-size: 1.6rem;
   }
 
-  .bienvenida p {
+  .contenido p, .contenido ul {
     font-size: 1rem;
-  }
-
-  .icono {
-    width: 90%;
-    max-width: 260px;
-  }
-
-  .mascota-container {
-    bottom: 10px;
-    right: 10px;
-  }
-
-  .mascota {
-    width: 80px;
   }
 
   /* MENÚ RESPONSIVE */
@@ -399,5 +266,17 @@ footer {
 
   .menu-toggle {
     display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .mascota-container {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .mascota {
+    width: 80px;
   }
 }
