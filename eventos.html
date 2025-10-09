@@ -9,14 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- CSS externo -->
-  <link rel="stylesheet" href="CSS/styles_eventos.css">
+  <link rel="stylesheet" href="../CSS/styles_eventos.css">
 </head>
 <body>
 
   <!-- ENCABEZADO -->
   <header>
     <div class="logo-izq">
-      <img src="Imagenes/logo-universidad.png" alt="UPAtl">
+      <img src="../Imagenes/logo-universidad.png" alt="UPAtl">
     </div>
 
     <div class="titulo">
@@ -24,13 +24,15 @@
     </div>
 
     <div class="logo-der">
-      <img src="Imagenes/logo-proyecto.png" alt="Proyecto GORRIÓN">
+      <img src="../Imagenes/logo-proyecto.png" alt="Proyecto GORRIÓN">
     </div>
   </header>
   
+  <!-- Botón menú hamburguesa -->
+  <button class="menu-toggle" onclick="toggleMenu()">☰ Menú</button>
 
   <!-- Menú -->
-  <nav>
+  <nav id="menu">
     <ul>
       <li><a href="index.html">Inicio</a></li>
       <li><a href="que-es-gorrion.html">¿Qué es GORRIÓN?</a></li>
@@ -58,12 +60,12 @@
 
   <!-- Agri flotante -->
   <div class="agri-float">
-    <img src="Imagenes/agri.png" alt="Agri el Gorrión" id="agriImg">
+    <img src="../Imagenes/agri.png" alt="Agri el Gorrión" id="agriImg">
     <p id="fraseAgri">🌱 ¡Hola, soy Agri!</p>
   </div>
 
   <!-- Audio de aviso -->
-  <audio id="sonidoEvento" src="Sonidos/alerta.mp3" preload="auto"></audio>
+  <audio id="sonidoEvento" src="../Sonidos/alerta.mp3" preload="auto"></audio>
 
   <!-- FOOTER -->
   <footer>
@@ -72,15 +74,21 @@
 
   <!-- JS -->
   <script>
+    // Función menú hamburguesa
+    function toggleMenu() {
+      const menu = document.getElementById('menu').querySelector('ul');
+      menu.classList.toggle('activo');
+    }
+
     const fraseAgri = document.getElementById('fraseAgri');
     const agriImg = document.getElementById('agriImg');
     const sonidoEvento = document.getElementById('sonidoEvento');
 
     const frasesNormales = [
- "🌻 ¡Hora de explorar y divertirse un poquito!",
-  "🍃 ¡Respira profundo y sigue adelante!",
-  "🥚 ¡Pequeños pasos llevan a grandes logros!",
-  "📚 ¡Hoy es un gran día para descubrir algo interesante!"
+      "🌻 ¡Hora de explorar y divertirse un poquito!",
+      "🍃 ¡Respira profundo y sigue adelante!",
+      "🥚 ¡Pequeños pasos llevan a grandes logros!",
+      "📚 ¡Hoy es un gran día para descubrir algo interesante!"
     ];
 
     const fraseEvento = "🎉 ¡Atención! Se aproxima un evento importante!";
@@ -153,3 +161,4 @@
   </script>
 </body>
 </html>
+
