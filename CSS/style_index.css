@@ -374,7 +374,7 @@ footer {
   /* MENÚ RESPONSIVE */
   .menu-toggle {
     display: block;
-    margin: 10px auto; /* centrado horizontal */
+    margin: 10px auto;
     font-size: 1.5rem;
     background: #008000;
     color: white;
@@ -383,7 +383,7 @@ footer {
     border-radius: 5px;
     cursor: pointer;
     z-index: 1001;
-    position: relative; /* quitar absolute para que no sobresalga */
+    position: relative;
   }
 
   nav ul {
@@ -392,7 +392,7 @@ footer {
     align-items: center;
     padding: 10px 0;
     background: #008000;
-    margin-top: 0; /* quitar margen extra */
+    margin-top: 0;
     border-radius: 0 0 8px 8px;
   }
 
