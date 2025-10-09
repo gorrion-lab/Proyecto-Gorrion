@@ -373,22 +373,24 @@ footer {
 
   /* MENÚ RESPONSIVE */
   nav {
-    display: none;
-  }
-
-  nav.active {
-    display: block;
+    display: none; /* Oculto por defecto */
     position: absolute;
     top: 65px;
     width: 100%;
     left: 0;
     background: #008000;
     z-index: 1000;
+    border-radius: 0 0 8px 8px;
+  }
+
+  nav.active {
+    display: block; /* Mostrar al activar */
   }
 
   nav ul {
     flex-direction: column;
     align-items: center;
+    padding: 10px 0;
   }
 
   nav ul li a {
@@ -398,6 +400,6 @@ footer {
   }
 
   .menu-toggle {
-    display: block;
+    display: block; /* Mostrar botón */
   }
 }
