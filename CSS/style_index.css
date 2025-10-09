@@ -18,6 +18,7 @@ body {
 }
 
 /* =================== ENCABEZADO =================== */
+/* =================== ENCABEZADO (CORREGIDO DEFINITIVO) =================== */
 header {
   display: flex;
   justify-content: space-between;
@@ -26,24 +27,36 @@ header {
   background-color: #fff;
   color: #008000;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* mantiene todo en una sola línea */
 }
 
 .logo-izquierdo,
 .logo-derecho {
   height: 90px;
+  width: auto; /* ✅ Evita que los logos se expandan */
+  flex-shrink: 0; /* ✅ Impide que se deformen */
 }
 
 .logo-izquierdo img,
 .logo-derecho img {
   height: 100%;
-  width: auto;
+  width: auto; /* ✅ Mantiene proporción natural */
+  display: block;
 }
 
 .titulo-principal {
+  flex-grow: 1;
   text-align: center;
-  flex: 1 1 100%;
+  padding: 0 20px; /* ✅ Espacio entre logos y texto */
 }
+
+.titulo-principal h1 {
+  font-size: 2rem;
+  color: #008000;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
 
 header h1 {
   font-size: 2rem;
