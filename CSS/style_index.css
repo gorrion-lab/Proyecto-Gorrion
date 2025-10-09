@@ -86,17 +86,213 @@ nav ul li a.activo {
   background: #006400;
 }
 
-/* =================== BOTÓN MENÚ MÓVIL =================== */
+/* Botón menú hamburguesa */
 .menu-toggle {
   display: none;
-  background-color: #008000;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #008000;
   color: white;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
-  padding: 10px 15px;
+  padding: 5px 12px;
   border-radius: 5px;
   z-index: 1001;
+}
+
+/* =================== BIENVENIDA =================== */
+.bienvenida {
+  text-align: center;
+  padding: 40px 15px;
+}
+
+.bienvenida h2 {
+  font-size: 2rem;
+  color: #008000;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.bienvenida p {
+  font-size: 1.2rem;
+  color: #444;
+}
+
+/* =================== CARRUSEL =================== */
+.carrusel {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+  max-width: 1000px;
+  width: 90%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  background-color: #fff;
+}
+
+.carrusel img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* =================== MASCOTA =================== */
+.mascota-container {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+
+.mascota {
+  width: 120px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  animation: aparecer 1s ease;
+}
+
+.mascota.hablando {
+  animation: balanceo 0.6s ease-in-out infinite;
+}
+
+.globo-texto {
+  display: none;
+  background: #f1faee;
+  border: 2px solid #008000;
+  border-radius: 15px;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 10px;
+  text-align: center;
+  max-width: 220px;
+  position: relative;
+}
+
+.globo-texto::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: #008000 transparent transparent transparent;
+}
+
+/* =================== DESCUBRE MÁS =================== */
+.descubre-mas {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.descubre-mas h2 {
+  color: #008000;
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.iconos-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.icono {
+  width: 180px;
+  padding: 20px;
+  border-radius: 15px;
+  background: #f9f9f9;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s, background 0.3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.icono img {
+  width: 70px;
+  margin-bottom: 10px;
+}
+
+.icono p {
+  font-weight: bold;
+  color: #333;
+}
+
+.icono:hover {
+  background: #e6f5e6;
+  transform: translateY(-5px);
+}
+
+/* =================== TESTIMONIOS =================== */
+.testimonios {
+  text-align: center;
+  padding: 40px 20px;
+  background: #f0fff0;
+}
+
+.testimonios h2 {
+  color: #008000;
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.testimonios-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tarjeta-testimonio {
+  width: 280px;
+  padding: 20px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  font-style: italic;
+}
+
+.tarjeta-testimonio span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* =================== FOOTER =================== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #008000;
+  color: white;
+  margin-top: auto;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+}
+
+/* =================== ANIMACIONES =================== */
+@keyframes balanceo {
+  0% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(-3deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(-5px) rotate(3deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes aparecer {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 /* =================== RESPONSIVE =================== */
@@ -175,31 +371,32 @@ nav ul li a.activo {
     width: 80px;
   }
 
-  /* Menú responsive */
+  /* MENÚ RESPONSIVE */
   nav {
     display: none;
-    flex-direction: column;
-    width: 100%;
   }
 
   nav.active {
-    display: flex;
+    display: block;
+    position: absolute;
+    top: 65px;
+    width: 100%;
+    left: 0;
+    background: #008000;
+    z-index: 1000;
   }
 
   nav ul {
     flex-direction: column;
     align-items: center;
-    width: 100%;
   }
 
   nav ul li a {
-    padding: 12px 0;
+    padding: 15px 0;
     width: 100%;
     text-align: center;
-    color: #fff;
   }
 
-  /* Botón menú móvil visible */
   .menu-toggle {
     display: block;
   }
