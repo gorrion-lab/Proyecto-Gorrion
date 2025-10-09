@@ -372,25 +372,28 @@ footer {
   }
 
   /* MENÚ RESPONSIVE */
-  nav {
-    display: none; /* Oculto por defecto */
-    position: absolute;
-    top: 65px;
-    width: 100%;
-    left: 0;
+  .menu-toggle {
+    display: block;
+    position: relative;
+    margin: 10px auto;
+    font-size: 1.5rem;
     background: #008000;
-    z-index: 1000;
-    border-radius: 0 0 8px 8px;
-  }
-
-  nav.active {
-    display: block; /* Mostrar al activar */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1001;
   }
 
   nav ul {
+    display: none; /* ocultar menú inicialmente */
     flex-direction: column;
     align-items: center;
     padding: 10px 0;
+    background: #008000;
+    margin-top: 10px;
+    border-radius: 0 0 8px 8px;
   }
 
   nav ul li a {
@@ -399,7 +402,7 @@ footer {
     text-align: center;
   }
 
-  .menu-toggle {
-    display: block; /* Mostrar botón */
+  nav ul.active {
+    display: flex; /* mostrar menú al hacer click */
   }
 }
