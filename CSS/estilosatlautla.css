@@ -53,18 +53,26 @@ p {
 }
 
 /* MASCOTA */
-.mascota img { 
-  width: 180px;
-  height: auto; 
-  margin-bottom: 10px; 
-  border-radius: 50%; 
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+.mascota {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mascota img {
+  width: 220px;           /* Ajusta tamaño */
+  height: auto;
+  object-fit: contain;    /* No deforma la imagen */
+  border-radius: 0;       /* Evita óvalo o recortes */
+  background: none;       /* Sin fondo blanco */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.0); /* Sombra sutil */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .mascota img:hover {
-  transform: scale(1.1) rotate(3deg);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* BOTONES */
@@ -139,7 +147,6 @@ iframe {
 
   .buttons a {
     font-size: 14px;
-    padding: 10px 16px;
-  }
+    padding: 10px 16px;
+  }
 }
-
