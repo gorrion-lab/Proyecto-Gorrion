@@ -1,14 +1,14 @@
-/* ?? Variables de color iguales a Semillero */
+/* Variables de color iguales a Semillero */
 :root {
-  --verde-fondo: #f0fdf4;     /* ?? Verde muy claro */
-  --texto-principal: #333;    /* ? Gris muy oscuro */
-  --blanco: #fff;             /* ? Blanco puro */
-  --verde: #008000;           /* ?? Verde puro */
+  --verde-fondo: #f0fdf4;    
+  --texto-principal: #333;   
+  --blanco: #fff;            
+  --verde: #008000;           
   --sombra-suave: rgba(0,0,0,0.1);
   --sombra-fuerte: rgba(0,0,0,0.15);
-  --naranja: #d97706;         /* ?? Naranja quemado */
-  --gris-parrafo: #444;       /* ? Gris medio oscuro */
-  --verde-etiqueta: #34d399;  /* ?? Verde esmeralda claro */
+  --naranja: #d97706;        
+  --gris-parrafo: #444;      
+  --verde-etiqueta: #34d399; 
 }
 
 /* General */
@@ -20,7 +20,7 @@ body {
   line-height: 1.6em;
 }
 
-/* ?? Barra superior */
+/* Barra superior */
 .topbar {
   background-color: var(--verde);
   color: var(--blanco);
@@ -81,7 +81,6 @@ header h1 {
 
 
 /* Menú navegación */
-/* Menú */
 nav {
   background: #008000;
 }
@@ -127,8 +126,8 @@ nav ul li a.activo {
   /* Contenedor fijo */
 .mascota-container {
   position: fixed;
-  bottom: 10vh;      /* relativo a la pantalla */
-  right: 5vw;        /* se mantiene a la derecha */
+  bottom: 18vw;      /* relativo a la pantalla */
+  right: 1vw;        /* se mantiene a la derecha */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -137,7 +136,7 @@ nav ul li a.activo {
 }
 
 .mascota {
-  width: clamp(100px, 12vw, 180px);  /* mantiene forma y tamaño proporcional */
+  width: clamp(100px, 12vw, 150px);  /* mantiene forma y tamaño proporcional */
   height: auto;
   border-radius: 20%;
   object-fit: contain;
@@ -272,3 +271,178 @@ footer {
   box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
 }
 
+
+/*  ESTILOS RESPONSIVOS */
+/* Pantallas grandes (laptops grandes y monitores anchos) */
+@media (min-width: 1200px) {
+  header h1 {
+    font-size: 2.3vw;
+  }
+  .tarjeta img {
+    width: 220px;
+    height: 300px;
+  }
+  .section {
+    padding: 40px;
+  }
+}
+
+/* Tablets (horizontal o vertical) */
+@media (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #logo-upa, #logo-gorrion {
+    max-height: 100px;
+    margin: 10px 0;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+  }
+
+  .tarjetas-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  .tarjeta img {
+    width: 160px;
+    height: 220px;
+  }
+
+  .mascota-container {
+    right: 3vw;
+    bottom: 5vh;
+  }
+}
+
+/* Celulares (pantalla vertical y horizontal) */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+
+  #logo-upa, #logo-gorrion {
+    max-height: 80px;
+    margin: 10px 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li a {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .section {
+    padding: 20px;
+  }
+
+  .tarjetas-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .tarjeta {
+    padding: 10px;
+  }
+
+  .tarjeta img {
+    width: 140px;
+    height: 180px;
+  }
+
+  .mascota {
+    width: clamp(80px, 25vw, 140px);
+  }
+
+  footer {
+    font-size: 14px;
+    padding: 15px;
+  }
+}
+
+/* Celulares muy pequeños (menores a 480px) */
+@media (max-width: 480px) {
+  .tarjetas-container {
+    grid-template-columns: 1fr;
+  }
+
+  .tarjeta img {
+    width: 120px;
+    height: 160px;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  footer {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+
+/*  MENÚ DESPLEGABLE EN MÓVILES */
+/* Estilos base: botón hamburguesa oculto en pantallas grandes */
+.menu-toggle {
+  display: none;
+  background-color: #008000; /* verde */
+  color: white;
+  border: none;
+  font-size: 22px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* Para móviles */
+@media (max-width: 768px) {
+  nav {
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin: 10px auto;
+  }
+
+  nav ul {
+    display: none; /* oculto por defecto */
+    flex-direction: column;
+    background-color: #008000; /* verde */
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    border-radius: 10px;
+  }
+
+  nav ul li {
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 12px;
+    color: white;
+  }
+
+  /* Cuando se active el menú */
+  nav ul.active {
+    display: flex;
+  }
+}

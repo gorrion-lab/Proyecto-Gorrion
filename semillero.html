@@ -34,9 +34,7 @@
         </ul>
     </nav>
 
-
   </nav>
-
   <section id="semillero" class="section active">
     <div class="mascota-container">
       <img src="Imagenes/agri.png" alt="Mascota" class="mascota">
@@ -52,33 +50,33 @@
       <div class="tarjeta">
         <h3>Biblioteca del Nido  </h3>
 		<h3>🪶🖋️📚</h3>
-		<img src="Imagenes/libro.jpg" alt="Libros">
+		<img src="Imagenes/libro.jpg" alt="Biblioteca del Nido">
         <p>Explora nuestra colección de libros y lecturas educativas.</p>
         <div class="overlay">
-          <button onclick="mostrarContenido('libros')">Ver contenido</button>
+          <button onclick="mostrarContenido('Biblioteca del Nido')">Ver contenido</button>
         </div>
       </div>
 
 
-      <div class="tarjeta" onclick="mostrarContenido('revistas')">
+      <div class="tarjeta" onclick="mostrarContenido('Ramillete de Ideas')">
          <h3>Ramillete de Ideas </h3>
 		 <h3>🌿💡💬</h3>
-		<img src="Imagenes/ramillete.jpg" alt="revista">
+		<img src="Imagenes/ramillete.jpg" alt="Ramillete de Ideas">
         <p>Descubre artículos, infografías y esquemas educativos que presentan la información de forma clara y visual.</p>
 		<div class="overlay">
-          <button onclick="mostrarContenido('libros')">Ver contenido</button>
+          <button onclick="mostrarContenido('Ramillete de Ideas')">Ver contenido</button>
       </div>
 	  </div>
 
       
 
-      <div class="tarjeta" onclick="mostrarContenido('podcasts')">
+      <div class="tarjeta" onclick="mostrarContenido('Voces al Vuelo')">
          <h3>Voces al Vuelo </h3>
 		 <h3>🐦🎙️🎧</h3>
-		<img src="Imagenes/pod.jpg" alt="podcasts">
+		<img src="Imagenes/pod.jpg" alt="Voces al Vuelo">
         <p>Escucha nuestros podcasts y narraciones educativas, donde el conocimiento se comparte a través del audio.p>
 		<div class="overlay">
-          <button onclick="mostrarContenido('podcasts')">Escuchar Podcast</button>
+          <button onclick="mostrarContenido('Voces al Vuelo')">Escuchar Podcast</button>
           
       </div>
 	  </div>
@@ -87,6 +85,12 @@
     <div id="contenido-dinamico" class="contenido-dinamico"></div>
 	<script src="JS/semillero.js"></script>
   </section>
+
+  <script>
+function toggleMenu() {
+  document.querySelector('nav ul').classList.toggle('active');
+}
+</script>
 
   <!-- FOOTER -->
   <footer>

@@ -26,27 +26,27 @@ header {
   background-color: #fff;
   color: #008000;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  flex-wrap: nowrap; /* mantiene todo en una sola línea */
+  flex-wrap: nowrap;
 }
 
 .logo-izquierdo,
 .logo-derecho {
   height: 90px;
-  width: auto; /* ✅ Evita que los logos se expandan */
-  flex-shrink: 0; /* ✅ Impide que se deformen */
+  width: auto;
+  flex-shrink: 0;
 }
 
 .logo-izquierdo img,
 .logo-derecho img {
   height: 100%;
-  width: auto; /* ✅ Mantiene proporción natural */
+  width: auto;
   display: block;
 }
 
 .titulo-principal {
   flex-grow: 1;
   text-align: center;
-  padding: 0 20px; /* ✅ Espacio entre logos y texto */
+  padding: 0 20px;
 }
 
 .titulo-principal h1 {
@@ -55,16 +55,23 @@ header {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 }
-header h1 {
-  font-size: 2rem;
-  color: #008000;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+
+.titulo-principal h2 {
+  font-size: 1.2rem;
+  color: #444;
+  font-weight: 500;
+  margin-top: 5px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 /* =================== MENÚ =================== */
 nav {
   background: #008000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  position: relative;
 }
 
 nav ul {
@@ -72,6 +79,8 @@ nav ul {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
 }
 
 nav ul li a {
@@ -92,42 +101,64 @@ nav ul li a.activo {
 .menu-toggle {
   display: none;
   position: absolute;
-  top: 15px;
-  right: 15px;
-  background: #008000;
+  top: 10px;
+  right: 10px;
+  background: transparent;
   color: white;
   border: none;
-  font-size: 1.8rem;
+  font-size: 28px;
   cursor: pointer;
   padding: 5px 12px;
   border-radius: 5px;
   z-index: 1001;
 }
 
-/* =================== CONTENIDO PRINCIPAL =================== */
+/* =================== CONTENIDO =================== */
 .contenido {
-  padding: 40px 20px;
-  flex: 1;
+  max-width: 900px;
+  margin: 60px auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 128, 0, 0.1);
+  padding: 50px 60px;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #333;
+  border-top: 5px solid #00a000;
 }
-
-
 
 .contenido h2 {
-  font-size: 2rem;
   color: #008000;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.9rem;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: left;
 }
 
-.contenido p, .contenido ul {
-  font-size: 1.1rem;
+.contenido p {
   color: #444;
-  margin-bottom: 15px;
-  line-height: 1.6;
+  margin-bottom: 18px;
+  text-align: justify;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.contenido ul {
+  list-style: none;
+  padding-left: 0;
 }
 
 .contenido ul li {
-  margin: 8px 0;
+  background: #f0fdf4;
+  border-left: 5px solid #008000;
+  padding: 12px 16px;
+  margin: 10px 0;
+  border-radius: 8px;
+  font-size: 1.05rem;
+}
+
+.contenido section {
+  margin-bottom: 50px;
 }
 
 /* =================== MASCOTA =================== */
@@ -152,7 +183,6 @@ nav ul li a.activo {
   animation: balanceo 0.6s ease-in-out infinite;
 }
 
-/* Globo de diálogo */
 .globo-texto {
   display: none;
   background: #f1faee;
@@ -205,7 +235,6 @@ footer {
 }
 
 /* =================== RESPONSIVE =================== */
-
 /* Tablets */
 @media (max-width: 992px) {
   header {
@@ -226,8 +255,8 @@ footer {
     align-items: center;
   }
 }
-
-/* Celulares */
+  /* MENÚ RESPONSIVE AJUSTADO */
+ /* =================== MENÚ RESPONSIVE PARA CELULARES =================== */
 @media (max-width: 600px) {
   header {
     flex-direction: column;
@@ -242,150 +271,55 @@ footer {
     font-size: 1.5rem;
   }
 
-  .contenido h2 {
-    font-size: 1.6rem;
-  }
-
-  .contenido p, .contenido ul {
-    font-size: 1rem;
-  }
-
-  /* MENÚ RESPONSIVE */
   nav {
-    display: none;
-  }
-
-  nav.active {
-    display: block;
-    position: absolute;
-    top: 65px;
-    width: 100%;
-    left: 0;
-    background: #008000;
-    z-index: 1000;
-  }
-
-  nav ul {
     flex-direction: column;
     align-items: center;
-  }
-
-  nav ul li a {
-    padding: 15px 0;
     width: 100%;
-    text-align: center;
   }
 
   .menu-toggle {
+    display: none;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    padding: 10px 0;
+    background: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: #008000;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li a {
     display: block;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    color: #fff;
+    text-decoration: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  .mascota-container {
-    bottom: 10px;
-    right: 10px;
-  }
-
-  .mascota {
-    width: 80px;
-  }
-}
-
-/* =================== SECCIÓN TARJETA GORRIÓN =================== */
-
-/* Fondo de toda la página */
-body {
-  background-color: #f0fff4;
-}
-
-/* Contenedor principal tipo tarjeta */
-.contenido {
-  max-width: 900px;
-  margin: 60px auto;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 128, 0, 0.1); /* sombra verde muy suave */
-  padding: 50px 60px;
-  line-height: 1.8;
-  font-size: 1.05rem;
-  color: #333;
-  border-top: 5px solid #00a000; /* línea superior verde */
-}
-
-/* Encabezados dentro del contenido */
-.contenido h2 {
-  color: #008000;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 1.9rem;
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-/* Párrafos */
-.contenido p {
-  color: #444;
-  margin-bottom: 18px;
-  text-align: justify;
-  font-family: 'Open Sans', sans-serif;
-}
-
-/* Palabras destacadas */
-.contenido strong {
-  color: #006d32;
-}
-
-.contenido em {
-  color: #1b4332;
-  font-style: italic;
-}
-
-/* Listas con formato limpio */
-.contenido ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.contenido ul li {
-  background: #f0fdf4;
-  border-left: 5px solid #008000;
-  padding: 12px 16px;
-  margin: 10px 0;
-  border-radius: 8px;
-  font-size: 1.05rem;
-}
-
-/* Espaciado entre secciones */
-.contenido section {
-  margin-bottom: 50px;
-}
-
-/* Subtítulo debajo del título principal */
-.titulo-principal h2 {
-  font-size: 1.2rem;
-  color: #444;
-  font-weight: 500;
-  margin-top: 5px;
-  font-family: 'Open Sans', sans-serif;
-}
-
-/* Versión responsive */
-@media (max-width: 768px) {
-  .contenido {
-    padding: 30px 20px;
-  }
-
-  .contenido h2 {
-    font-size: 1.6rem;
-  }
-
-  .contenido ul li {
-    font-size: 1rem;
-  }
-
-  .titulo-principal h2 {
-    font-size: 1rem;
+  nav ul li a:hover,
+  nav ul li a.activo {
+    background: #006400;
   }
 }
