@@ -25,28 +25,28 @@ header {
   padding: 15px 25px;
   background-color: #fff;
   color: #008000;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  flex-wrap: nowrap; /* mantiene todo en una sola línea */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex-wrap: nowrap;
 }
 
 .logo-izquierdo,
 .logo-derecho {
   height: 90px;
-  width: auto; /* ✅ Evita que los logos se expandan */
-  flex-shrink: 0; /* ✅ Impide que se deformen */
+  width: auto;
+  flex-shrink: 0;
 }
 
 .logo-izquierdo img,
 .logo-derecho img {
   height: 100%;
-  width: auto; /* ✅ Mantiene proporción natural */
+  width: auto;
   display: block;
 }
 
 .titulo-principal {
   flex-grow: 1;
   text-align: center;
-  padding: 0 20px; /* ✅ Espacio entre logos y texto */
+  padding: 0 20px;
 }
 
 .titulo-principal h1 {
@@ -56,15 +56,7 @@ header {
   font-weight: 700;
 }
 
-
-header h1 {
-  font-size: 2rem;
-  color: #008000;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-}
-
-header h2 {
+.titulo-principal h2 {
   font-size: 1.2rem;
   color: #4e3b31;
   font-family: 'Montserrat', sans-serif;
@@ -75,6 +67,11 @@ header h2 {
 /* =================== MENÚ =================== */
 nav {
   background: #008000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  position: relative;
 }
 
 nav ul {
@@ -98,39 +95,45 @@ nav ul li a.activo {
   background: #006400;
 }
 
-/* Botón menú hamburguesa */
+/* =================== BOTÓN MENÚ HAMBURGUESA =================== */
 .menu-toggle {
   display: none;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background:transparent;
+  position: relative;
+  background: transparent;
   color: white;
   border: none;
   font-size: 28px;
   cursor: pointer;
-  padding: 5px 12px;
-  border-radius: 5px;
-  z-index: 1001;
+  padding: 6px 10px;
   text-align: center;
+  line-height: 1;
 }
 
-/* =================== BIENVENIDA =================== */
-.bienvenida {
-  text-align: center;
-  padding: 40px 15px;
+.menu-toggle:hover {
+  color: #e6e6e6;
 }
 
-.bienvenida h2 {
+/* =================== SECCIONES GENERALES =================== */
+.bienvenida,
+.descubre-mas,
+.testimonios {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.bienvenida h2,
+.descubre-mas h2,
+.testimonios h2 {
   font-size: 2rem;
   color: #008000;
+  margin-bottom: 15px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  margin-bottom: 10px;
 }
 
-.bienvenida p {
-  font-size: 1.2rem;
+.bienvenida p,
+.testimonios p {
+  font-size: 1.1rem;
   color: #444;
 }
 
@@ -141,10 +144,9 @@ nav ul li a.activo {
   margin: 30px auto;
   max-width: 1000px;
   width: 90%;
-  height: auto;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   background-color: #fff;
 }
 
@@ -152,6 +154,64 @@ nav ul li a.activo {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+/* =================== ICONOS =================== */
+.iconos-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.icono {
+  width: 180px;
+  padding: 20px;
+  border-radius: 15px;
+  background: #f9f9f9;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, background 0.3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.icono img {
+  width: 70px;
+  margin-bottom: 10px;
+}
+
+.icono p {
+  font-weight: bold;
+  color: #333;
+}
+
+.icono:hover {
+  background: #e6f5e6;
+  transform: translateY(-5px);
+}
+
+/* =================== TESTIMONIOS =================== */
+.testimonios-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tarjeta-testimonio {
+  width: 280px;
+  padding: 20px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-style: italic;
+}
+
+.tarjeta-testimonio span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #555;
 }
 
 /* =================== MASCOTA =================== */
@@ -184,7 +244,7 @@ nav ul li a.activo {
   padding: 10px 15px;
   font-size: 14px;
   color: #333;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   font-family: 'Open Sans', sans-serif;
   margin-bottom: 10px;
   text-align: center;
@@ -203,87 +263,6 @@ nav ul li a.activo {
   border-color: #008000 transparent transparent transparent;
 }
 
-/* =================== DESCUBRE MÁS =================== */
-.descubre-mas {
-  text-align: center;
-  padding: 50px 20px;
-}
-
-.descubre-mas h2 {
-  color: #008000;
-  font-size: 2rem;
-  margin-bottom: 25px;
-}
-
-.iconos-container {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.icono {
-  width: 180px;
-  padding: 20px;
-  border-radius: 15px;
-  background: #f9f9f9;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s, background 0.3s;
-  cursor: pointer;
-  text-align: center;
-}
-
-.icono img {
-  width: 70px;
-  margin-bottom: 10px;
-}
-
-.icono p {
-  font-weight: bold;
-  color: #333;
-}
-
-.icono:hover {
-  background: #e6f5e6;
-  transform: translateY(-5px);
-}
-
-/* =================== TESTIMONIOS =================== */
-.testimonios {
-  text-align: center;
-  padding: 40px 20px;
-  background: #f0fff0;
-}
-
-.testimonios h2 {
-  color: #008000;
-  font-size: 2rem;
-  margin-bottom: 25px;
-}
-
-.testimonios-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.tarjeta-testimonio {
-  width: 280px;
-  padding: 20px;
-  border-radius: 15px;
-  background: white;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-  font-style: italic;
-}
-
-.tarjeta-testimonio span {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-  color: #555;
-}
-
 /* =================== FOOTER =================== */
 footer {
   text-align: center;
@@ -291,16 +270,14 @@ footer {
   background-color: #008000;
   color: white;
   margin-top: auto;
-  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* =================== ANIMACIONES =================== */
 @keyframes balanceo {
-  0% { transform: translateY(0) rotate(0deg); }
+  0%, 50%, 100% { transform: translateY(0) rotate(0deg); }
   25% { transform: translateY(-5px) rotate(-3deg); }
-  50% { transform: translateY(0) rotate(0deg); }
   75% { transform: translateY(-5px) rotate(3deg); }
-  100% { transform: translateY(0) rotate(0deg); }
 }
 
 @keyframes aparecer {
@@ -316,26 +293,16 @@ footer {
     text-align: center;
   }
 
-  .logo-izquierdo, .logo-derecho {
-    height: 80px;
-  }
-
-  .titulo-principal h1 {
-    font-size: 1.8rem;
-  }
-
-  .titulo-principal h2 {
-    font-size: 1rem;
-  }
+  .logo-izquierdo, .logo-derecho { height: 80px; }
+  .titulo-principal h1 { font-size: 1.8rem; }
+  .titulo-principal h2 { font-size: 1rem; }
 
   nav ul {
     flex-direction: column;
     align-items: center;
   }
 
-  .mascota {
-    width: 100px;
-  }
+  .mascota { width: 100px; }
 }
 
 /* Celulares */
@@ -345,83 +312,64 @@ footer {
     align-items: center;
   }
 
-  .logo-izquierdo, .logo-derecho {
-    height: 70px;
-  }
+  .logo-izquierdo, .logo-derecho { height: 70px; }
+  .titulo-principal h1 { font-size: 1.5rem; }
+  .titulo-principal h2 { font-size: 0.9rem; }
 
-  .titulo-principal h1 {
-    font-size: 1.5rem;
-  }
+  .carrusel { width: 95%; }
 
-  .titulo-principal h2 {
-    font-size: 0.9rem;
-  }
+  .icono { width: 90%; max-width: 260px; }
 
-  .carrusel {
-    width: 95%;
-    height: auto;
-  }
+  .mascota-container { bottom: 10px; right: 10px; }
+  .mascota { width: 80px; }
 
-  .bienvenida h2 {
-    font-size: 1.6rem;
-  }
-
-  .bienvenida p {
-    font-size: 1rem;
-  }
-
-  .icono {
-    width: 90%;
-    max-width: 260px;
-  }
-
-  .mascota-container {
-    bottom: 10px;
-    right: 10px;
-  }
-
-  .mascota {
-    width: 80px;
-  }
-
-  /* MENÚ RESPONSIVE */
+  /* ======= MENÚ MÓVIL ======= */
   .menu-toggle {
-
-     display: flex;              /* Alinea ícono y texto horizontalmente */
-  align-items: center;        /* ✅ Centra verticalmente */
-  justify-content: center;    /* Centra horizontalmente */
-  gap: 8px; 
-
+    display: block;
     margin: 10px auto;
-    font-size: 28px;
-    background: transparent;
+    background: #008000;
     color: white;
     border: none;
-    padding: 8px 15px;
+    font-size: 28px;
+    font-weight: normal;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    z-index: 1001;
-    position: relative;
-    text-align: center;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding-bottom: 10px;
   }
 
   nav ul {
-    display: none; /* ocultar menú inicialmente */
+    display: none;
     flex-direction: column;
     align-items: center;
-    padding: 10px 0;
     background: #008000;
-    margin-top: 0;
-    border-radius: 0 0 8px 8px;
-  }
-
-  nav ul li a {
-    padding: 15px 0;
     width: 100%;
-    text-align: center;
   }
 
   nav ul.active {
-    display: flex; /* mostrar menú al hacer click */
+    display: flex;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li a {
+    padding: 14px 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  nav ul li a:hover,
+  nav ul li a.activo {
+    background: #006400;
   }
 }
