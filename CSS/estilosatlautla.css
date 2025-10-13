@@ -107,3 +107,39 @@ iframe {
   border-radius: 15px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
+
+/* ===== MEDIA QUERY PARA CELULARES ===== */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  header img {
+    height: 45px; /* Ajuste de logos en móviles */
+    width: auto;
+  }
+
+  header h2 {
+    font-size: 20px; /* Título más pequeño en móviles */
+  }
+
+  .mascota img {
+    width: 120px; /* Mascota más pequeña */
+  }
+
+  p {
+    font-size: 14px; /* Texto más legible en pantallas pequeñas */
+  }
+
+  iframe {
+    height: 250px; /* Ajuste del mapa en móviles */
+  }
+
+  .buttons a {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+

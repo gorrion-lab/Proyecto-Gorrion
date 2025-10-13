@@ -20,6 +20,7 @@ header {
 
 header img {
   height: 60px;
+  width: auto;
 }
 
 header h2 {
@@ -98,4 +99,38 @@ iframe {
   border: none;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* ===== RESPONSIVIDAD PARA CELULARES ===== */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  header img {
+    height: 45px; /* Logos más pequeños */
+  }
+
+  header h2 {
+    font-size: 20px; /* Título más pequeño */
+  }
+
+  .mascota img {
+    width: 120px; /* Mascota más pequeña */
+  }
+
+  p {
+    font-size: 14px; /* Texto más legible en móviles */
+  }
+
+  .buttons a {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+  iframe {
+    height: 250px; /* Ajuste del mapa en móviles */
+  }
 }
