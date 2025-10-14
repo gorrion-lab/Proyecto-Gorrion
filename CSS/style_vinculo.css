@@ -488,28 +488,27 @@ nav ul {
   }
 }
 
-@media (max-width: 768px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    background-color: #008000;
-    width: 100%;
-  }
 
-  nav ul.open {
-    display: flex;
+  @media (max-width: 768px) {
+  nav ul {
+    padding: 0;
   }
 
   nav ul li {
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    margin: 0;
   }
 
   nav ul li a {
-    padding: 14px;
-    text-align: center;
     display: block;
-    width: 100%;
+    padding: 6px 10px !important; /* <-- hace más delgadas las opciones */
+    font-size: 0.9rem !important; /* <-- texto un poco más pequeño */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
+
+  nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
 
   .menu-toggle {
     display: block;
