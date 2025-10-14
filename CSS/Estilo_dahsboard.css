@@ -1,0 +1,228 @@
+/* ==============================================================
+    ESTILOS GENERALES DEL DOCUMENTO
+   ============================================================== */
+
+/* Configuración base del cuerpo del documento */
+body {
+    font-family: Arial, sans-serif;      /* Fuente legible y común en web */
+    background-color: #f0fdf4;           /* Verde muy claro para fondo */
+    color: #333;                          /* Color principal del texto */
+    margin: 0;                            /* Sin margen predeterminado */
+    padding: 0;                           /* Sin padding predeterminado */
+}
+
+/* ==============================================================
+   ENCABEZADO PRINCIPAL
+   ============================================================== */
+header {
+    background-color: #008000;            /* Verde puro */
+    color: #fff;                          /* Texto blanco */
+    padding: 20px;                        /* Espaciado interno */
+    text-align: center;                   /* Centrado del texto */
+    font-size: 22px;                      /* Tamaño de fuente del header */
+    font-weight: bold;                    /* Negrita */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    position: sticky;                     /* Fija el header al hacer scroll */
+    top: 0;
+    z-index: 1000;                        /* Asegura que quede por encima de otros elementos */
+}
+
+/* ==============================================================
+   CONTENEDOR PRINCIPAL
+   ============================================================== */
+.container {
+    padding: 30px;                        /* Espaciado interno amplio */
+    max-width: 1200px;                    /* Ancho máximo */
+    margin: auto;                          /* Centra horizontalmente */
+}
+
+/* ==============================================================
+   TABLAS
+   ============================================================== */
+table {
+    width: 100%;                           /* Ocupa todo el ancho del contenedor */
+    border-collapse: collapse;             /* Une bordes */
+    background: #fff;                      /* Fondo blanco */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Sombra para resaltar */
+    border-radius: 8px;                    /* Bordes redondeados */
+    overflow: hidden;                      /* Evita que el contenido sobresalga */
+}
+
+/* Encabezado de tabla */
+table thead {
+    background-color: #008000;             /* Verde puro */
+    color: white;                          /* Texto blanco */
+    text-align: left;                      /* Texto alineado a la izquierda */
+}
+
+/* Celdas de tabla */
+table th,
+table td {
+    padding: 12px 15px;                    /* Espaciado interno */
+    border-bottom: 1px solid #ddd;         /* Línea divisoria */
+    font-size: 14px;
+}
+
+/* Hover en filas de tabla */
+table tbody tr:hover {
+    background-color: #f0fdf4;             /* Cambio de fondo al pasar mouse */
+}
+
+/* ==============================================================
+   ENLACES Y ACCIONES
+   ============================================================== */
+a {
+    color: #008000;                        /* Verde */
+    font-weight: bold;
+    text-decoration: none;                 /* Quita subrayado */
+    margin: 0 5px;
+}
+
+a:hover {
+    color: #d97706;                        /* Naranja quemado al pasar mouse */
+}
+
+/* ==============================================================
+   TARJETAS / WIDGETS
+   ============================================================== */
+.card {
+    background: #fff;                       /* Fondo blanco */
+    border-radius: 10px;                    /* Bordes redondeados */
+    padding: 20px;                          /* Espaciado interno */
+    margin: 20px 0;                         /* Margen vertical */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra para resaltar */
+}
+
+.card h3 {
+    color: #d97706;                         /* Naranja quemado */
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #444;                             /* Gris medio oscuro */
+    font-size: 14px;
+}
+
+/* Etiquetas de fecha */
+.date-tag {
+    display: inline-block;
+    background: #34d399;                     /* Verde esmeralda */
+    color: white;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+/* ==============================================================
+   RESPONSIVE (MÓVILES Y TABLETAS)
+   ============================================================== */
+@media (max-width: 768px) {
+    /* Oculta encabezados */
+    table thead {
+        display: none;
+    }
+
+    /* Vuelve cada fila y celda en bloque */
+    table,
+    table tbody,
+    table tr,
+    table td {
+        display: block;
+        width: 100%;
+    }
+
+    table tr {
+        margin-bottom: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+        background: white;
+    }
+
+    table td {
+        padding: 10px;
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    table td::before {
+        content: attr(data-label);          /* Muestra el nombre de la columna */
+        font-weight: bold;
+        color: #008000;                     /* Verde */
+    }
+}
+
+/* ==============================================================
+   MENÚ HAMBURGUESA
+   ============================================================== */
+.menu-container {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Icono de hamburguesa */
+.hamburger {
+    cursor: pointer;
+    width: 30px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger div {
+    background-color: #008000;             /* Verde */
+    height: 4px;
+    border-radius: 2px;
+    transition: 0.3s;                      /* Animación suave */
+}
+
+/* Menú desplegable */
+.menu {
+    display: none;
+    position: absolute;
+    top: 35px;
+    right: 0;
+    background-color: #fff;                 /* Fondo blanco */
+    border: 1px solid #008000;             /* Borde verde */
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    min-width: 150px;
+}
+
+/* Estilo de enlaces del menú */
+.menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.menu a:hover {
+    background-color: #34d399;             /* Verde esmeralda al pasar mouse */
+    color: #fff;
+}
+
+/* Animación de hamburguesa al abrir */
+.hamburger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Contenedor de tabla adicional (padding automático) */
+.tabla_de_registros {
+    padding: auto;
+}

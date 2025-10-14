@@ -1,0 +1,153 @@
+/* --- PERFIL DOCENTE --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f7f1; /* fondo claro natural */
+    margin: 0;
+    color: #2f4f2f; /* verde oscuro */
+}
+
+/* --- NAVBAR --- */
+header {
+    background: #008000; /* verde principal */
+    color: #fffbe7; /* amarillo claro para contraste */
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fffbe7;
+}
+/* --- IMAGEN DE LA INSTITUCIÓN --- */
+.institucion-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.institucion-img img {
+    width: 100%;
+    max-width: 300px; /* limita el tamaño máximo */
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #a8c3a5;
+    box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
+}
+
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    color: #fffbe7;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #a8c3a5; /* verde suave al pasar el cursor */
+}
+
+/* --- PERFIL --- */
+.perfil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+}
+
+.card {
+    background: #fffbe7; /* amarillo claro */
+    padding: 25px 40px;
+    border-radius: 12px;
+    border: 2px solid #a8c3a5; /* verde suave */
+    box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2); /* verde translúcido */
+    max-width: 550px;
+    width: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 128, 0, 0.25);
+}
+
+.card h2 {
+    text-align: center;
+    color: #008000; /* verde principal */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #a8c3a5;
+    padding-bottom: 10px;
+}
+
+.info p {
+    background: #f0f7f1; /* fondo claro natural */
+    padding: 10px 12px;
+    border-left: 5px solid #8b5e3c; /* café tierra */
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+strong {
+    color: #008000; /* verde principal */
+}
+
+/* --- BOTÓN OPCIONAL --- */
+.boton-editar {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #008000;
+    color: #fffbe7;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.boton-editar:hover {
+    background: #006400; /* verde más oscuro al pasar el cursor */
+    transform: scale(1.05);
+}
+
+/* --- FOOTER --- */
+footer {
+    background: #008000; /* verde principal */
+    color: #fffbe7;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+    border-top: 3px solid #8b5e3c; /* café tierra */
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) {
+    .card {
+        padding: 20px;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+}

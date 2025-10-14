@@ -1,0 +1,188 @@
+.contenedor_crea_usuario {
+  max-width: 400px;
+  margin: 50px auto;
+  /* centrado en la página */
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border-top: 6px solid #E63946;
+  /* rojo intenso */
+  font-family: Arial, sans-serif;
+}
+
+/* ===== Títulos opcionales dentro ===== */
+.contenedor_crea_usuario h2 {
+  text-align: center;
+  color: #1D3557;
+  /* azul oscuro */
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+/* ===== Labels ===== */
+.contenedor_crea_usuario label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #264653;
+  /* azul petróleo */
+}
+
+/* ===== Inputs ===== */
+.contenedor_crea_usuario input[type="text"],
+.contenedor_crea_usuario input[type="email"],
+.contenedor_crea_usuario input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #90A4AE;
+  /* gris medio */
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+  background-color: #F1FAEE;
+  /* gris claro */
+  transition: 0.3s;
+}
+
+.contenedor_crea_usuario input:focus {
+  border-color: #2E7D32;
+  /* verde oscuro */
+  outline: none;
+  box-shadow: 0 0 6px rgba(46, 125, 50, 0.5);
+}
+
+/* ===== Botón ===== */
+.contenedor_crea_usuario input[type="submit"] {
+  background-color: #E63946;
+  /* rojo intenso */
+  color: #F1FAEE;
+  /* gris claro */
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.contenedor_crea_usuario input[type="submit"]:hover {
+  background-color: #457B9D;
+  /* azul grisáceo */
+}
+
+/* ===== Mensajes dentro del mismo formulario ===== */
+.mensaje-error,
+.mensaje-exito {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mensaje-error {
+  background-color: #F8D7DA;
+  /* rojo claro */
+  color: #842029;
+  /* rojo oscuro */
+  border: 1px solid #F5C2C7;
+}
+
+.mensaje-exito {
+  background-color: #D1E7DD;
+  /* verde claro */
+  color: #0F5132;
+  /* verde oscuro */
+  border: 1px solid #BADBCC;
+}
+
+.mensaje-error a,
+.mensaje-exito a {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.contenedor-crea-usuario {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #FFF;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor-crea-usuario form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #264653;
+}
+
+.contenedor-crea-usuario form input[type="text"],
+.contenedor-crea-usuario form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #90A4AE;
+  font-size: 14px;
+}
+
+.contenedor-crea-usuario form input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #F1FAEE;
+  background-color: #E63946;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contenedor-crea-usuario form input[type="submit"]:hover {
+  background-color: #457B9D;
+}
+
+/* Estilo general para los botones secundarios */
+button[type="button"] {
+  background-color: #008000;
+  /* Verde puro */
+  color: #fff;
+  /* Texto blanco */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 18px;
+  margin-right: 10px;
+  /* Separación entre botones */
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hover para efecto visual */
+button[type="button"]:hover {
+  background-color: #34d399;
+  /* Verde esmeralda */
+  transform: translateY(-2px);
+  /* Leve movimiento al pasar el mouse */
+}
+
+/* Opcional: efecto activo al presionar */
+button[type="button"]:active {
+  transform: translateY(0);
+  background-color: #008000;
+}
+
+/* Si quieres que todos los botones tengan la misma altura que los inputs */
+button[type="button"] {
+  height: 42px;
+}

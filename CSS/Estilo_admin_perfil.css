@@ -1,0 +1,99 @@
+/* ==============================================================
+   ESTILO PARA ADMIN_PERFIL
+   ============================================================== */
+
+/* Define la fuente principal y el color de fondo general */
+body {
+    font-family: Arial, sans-serif; /* Fuente simple y legible */
+    background: #f7f7f7; /* Color de fondo gris claro para mejor contraste */
+}
+
+/* Título principal de la página */
+h1 {
+    text-align: center; /* Centra el texto horizontalmente */
+    color: #333; /* Color gris oscuro para el encabezado */
+}
+
+/* ==============================================================
+   TABLA PRINCIPAL DE DATOS
+   ============================================================== */
+
+/* Configura el contenedor de la tabla de registros */
+table {
+    width: 80%; /* Ocupa el 80% del ancho de la página */
+    margin: 20px auto; /* Centra la tabla y añade separación vertical */
+    border-collapse: collapse; /* Elimina los espacios entre bordes */
+    background: #fff; /* Fondo blanco para el cuerpo de la tabla */
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1); /* Sombra ligera para destacar la tabla */
+}
+
+/* Celdas de la tabla (encabezados y contenido) */
+th,
+td {
+    padding: 10px; /* Espaciado interno de cada celda */
+    border: 1px solid #ddd; /* Borde gris claro */
+    text-align: center; /* Centra el contenido dentro de las celdas */
+}
+
+/* Encabezados de la tabla */
+th {
+    background: #9E1635; /* Fondo vino (color institucional o principal) */
+    color: white; /* Texto blanco para contraste */
+}
+
+/* ==============================================================
+   ESTILOS PARA ACCIONES (BOTONES DE EDITAR Y ELIMINAR)
+   ============================================================== */
+
+/* Contenedor de los enlaces de acción dentro de cada fila */
+.acciones a {
+    margin: 0 5px; /* Separación entre botones */
+    padding: 5px 10px; /* Espaciado interno del botón */
+    border-radius: 4px; /* Bordes redondeados */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+/* Botón de edición */
+.editar {
+    background: #007BFF; /* Azul (color de acción positiva o neutra) */
+    color: white; /* Texto blanco */
+}
+
+/* Botón de eliminación */
+.eliminar {
+    background: #dc3545; /* Rojo (acción de advertencia o eliminar) */
+    color: white; /* Texto blanco */
+}
+
+/* ==============================================================
+   FORMULARIO DE EDICIÓN DE REGISTROS
+   ============================================================== */
+
+/* Contenedor del formulario para editar datos */
+.form-editar {
+    background: #f1f1f1; /* Fondo gris claro para diferenciar del fondo general */
+    padding: 15px; /* Espaciado interno */
+    margin: 20px auto; /* Centra el formulario verticalmente */
+    width: 50%; /* Tamaño medio en la página */
+    border-radius: 8px; /* Bordes redondeados suaves */
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2); /* Sombra ligera para resaltar el contenedor */
+}
+
+/* Campos de entrada dentro del formulario */
+.form-editar input {
+    width: 95%; /* Ocupa casi todo el ancho del formulario */
+    padding: 8px; /* Espaciado interno cómodo */
+    margin: 5px 0; /* Separación vertical entre campos */
+}
+
+/* ==============================================================
+   BOTÓN DE GUARDAR CAMBIOS
+   ============================================================== */
+
+.btn-guardar {
+    background: #28a745; /* Verde (acción exitosa o de confirmación) */
+    color: white; /* Texto blanco */
+    border: none; /* Sin bordes visibles */
+    padding: 10px 15px; /* Espaciado interno */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}

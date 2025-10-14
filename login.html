@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- 
+        METADATOS Y CONFIGURACIÓN BÁSICA DE LA PÁGINA LOGIN
+        -----------------------------------------------------
+        - Se define el idioma como español.
+        - Se establece la codificación UTF-8 para permitir caracteres latinos.
+        - Se incluye el archivo de estilos y el script JavaScript correspondiente al login.
+        - Se configura el diseño responsivo para adaptarse a dispositivos móviles.
+    -->
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../CSS/login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../JS/login.js"></script>
+</head>
+
+<body>
+    <!-- 
+        ENLACE DE REGRESO AL INICIO
+        ----------------------------
+        Permite al usuario volver a la página principal del sitio (index.html).
+        El botón se estiliza con la clase "btn-regresar" definida en login.css.
+    -->
+    <a href="index.html" class="btn-regresar">← Regresar al inicio</a>
+
+    <!-- 
+        CONTENEDOR PRINCIPAL DEL FORMULARIO DE LOGIN
+        ---------------------------------------------
+        Incluye la tarjeta central (card) con el formulario de inicio de sesión.
+        El contenedor facilita centrar el contenido visualmente y aplicar estilos.
+    -->
+    <div class="login-container">
+        <div class="card">
+            <h2>Iniciar Sesión</h2>
+
+            <!-- 
+                FORMULARIO DE LOGIN
+                --------------------
+                - method="POST": envía los datos al servidor sin mostrarlos en la URL.
+                - action="../PHP/login.php": archivo PHP encargado de procesar el inicio de sesión.
+                - id="loginForm": se usa para manipulación o validación desde JavaScript.
+            -->
+            <form id="loginForm" method="POST" action="../PHP/login.php">
+
+                <!-- 
+                    CAMPOS DE ENTRADA DEL USUARIO
+                    --------------------------------
+                    - NombreUsuario: campo de texto para el nombre del usuario.
+                    - Contra: campo de tipo password para ocultar los caracteres.
+                    - El ícono del ojo permite mostrar/ocultar la contraseña (interactúa con mostrar_ocultar_contra.js).
+                -->
+                <div class="caja_de_texto">
+                    <input type="text" name="NombreUsuario" id="NombreUsuario" placeholder="Usuario" required>
+                    <input type="password" name="Contra" id="Contra" placeholder="Contraseña" required>
+                    
+                    <!-- Ícono que alterna la visibilidad de la contraseña -->
+                    <img src="../Imagenes/corte-de-ojos.png" 
+                         class="icono_de_ojo" 
+                         data-input="Contra" 
+                         title="Mostrar contraseña">
+                </div>
+
+                <!-- 
+                    BOTÓN DE ENVÍO
+                    ----------------
+                    Al presionar, se envían los datos al archivo login.php para ser validados.
+                -->
+                <button type="submit">Iniciar sesión</button>
+
+                <!-- 
+                    ENLACE AL FORMULARIO DE REGISTRO
+                    ---------------------------------
+                    Si el usuario no tiene cuenta, puede registrarse a través del formulario de docentes.
+                -->
+                <a href="form_docentes.html">¿No tienes cuenta? Regístrate</a>
+            </form>
+        </div>
+
+        <!-- 
+            DIV PARA MENSAJES DE RETROALIMENTACIÓN
+            ----------------------------------------
+            Aquí se mostrarán mensajes dinámicos (como "usuario incorrecto" o "campos vacíos")
+            generados mediante JavaScript.
+        -->
+        <div id="mensaje"></div>
+    </div>
+
+    <!-- 
+        SCRIPT PARA MOSTRAR / OCULTAR CONTRASEÑA
+        -----------------------------------------
+        Permite alternar la visibilidad del campo de contraseña al hacer clic en el ícono del ojo.
+    -->
+    <script src="../JS/mostrar_ocultar_contra.js"></script>
+</body>
+
+</html>

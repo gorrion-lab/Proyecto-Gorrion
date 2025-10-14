@@ -1,0 +1,185 @@
+/* ====== Estilos base ====== */
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f0f7f1; /* Fondo claro natural */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ====== Navbar ====== */
+.navbar {
+    background-color: #3c763d; /* Verde hoja */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    color: #fffbe7; /* Amarillo claro */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li a {
+    color: #fffbe7; /* Amarillo claro */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.menu li a:hover {
+    color: #8b5e3c; /* Café tierra */
+}
+
+/* ====== Contenedor principal ====== */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 30px 10px;
+}
+
+/* ====== Tarjeta del formulario ====== */
+.card {
+    background: #fffbe7; /* Amarillo claro */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.card h2 {
+    color: #2f4f2f; /* Verde oscuro */
+    margin-bottom: 20px;
+}
+
+/* ====== Campos de texto ====== */
+label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    color: #2f4f2f; /* Verde oscuro */
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #a8c3a5; /* Verde suave */
+    transition: border-color 0.3s;
+    font-size: 16px;
+    color: #2f4f2f; /* Verde oscuro */
+    background-color: #f0f7f1; /* Fondo claro natural */
+}
+
+input:focus {
+    outline: none;
+    border-color: #3c763d; /* Verde hoja */
+}
+
+/* ====== Caja con ícono de ojo ====== */
+.caja_de_texto {
+    position: relative;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.caja_de_texto input {
+    width: 100%;
+    padding: 10px 45px 10px 12px; /* espacio para el ícono */
+    border-radius: 8px;
+    border: 1px solid #a8c3a5; /* Verde suave */
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #f0f7f1; /* Fondo claro natural */
+}
+
+.caja_de_texto img {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s, transform 0.2s ease;
+}
+
+.caja_de_texto img:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* ====== Botón ====== */
+button {
+    margin-top: 25px;
+    width: 100%;
+    background-color: #3c763d; /* Verde hoja */
+    color: #fffbe7; /* Amarillo claro */
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2f4f2f; /* Verde oscuro */
+}
+
+/* ====== Mensaje ====== */
+#mensaje {
+    margin-top: 15px;
+    font-size: 0.95em;
+    text-align: center;
+    font-weight: 500;
+    color: #2f4f2f; /* Verde oscuro */
+}
+
+/* ====== Footer ====== */
+footer {
+    background-color: #3c763d; /* Verde hoja */
+    color: #fffbe7; /* Amarillo claro */
+    text-align: center;
+    padding: 15px 0;
+}
+
+/* ====== Animación ====== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== Eliminar íconos automáticos del navegador ====== */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-clear-button,
+input[type="password"]::-webkit-textfield-decoration-container {
+    display: none !important;
+}

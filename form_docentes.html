@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registra tus datos</title>
+  <link rel="stylesheet" href="../CSS/form_docentes.css">
+</head>
+
+<body>
+
+  <!-- ============================================
+       FORMULARIO DE REGISTRO DE DOCENTES
+       ============================================
+       Este formulario permite a los docentes registrar sus datos
+       personales e institucionales para crear su cuenta dentro
+       del sistema. Los datos son enviados mediante el método POST
+       al archivo PHP que los procesa y guarda en la base de datos.
+  -->
+
+  <div class="card" id="registro">
+    <h2>Registro para Docentes</h2>
+
+    <!-- El formulario envía los datos al script PHP 'form_docentes.php' -->
+    <form method="POST" action="../PHP/form_docentes.php" id="Formulario_de_registro">
+
+      <!-- Clave única de docente -->
+      <label for="ID_docente">Clave del docente</label>
+      <input type="text" name="ID_docente" required>
+
+      <!-- Nombre del docente -->
+      <label for="Nombre">Nombre</label>
+      <input type="text" name="Nombre" required>
+
+      <!-- Apellidos -->
+      <label for="Apellido_paterno">Apellido Paterno</label>
+      <input type="text" name="Apellido_paterno" required>
+
+      <label for="Apellido_materno">Apellido Materno</label>
+      <input type="text" name="Apellido_materno" required>
+
+      <!-- ============================================
+           SELECCIÓN DE INSTITUCIÓN EDUCATIVA
+           ============================================
+           Campo desplegable que permite elegir una institución.
+           Cada opción incluye un atributo 'data-cct' que almacena
+           el código de centro de trabajo (CCT), el cual se copia 
+           automáticamente al campo oculto mediante JavaScript.
+      -->
+      <label for="Institucion">Institución</label>
+      <select id="Institucion" name="Institucion" required>
+        <option value="">Selecciona una institución</option>
+        <option value="Universidad Politecnica de Atlautla" data-cct="15EPO0005W">Universidad Politecnica de Atlautla</option>
+        <option value="Escuela preparatoria oficial 177" data-cct="15EBH0343J">Escuela preparatoria oficial 177</option>
+        <option value="Escuela preparatoria 50" data-cct="15EBH0110U">Escuela preparatoria 50</option>
+        <option value="CBT Dr Carlos Sosa Moss" data-cct="15ECT0031B">CBT Dr Carlos Sosa Moss</option>
+      </select>
+
+      <!-- Campo oculto que recibe el CCT de la institución seleccionada -->
+      <input type="hidden" id="CCT" name="CCT">
+
+      <!-- ============================================
+           UBICACIÓN GEOGRÁFICA
+           ============================================
+           Permite al docente seleccionar el municipio donde labora
+           e ingresar una comunidad específica de forma opcional.
+      -->
+      <label for="Municipio">Municipio</label>
+      <select id="Municipio" name="Municipio" required>
+        <option value="">Selecciona un municipio</option>
+        <option value="Ecatzingo">Ecatzingo</option>
+        <option value="Atlautla">Atlautla</option>
+        <option value="Ozumba">Ozumba</option>
+        <option value="Juchitepec">Juchitepec</option>
+      </select>
+
+      <!-- Campo opcional para especificar una comunidad dentro del municipio -->
+      <label for="Comunidad">Comunidad</label>
+      <input type="text" name="Comunidad" placeholder="(Opcional)">
+
+      <!-- ============================================
+           CONTACTO DEL DOCENTE
+           ============================================
+           Incluye correo electrónico y número de teléfono de contacto.
+           El campo teléfono valida que se ingresen exactamente 10 dígitos.
+      -->
+      <label for="Correo_electronico">Correo Electrónico</label>
+      <input type="email" name="Correo_electronico" required>
+
+      <label for="contacto">Número de Teléfono</label>
+      <input type="tel" name="contacto" pattern="^[0-9]{10}$" placeholder="Ej: 5512345678" required>
+      <span id="error" style="color:red; font-size:14px;"></span><br>
+
+      <!-- Botón de envío del formulario -->
+      <input type="submit" value="Registrar">
+
+      <!-- Contenedor para mostrar mensajes de validación o éxito -->
+      <div id="mensaje"></div>
+
+    </form>
+  </div>
+
+  <!-- ============================================
+       ARCHIVOS JAVASCRIPT ASOCIADOS
+       ============================================
+       - llenarCCT.js: Script que detecta la institución seleccionada
+         y rellena automáticamente el campo oculto 'CCT'.
+       - Registro_docente.js: Valida los campos del formulario y puede
+         manejar el envío mediante AJAX o mostrar mensajes al usuario.
+  -->
+  <script src="../JS/llenarCCT.js"></script>
+  <script src="../Registro_docente.js"></script>
+  
+</body>
+
+</html>
