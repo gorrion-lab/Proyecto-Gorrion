@@ -6,7 +6,7 @@ const videosData = [
     descripcion: "Aprende los fundamentos básicos para cultivar alimentos en espacios urbanos. Descubre cómo comenzar tu propio huerto sin necesidad de grandes extensiones de tierra.",
     url: "https://www.youtube.com/embed/us4tQ-nDiz4?si=z1pY4TcLbKyz3Wuu",
     tipo: "youtube",
-   
+    categoria: "Agricultura Básica"
   },
   {
     id: 2,
@@ -14,25 +14,75 @@ const videosData = [
     descripcion: "Cómo crear tu propio composta con residuos orgánicos del hogar. Aprende a reciclar tus desechos orgánicos y convertirlos en abono nutritivo para tus plantas.",
     url: "https://www.youtube.com/embed/KLyM2s6XtjE?si=fUYTr6YRBiTqR05y",
     tipo: "youtube",
-    
+    categoria: "Compostaje"
   },
-  {
-  id: 3,
-  titulo: "Aplicacion de feromonas",
-  descripcion: "Uso de feromonas para atraer insectos hacia trampas o para confundirlos y reducir su reproducción",
-  url: "https://www.youtube.com/embed/4cEZbX1NVjs",
-  tipo: "youtube",
-  },
-
 ];
 
 // Variables globales
 let busquedaActiva = false;
 let videosFiltrados = [];
 
+// ===== FUNCIONES DEL MENÚ RESPONSIVO =====
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('menuToggle');
+  const menuPrincipal = document.getElementById('menuPrincipal');
+  
+  // Toggle del menú móvil
+  if (menuToggle && menuPrincipal) {
+    menuToggle.addEventListener('click', function() {
+      menuPrincipal.classList.toggle('mostrar');
+      
+      // Cambiar ícono del menú hamburguesa
+      const span = menuToggle.querySelector('span');
+      if (menuPrincipal.classList.contains('mostrar')) {
+        span.textContent = '✕';
+      } else {
+        span.textContent = '☰';
+      }
+    });
+    
+    // Cerrar el menú al hacer clic en un enlace (en dispositivos móviles)
+    const enlacesMenu = menuPrincipal.querySelectorAll('a');
+    enlacesMenu.forEach(enlace => {
+      enlace.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          menuPrincipal.classList.remove('mostrar');
+          const span = menuToggle.querySelector('span');
+          span.textContent = '☰';
+        }
+      });
+    });
+    
+    // Cerrar menú al redimensionar la ventana si pasa al modo escritorio
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        menuPrincipal.classList.remove('mostrar');
+        const span = menuToggle.querySelector('span');
+        span.textContent = '☰';
+      }
+    });
+  }
+
+  // Buscar al presionar Enter
+  const inputBusqueda = document.getElementById('buscarInput');
+  if (inputBusqueda) {
+    inputBusqueda.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        buscarVideos();
+      }
+    });
+  }
+
+  // Inicializar la página con los videos
+  mostrarContenido();
+});
+
+// ===== FUNCIONES DE VIDEOS =====
+
 // Función principal para mostrar contenido de videos
 function mostrarContenido() {
   const contenedor = document.getElementById("contenido-dinamico");
+  if (!contenedor) return;
   
   // Mostrar loading
   contenedor.innerHTML = '<div class="loading">Cargando videos educativos...</div>';
@@ -66,7 +116,7 @@ function generarContenidoVideos(videos) {
         <p>${video.descripcion}</p>
         <iframe class="video-player" src="${video.url}" 
                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
+                allowfullscreen title="${video.titulo}">
         </iframe>
       </div>
     `;
@@ -76,10 +126,14 @@ function generarContenidoVideos(videos) {
   return videosHTML;
 }
 
+// ===== FUNCIONES DE BÚSQUEDA =====
+
 // Función de búsqueda
 function buscarVideos() {
   const termino = document.getElementById('buscarInput').value.trim().toLowerCase();
   const resultadoBusqueda = document.getElementById('resultadoBusqueda');
+  
+  if (!resultadoBusqueda) return;
   
   if (termino === '') {
     resultadoBusqueda.innerHTML = '<p>Ingresa un término de búsqueda</p>';
@@ -96,6 +150,8 @@ function buscarVideos() {
   // Mostrar resultados
   busquedaActiva = true;
   const contenedor = document.getElementById('contenido-dinamico');
+  
+  if (!contenedor) return;
   
   if (videosFiltrados.length === 0) {
     contenedor.innerHTML = `
@@ -114,24 +170,13 @@ function buscarVideos() {
 
 // Limpiar búsqueda
 function limpiarBusqueda() {
-  document.getElementById('buscarInput').value = '';
-  document.getElementById('resultadoBusqueda').innerHTML = '';
+  const inputBusqueda = document.getElementById('buscarInput');
+  const resultadoBusqueda = document.getElementById('resultadoBusqueda');
+  
+  if (inputBusqueda) inputBusqueda.value = '';
+  if (resultadoBusqueda) resultadoBusqueda.innerHTML = '';
+  
   busquedaActiva = false;
   videosFiltrados = [];
   mostrarContenido();
 }
-
-// Buscar al presionar Enter
-document.addEventListener('DOMContentLoaded', function() {
-  const inputBusqueda = document.getElementById('buscarInput');
-  inputBusqueda.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-      buscarVideos();
-    }
-  });
-});
-
-// Inicializar la página con los videos
-document.addEventListener('DOMContentLoaded', function() {
-  mostrarContenido();
-});

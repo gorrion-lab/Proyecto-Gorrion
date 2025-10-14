@@ -45,18 +45,29 @@ header h1 {
     font-weight: 700;
 }
 
-header h2 {
-    text-align: center;
-    font-size: 22px;
-    margin-top: 5px;
-    color: #4e3b31;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-}
-
-/* Menú */
+/* Menú Responsivo */
 nav {
   background: #008000;
+  position: relative;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 12px 18px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.menu-toggle span {
+  margin-right: 10px;
+  font-size: 1.2rem;
 }
 
 nav ul {
@@ -78,14 +89,11 @@ nav ul li a {
   color: #fff;
   font-weight: 600;
   transition: background 0.3s;
+  text-align: center;
 }
 
 nav ul li a:hover,
 nav ul li a.activo {
-  background: #006400;
-}
-
-nav a:hover {
   background: #006400;
 }
 
@@ -99,7 +107,7 @@ main {
 .contenedor-horizontal {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   flex-wrap: wrap;
 }
 
@@ -108,26 +116,27 @@ main {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  flex: 0 1 calc(33.333% - 20px);
-  min-width: 280px;
-  max-width: 32%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 0 1 calc(50% - 30px);
+  min-width: 300px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .imagen img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
 }
 
 .contenido {
-  padding: 20px;
+  padding: 25px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -137,29 +146,30 @@ main {
 .contenido h3 {
   color: #008000;
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 22px;
+  margin-bottom: 15px;
   font-weight: 600;
 }
 
 .descripcion {
   color: #444;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 20px;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .boton {
   background-color: #008000;
   color: white;
   border: none;
-  padding: 10px 18px;
+  padding: 12px 24px;
   border-radius: 6px;
   font-family: 'Open Sans', Arial, sans-serif;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
   align-self: flex-start;
+  font-size: 16px;
 }
 
 .boton:hover {
@@ -170,15 +180,18 @@ footer {
   background: #008000;
   color: white;
   text-align: center;
-  padding: 15px;
+  padding: 20px;
   margin-top: 40px;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* Responsive */
+/* ===== RESPONSIVE ===== */
+
+/* Tablets */
 @media (max-width: 1000px) {
-  nav a {
+  nav ul li a {
     padding: 10px 12px;
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
@@ -195,7 +208,8 @@ footer {
   }
 }
 
-@media (max-width: 600px) {
+/* Móviles */
+@media (max-width: 768px) {
   /* Header más compacto para móviles */
   .header-container {
     flex-direction: column;
@@ -204,6 +218,11 @@ footer {
   
   .logo-izquierdo, .logo-derecho {
     margin: 5px 0;
+    height: 70px;
+  }
+  
+  .logo-derecho {
+    height: 100px;
   }
   
   header h1 {
@@ -211,9 +230,132 @@ footer {
     margin: 5px 0;
   }
   
-  /* Menú más compacto para móviles */
-  nav a {
-    padding: 8px 10px;
-    font-size: 11px;
+  /* Menú hamburguesa para móviles - CENTRADO */
+  .menu-toggle {
+    display: block;
+    text-align: center;
+  }
+  
+  nav ul {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+  
+  nav ul.mostrar {
+    display: flex;
+  }
+  
+  nav ul li a {
+    padding: 15px 20px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  
+  nav ul li:last-child a {
+    border-bottom: none;
+  }
+  
+  main {
+    padding: 20px 10px;
+  }
+  
+  .contenedor-horizontal {
+    gap: 20px;
+  }
+  
+  .card {
+    min-width: 280px;
+  }
+  
+  .contenido {
+    padding: 20px;
+  }
+  
+  .contenido h3 {
+    font-size: 20px;
+  }
+  
+  .descripcion {
+    font-size: 15px;
+  }
+  
+  .boton {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .header-container {
+    padding: 8px;
+  }
+  
+  .logo-izquierdo {
+    height: 60px;
+  }
+  
+  .logo-derecho {
+    height: 80px;
+  }
+  
+  header h1 {
+    font-size: 20px;
+  }
+  
+  .menu-toggle {
+    padding: 12px 15px;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  
+  nav ul li a {
+    padding: 12px 15px;
+    font-size: 14px;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  main {
+    padding: 15px 8px;
+  }
+  
+  .contenedor-horizontal {
+    gap: 15px;
+  }
+  
+  .card {
+    min-width: 250px;
+  }
+  
+  .contenido {
+    padding: 15px;
+  }
+  
+  .contenido h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .descripcion {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .boton {
+    padding: 10px 18px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .imagen img {
+    height: 160px;
   }
 }

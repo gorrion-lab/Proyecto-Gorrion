@@ -51,7 +51,6 @@ header .logo-gorrion {
   margin: 0;
 }
 
-
 /* ===== NAV PRINCIPAL ===== */
 nav {
   position: relative;
@@ -79,8 +78,6 @@ nav ul li a {
   border-radius: 6px;
   transition: all 0.3s ease;
 }
-
-
 
 /* Menú */
 nav {
@@ -112,9 +109,6 @@ nav ul li a:hover,
 nav ul li a.activo {
   background: #006400;
 }
-
-
-
 
 /* ===== LAYOUT CON SIDEBAR ===== */
 .layout {
@@ -336,4 +330,198 @@ footer {
   0%   { transform: translateY(0); }
   50%  { transform: translateY(-8px); }
   100% { transform: translateY(0); }
+}
+/* ======== MENÚ RESPONSIVO CORRECTO ======== */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Estilo base del nav en escritorio (sin tocar lo actual) */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Versión móvil */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #0a8a1f;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav ul li {
+    text-align: center;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  nav ul li a {
+    color: white;
+    font-weight: 600;
+    display: block;
+    padding: 0.5rem;
+  }
+}
+
+/* ===== MENÚ RESPONSIVE ===== */
+.menu-toggle {
+  display: none;
+  background-color: #008000;
+  color: white;
+  padding: 14px 20px;
+  text-align: center;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* En móviles */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #008000;
+    width: 100%;
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+
+  nav ul li {
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  nav ul li a {
+    padding: 14px;
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  header .logo-universidad,
+  header .logo-gorrion {
+    position: static;
+    transform: none;
+    height: 70px;
+    margin: 6px 0;
+  }
+
+  .titulo-proyecto h1 {
+    font-size: 22px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+
+  .sidebar {
+    order: -1;
+    position: static;
+  }
+}
+
+
+/* LOGOS Y MASCOTA ADAPTATIVOS */
+.logo-universidad,
+.logo-gorrion {
+  max-width: 100%;
+  height: auto;
+}
+
+.mascota-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.mascota {
+  width: 180px; /* Tamaño base en escritorio */
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+/* Adaptaciones responsivas */
+@media (max-width: 1024px) {
+  .mascota {
+    width: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #008000;
+    width: 100%;
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+
+  nav ul li {
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  nav ul li a {
+    padding: 14px;
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .mascota {
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mascota {
+    width: 80px;
+  }
 }

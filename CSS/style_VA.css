@@ -24,6 +24,7 @@ body {
   line-height: 1.6;
 }
 
+/* ======== Contenedor ======== */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -31,7 +32,7 @@ body {
   padding: 0 15px;
 }
 
-/* ======== Header y Navegación ======== */
+/* ======== Header ======== */
 header {
   background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
   color: var(--color-white);
@@ -46,12 +47,16 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .site-title {
   font-size: 1.8rem;
   font-weight: bold;
   color: var(--color-white);
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
 }
 
 .regresar-btn {
@@ -74,7 +79,7 @@ header {
   transform: translateY(-2px);
 }
 
-/* ======== Hero Section ======== */
+/* ======== Hero ======== */
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url('../Imagenes/atlautla3.JPG');
@@ -98,11 +103,11 @@ header {
   margin: 0 auto;
 }
 
-/* ======== Contenedor de tarjetas en grilla ======== */
+/* ======== Tarjetas ======== */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
   padding: 20px 0 40px;
 }
 
@@ -141,10 +146,6 @@ header {
   padding-bottom: 8px;
 }
 
-.card .event {
-  margin-bottom: 15px;
-}
-
 .event-date {
   font-weight: 600;
   color: var(--color-accent);
@@ -152,12 +153,6 @@ header {
   margin-bottom: 5px;
 }
 
-.card p {
-  color: var(--color-dark);
-  margin-bottom: 10px;
-}
-
-/* ======== Botones ======== */
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -177,7 +172,7 @@ header {
   background: var(--color-primary);
 }
 
-/* ======== Pie de página ======== */
+/* ======== Footer ======== */
 footer {
   background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
   color: var(--color-white);
@@ -190,18 +185,66 @@ footer p {
   margin: 5px 0;
 }
 
-/* ======== Responsive Design ======== */
+/* ======== RESPONSIVE ======== */
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 2.5rem; }
+  .hero p { font-size: 1.1rem; }
+}
+
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
+  }
+
+  .site-title {
+    font-size: 1.4rem;
+  }
+
+  .hero {
+    padding: 70px 15px;
   }
 
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
   }
 
   .card h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 60px 10px;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .card-image img {
+    height: 180px;
+  }
+
+  .card-content {
+    padding: 18px;
+  }
+
+  .card h2 {
+    font-size: 1.2rem;
   }
 }

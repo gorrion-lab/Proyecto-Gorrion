@@ -21,6 +21,45 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // Menú responsivo
+  const menuToggle = document.getElementById('menuToggle');
+  const menuPrincipal = document.getElementById('menuPrincipal');
+  
+  if (menuToggle && menuPrincipal) {
+    menuToggle.addEventListener('click', function() {
+      menuPrincipal.classList.toggle('mostrar');
+      
+      // Cambiar ícono del menú hamburguesa
+      const span = menuToggle.querySelector('span');
+      if (menuPrincipal.classList.contains('mostrar')) {
+        span.textContent = '✕';
+      } else {
+        span.textContent = '☰';
+      }
+    });
+    
+    // Cerrar el menú al hacer clic en un enlace (en dispositivos móviles)
+    const enlacesMenu = menuPrincipal.querySelectorAll('a');
+    enlacesMenu.forEach(enlace => {
+      enlace.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          menuPrincipal.classList.remove('mostrar');
+          const span = menuToggle.querySelector('span');
+          span.textContent = '☰';
+        }
+      });
+    });
+    
+    // Cerrar menú al redimensionar la ventana si pasa al modo escritorio
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        menuPrincipal.classList.remove('mostrar');
+        const span = menuToggle.querySelector('span');
+        span.textContent = '☰';
+      }
+    });
+  }
 });
 
 // Función genérica para navegación (opcional)

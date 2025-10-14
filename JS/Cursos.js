@@ -19,9 +19,67 @@ const cursosData = [
 let cursosFiltrados = [];
 let busquedaActiva = false;
 
+// ===== FUNCIONES DEL MENÚ RESPONSIVO =====
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('menuToggle');
+  const menuPrincipal = document.getElementById('menuPrincipal');
+  
+  // Toggle del menú móvil
+  if (menuToggle && menuPrincipal) {
+    menuToggle.addEventListener('click', function() {
+      menuPrincipal.classList.toggle('mostrar');
+      
+      // Cambiar ícono del menú hamburguesa
+      const span = menuToggle.querySelector('span');
+      if (menuPrincipal.classList.contains('mostrar')) {
+        span.textContent = '✕';
+      } else {
+        span.textContent = '☰';
+      }
+    });
+    
+    // Cerrar el menú al hacer clic en un enlace (en dispositivos móviles)
+    const enlacesMenu = menuPrincipal.querySelectorAll('a');
+    enlacesMenu.forEach(enlace => {
+      enlace.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          menuPrincipal.classList.remove('mostrar');
+          const span = menuToggle.querySelector('span');
+          span.textContent = '☰';
+        }
+      });
+    });
+    
+    // Cerrar menú al redimensionar la ventana si pasa al modo escritorio
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        menuPrincipal.classList.remove('mostrar');
+        const span = menuToggle.querySelector('span');
+        span.textContent = '☰';
+      }
+    });
+  }
+
+  // Buscar al presionar Enter
+  const inputBusqueda = document.getElementById('buscarInput');
+  if (inputBusqueda) {
+    inputBusqueda.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        buscarContenido();
+      }
+    });
+  }
+
+  // Inicializar la página con los cursos
+  mostrarCursos();
+});
+
+// ===== FUNCIONES DE CURSOS Y VIDEOS =====
+
 // Función principal para mostrar los cursos
 function mostrarCursos() {
   const contenedor = document.getElementById("contenido-dinamico");
+  if (!contenedor) return;
   
   // Mostrar loading
   contenedor.innerHTML = '<div class="loading">Cargando cursos disponibles...</div>';
@@ -106,6 +164,8 @@ function toggleVideosLista(cursoId) {
   const lista = document.getElementById(`videos-lista-${cursoId}`);
   const boton = document.querySelector(`[data-curso-id="${cursoId}"]`);
   
+  if (!lista || !boton) return;
+  
   // Cerrar todas las demás listas
   document.querySelectorAll('.videos-lista').forEach(lista => {
     if (lista.id !== `videos-lista-${cursoId}`) {
@@ -136,10 +196,14 @@ function toggleVideosLista(cursoId) {
   }
 }
 
+// ===== FUNCIONES DE BÚSQUEDA =====
+
 // Función de búsqueda
 function buscarContenido() {
   const termino = document.getElementById('buscarInput').value.trim().toLowerCase();
   const resultadoBusqueda = document.getElementById('resultadoBusqueda');
+  
+  if (!resultadoBusqueda) return;
   
   if (termino === '') {
     resultadoBusqueda.innerHTML = '<p>Ingresa un término de búsqueda</p>';
@@ -181,6 +245,8 @@ function buscarContenido() {
   busquedaActiva = true;
   const contenedor = document.getElementById('contenido-dinamico');
   
+  if (!contenedor) return;
+  
   if (cursosFiltrados.length === 0) {
     contenedor.innerHTML = `
       <div class="curso-no-encontrado">
@@ -200,30 +266,28 @@ function buscarContenido() {
 
 // Limpiar búsqueda
 function limpiarBusqueda() {
-  document.getElementById('buscarInput').value = '';
-  document.getElementById('resultadoBusqueda').innerHTML = '';
+  const inputBusqueda = document.getElementById('buscarInput');
+  const resultadoBusqueda = document.getElementById('resultadoBusqueda');
+  
+  if (inputBusqueda) inputBusqueda.value = '';
+  if (resultadoBusqueda) resultadoBusqueda.innerHTML = '';
+  
   busquedaActiva = false;
   cursosFiltrados = [];
   mostrarCursos();
 }
 
-// Buscar al presionar Enter
-document.addEventListener('DOMContentLoaded', function() {
-  const inputBusqueda = document.getElementById('buscarInput');
-  inputBusqueda.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-      buscarContenido();
-    }
-  });
-});
+// ===== FUNCIONES DEL REPRODUCTOR DE VIDEO =====
 
 // Reproducir un video específico
 function reproducirVideo(url, titulo) {
   const reproductor = document.getElementById('reproductorVideo');
   const videoFrame = document.getElementById('videoFrame');
   
+  if (!reproductor || !videoFrame) return;
+  
   videoFrame.src = url;
-  reproductor.classList.add('mostrar');
+  reproductor.style.display = 'flex';
   document.body.style.overflow = 'hidden'; // Evitar scroll
 }
 
@@ -232,8 +296,10 @@ function cerrarReproductor() {
   const reproductor = document.getElementById('reproductorVideo');
   const videoFrame = document.getElementById('videoFrame');
   
+  if (!reproductor || !videoFrame) return;
+  
   videoFrame.src = '';
-  reproductor.classList.remove('mostrar');
+  reproductor.style.display = 'none';
   document.body.style.overflow = 'auto'; // Restaurar scroll
 }
 
@@ -245,7 +311,9 @@ document.addEventListener('click', function(e) {
   }
 });
 
-// Inicializar la página con los cursos
-document.addEventListener('DOMContentLoaded', function() {
-  mostrarCursos();
+// Cerrar reproductor con ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    cerrarReproductor();
+  }
 });

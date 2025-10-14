@@ -54,9 +54,29 @@ header h2 {
     font-weight: 600;
 }
 
-/* Menú */
+/* Menú Responsivo */
 nav {
   background: #008000;
+  position: relative;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 12px 18px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.menu-toggle span {
+  margin-right: 10px;
+  font-size: 1.2rem;
 }
 
 nav ul {
@@ -78,6 +98,7 @@ nav ul li a {
   color: #fff;
   font-weight: 600;
   transition: background 0.3s;
+  text-align: center;
 }
 
 nav ul li a:hover,
@@ -373,7 +394,9 @@ footer {
   margin-bottom: 10px;
 }
 
-/* Responsive */
+/* ===== RESPONSIVE ===== */
+
+/* Tablets */
 @media (max-width: 1000px) {
   nav a {
     padding: 10px 12px;
@@ -402,7 +425,8 @@ footer {
   }
 }
 
-@media (max-width: 600px) {
+/* Móviles */
+@media (max-width: 768px) {
   /* Header más compacto para móviles */
   .header-container {
     flex-direction: column;
@@ -411,6 +435,11 @@ footer {
   
   .logo-izquierdo, .logo-derecho {
     margin: 5px 0;
+    height: 70px;
+  }
+  
+  .logo-derecho {
+    height: 100px;
   }
   
   header h1 {
@@ -422,10 +451,35 @@ footer {
     font-size: 18px;
   }
   
-  /* Menú más compacto para móviles */
-  nav a {
-    padding: 8px 10px;
-    font-size: 11px;
+  /* Menú hamburguesa para móviles - CENTRADO */
+  .menu-toggle {
+    display: block;
+    text-align: center;
+  }
+  
+  nav ul {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+  
+  nav ul.mostrar {
+    display: flex;
+  }
+  
+  nav ul li a {
+    padding: 15px 20px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  
+  nav ul li:last-child a {
+    border-bottom: none;
   }
   
   .contenido-dinamico {
@@ -447,5 +501,85 @@ footer {
   
   .contenedor-busqueda {
     padding: 0 10px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .header-container {
+    padding: 8px;
+  }
+  
+  .logo-izquierdo {
+    height: 60px;
+  }
+  
+  .logo-derecho {
+    height: 80px;
+  }
+  
+  header h1 {
+    font-size: 20px;
+  }
+  
+  header h2 {
+    font-size: 16px;
+  }
+  
+  .menu-toggle {
+    padding: 12px 15px;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  
+  nav ul li a {
+    padding: 12px 15px;
+    font-size: 14px;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .contenido-dinamico {
+    padding: 15px 8px;
+  }
+  
+  .titulo-seccion {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+  
+  .cursos-grid {
+    gap: 15px;
+  }
+  
+  .curso-contenido {
+    padding: 15px;
+  }
+  
+  .curso-titulo {
+    font-size: 1.2rem;
+  }
+  
+  .curso-descripcion {
+    font-size: 14px;
+  }
+  
+  .video-item {
+    padding: 12px;
+  }
+  
+  .video-icono {
+    width: 35px;
+    height: 35px;
+    margin-right: 12px;
+    font-size: 0.9rem;
+  }
+  
+  .video-info h4 {
+    font-size: 0.9rem;
+  }
+  
+  .video-info p {
+    font-size: 0.8rem;
   }
 }
