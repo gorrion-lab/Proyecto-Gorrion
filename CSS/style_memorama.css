@@ -1,0 +1,249 @@
+/* =========================
+   MEMORAMA GORRIÓN
+   ========================= */
+
+/* ======== Paleta de colores institucional ======== */
+:root {
+  --verde-principal: #008000;
+  --verde-oscuro: #006400;
+  --verde-medio: #00a000;
+  --verde-suave: #f0fdf4;
+  --blanco: #ffffff;
+  --gris-oscuro: #333333;
+  --gris-medio: #444444;
+  --verde-bosque: #006d32;
+  --verde-natural: #1b4332;
+}
+
+/* ======== Estilos generales ======== */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--verde-suave);
+  color: var(--gris-oscuro);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.header-memorama {
+  text-align: center;
+  background-color: var(--blanco);
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 100%;
+}
+
+.header-memorama h1 {
+  color: var(--verde-principal);
+  font-size: 2rem;
+}
+
+.header-memorama p {
+  color: var(--gris-medio);
+  font-size: 1rem;
+}
+
+/* ======== Tablero del juego ======== */
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 10px;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 10px;
+  width: 90%;
+  max-width: 700px;
+}
+
+.card {
+  background-color: var(--blanco);
+  border: 3px solid var(--verde-medio);
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  transform: scale(1);
+  transition: transform 0.2s;
+  height: 100px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: none;
+}
+
+.card.flipped img {
+  display: block;
+}
+
+.card.flipped::before {
+  display: none;
+}
+
+.card::before {
+  content: "";
+  background-color: var(--verde-principal);
+  background-image: url('../IMG/hoja_icon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+}
+
+/* ======== Modal de victoria ======== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: var(--blanco);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+  color: var(--verde-principal);
+}
+
+#restartBtn {
+  background-color: var(--verde-principal);
+  color: var(--blanco);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+#restartBtn:hover {
+  background-color: var(--verde-oscuro);
+}
+
+/* ===== SECCIÓN DE SELECCIÓN DE NIVEL ===== */
+.seleccion-nivel {
+  text-align: center;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--blanco);
+  border-radius: 12px;
+  border-top: 5px solid var(--verde-medio);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 500px;
+}
+
+.seleccion-nivel h2 {
+  color: var(--verde-bosque);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.botones-nivel {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.botones-nivel button {
+  background-color: var(--verde-principal);
+  color: var(--blanco);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.botones-nivel button:hover {
+  background-color: var(--verde-oscuro);
+  transform: scale(1.05);
+}
+
+/* ===== BOTONES DEL MODAL ===== */
+.botones-modal {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.botones-modal button {
+  background-color: var(--verde-principal);
+  color: var(--blanco);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botones-modal button:hover {
+  background-color: var(--verde-oscuro);
+}
+
+/* ===== OCULTAR ELEMENTOS ===== */
+.oculto {
+  display: none;
+}
+
+
+/* ======== Responsividad ======== */
+@media (max-width: 768px) {
+  .game-board {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+
+  .card {
+    height: 80px;
+  }
+
+  .header-memorama h1 {
+    font-size: 1.6rem;
+  }
+
+  .header-memorama p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-board {
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  }
+
+  .card {
+    height: 70px;
+  }
+
+  #restartBtn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}

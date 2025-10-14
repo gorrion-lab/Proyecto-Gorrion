@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trivia Gorrión</title>
+  <link rel="stylesheet" href="CSS/style_trivia.css">
+</head>
+<body>
+
+  <header class="encabezado-trivia">
+    <h1>Trivia Gorrión</h1>
+    <p>Demuestra cuánto sabes sobre el proyecto Gorrión 🐦</p>
+  </header>
+
+  <main class="contenedor-trivia">
+    <div id="quiz-container" class="tarjeta-trivia">
+      <h2 id="pregunta">Pregunta aquí...</h2>
+      <div id="opciones" class="opciones"></div>
+      <button id="btn-siguiente" class="btn-siguiente">Siguiente</button>
+    </div>
+
+    <div id="resultado" class="resultado oculto">
+      <h2>¡Trivia completada!</h2>
+      <p id="puntaje"></p>
+      <button onclick="reiniciarTrivia()" class="btn-reiniciar">Jugar otra vez</button>
+      <button onclick="location.href='que-es-gorrion.html'" class="btn-volver">Volver</button>
+    </div>
+  </main>
+
+  <script src="JS/trivia.js"></script>
+</body>
+</html>
