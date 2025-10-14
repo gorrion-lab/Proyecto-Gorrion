@@ -2,7 +2,7 @@ const preguntas = [
   {
     pregunta: "¿Qué busca principalmente el Proyecto Gorrión?",
     opciones: [
-      "Impulsar el uso de la inteligencia artificial en la educación",
+      "Crear redes de colaboración que fomenten la innovación mediante agrobiodiversidad",
       "Promover el deporte en las escuelas",
       "Fomentar el arte y la cultura",
       "Crear una red social para estudiantes"
