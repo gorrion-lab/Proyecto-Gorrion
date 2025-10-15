@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Arrastrar y Soltar - Gorrión</title>
+  <link rel="stylesheet" href="CSS/style_arrastrar.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Arrastra y Aprende — Huertos Escolares</h1>
+    <p>Clasifica cada elemento en su grupo correcto 🌱🧰🍎</p>
+  </header>
+
+  <main class="app-main">
+    <!-- Zona de elementos arrastrables -->
+    <section class="panel elementos" aria-label="Elementos para arrastrar">
+      <h2>Elementos</h2>
+      <div id="items" class="items-list">
+        <!-- Ejemplo de elemento:
+             sustituye src por tu imagen vectorial sin fondo en IMG/arrastrar/
+             data-category = categoría correcta -->
+        <div class="item" draggable="true" data-category="herramientas" id="item-pala" tabindex="0" aria-grabbed="false">
+          <img src="IMG/arrastrar/pala.png" alt="Pala (reemplaza con tu imagen)" />
+        </div>
+
+        <div class="item" draggable="true" data-category="plantas" id="item-planta" tabindex="0" aria-grabbed="false">
+          <img src="IMG/arrastrar/planta.png" alt="Planta (reemplaza con tu imagen)" />
+        </div>
+
+        <div class="item" draggable="true" data-category="frutas" id="item-manzana" tabindex="0" aria-grabbed="false">
+          <img src="IMG/arrastrar/manzana.png" alt="Manzana (reemplaza con tu imagen)" />
+        </div>
+
+        <!-- Añade más .item según necesites -->
+      </div>
+    </section>
+
+    <!-- Zona de categorías (drop zones) -->
+    <section class="panel categorias" aria-label="Categorías de destino">
+      <h2>Categorías</h2>
+
+      <div class="category-grid">
+        <div class="dropzone" data-accept="plantas" id="cat-plantas" aria-dropeffect="none">
+          <h3>Plantas</h3>
+          <div class="zone-hint">Arrastra aquí las plantas</div>
+          <div class="zone-content" aria-live="polite"></div>
+        </div>
+
+        <div class="dropzone" data-accept="herramientas" id="cat-herramientas" aria-dropeffect="none">
+          <h3>Herramientas</h3>
+          <div class="zone-hint">Arrastra aquí las herramientas</div>
+          <div class="zone-content" aria-live="polite"></div>
+        </div>
+
+        <div class="dropzone" data-accept="frutas" id="cat-frutas" aria-dropeffect="none">
+          <h3>Frutas y verduras</h3>
+          <div class="zone-hint">Arrastra aquí frutas y verduras</div>
+          <div class="zone-content" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Barra de control / estado -->
+  <footer class="app-footer">
+    <div class="progreso">
+      <span id="matchedCount">0</span> / <span id="totalCount">0</span> correctas
+    </div>
+    <div class="controls">
+      <button id="btn-reset">Reiniciar</button>
+      <button id="btn-volver">Volver a ¿Qué es Gorrión?</button>
+    </div>
+  </footer>
+
+  <!-- Modal final -->
+  <div class="modal" id="finishModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <h2>¡Excelente trabajo! 🌿</h2>
+      <p>Has clasificado correctamente todos los elementos.</p>
+      <div class="modal-actions">
+        <button id="modal-replay">Jugar otra vez</button>
+        <button id="modal-volver">Volver a ¿Qué es Gorrión?</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="JS/arrastrar.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+/* ======================================================
+   STYLE: Juego Arrastrar y Soltar - Proyecto Gorrión
+   Paleta:
+   --verde-principal: #008000
+   --verde-oscuro:    #006400
+   --verde-medio:     #00a000
+   --verde-suave:     #f0fdf4
+   --blanco:          #ffffff
+   --gris-oscuro:     #333333
+   --gris-medio:      #444444
+   ====================================================== */
+
+:root{
+  --verde-principal:#008000;
+  --verde-oscuro:#006400;
+  --verde-medio:#00a000;
+  --verde-suave:#f0fdf4;
+  --blanco:#ffffff;
+  --gris-oscuro:#333333;
+  --gris-medio:#444444;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: 'Open Sans', sans-serif;
+  background:var(--verde-suave);
+  color:var(--gris-oscuro);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+}
+
+/* Header */
+.app-header{
+  width:100%;
+  background:var(--blanco);
+  border-bottom:4px solid var(--verde-medio);
+  padding:18px 16px;
+  text-align:center;
+  box-shadow:0 2px 6px rgba(0,0,0,0.06);
+}
+.app-header h1{color:var(--verde-principal);font-size:1.8rem}
+.app-header p{color:var(--gris-medio);margin-top:6px}
+
+/* Main layout */
+.app-main{
+  width:100%;
+  max-width:1100px;
+  padding:24px;
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* Panels */
+.panel{background:var(--blanco);border-radius:12px;padding:16px;box-shadow:0 4px 12px rgba(0,0,0,0.06);width:100%}
+.panel h2{color:var(--verde-bosque, var(--verde-oscuro));margin-bottom:12px}
+
+/* Left: items */
+.elementos{max-width:360px;flex:1 1 320px}
+.items-list{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-start}
+.item{
+  width:100px;height:100px;border-radius:10px;border:3px solid var(--verde-medio);
+  display:flex;align-items:center;justify-content:center;background:var(--blanco);
+  cursor:grab;user-select:none;touch-action:none;
+  transition:transform .12s, box-shadow .12s;
+}
+.item:active{cursor:grabbing;transform:scale(.98)}
+.item img{max-width:88%;max-height:88%;display:block}
+
+/* Right: categories */
+.categorias{flex:2 1 540px}
+.category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.dropzone{
+  min-height:140px;padding:12px;border-radius:10px;border:3px dashed var(--verde-medio);
+  background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.98));
+  display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:flex-start;
+  transition:background .18s, border-color .18s, transform .12s;
+}
+.dropzone h3{margin:0;color:var(--verde-principal)}
+.zone-hint{font-size:.85rem;color:var(--gris-medio)}
+.zone-content{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+
+/* Highlight when dragging over */
+.dropzone.over{background:rgba(0,160,0,0.06);border-color:var(--verde-oscuro);transform:translateY(-3px)}
+
+/* Footer controls */
+.app-footer{
+  width:100%;max-width:1100px;margin-top:16px;display:flex;justify-content:space-between;align-items:center;padding:12px;
+}
+.progreso{font-weight:600;color:var(--gris-oscuro)}
+.controls button{
+  background:var(--verde-principal);color:var(--blanco);border:none;padding:10px 14px;border-radius:8px;cursor:pointer;margin-left:8px;
+}
+.controls button:hover{background:var(--verde-oscuro)}
+
+/* Modal */
+.modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);padding:20px;
+}
+.modal-card{background:var(--blanco);padding:22px;border-radius:12px;text-align:center;max-width:400px;width:100%}
+.modal-card h2{color:var(--verde-principal);margin-bottom:8px}
+.modal-actions{display:flex;gap:12px;justify-content:center;margin-top:12px}
+.modal-actions button{background:var(--verde-principal);color:var(--blanco);border:none;padding:10px 12px;border-radius:8px;cursor:pointer}
+.modal-actions button:hover{background:var(--verde-oscuro)}
+
+/* Responsive */
+@media (max-width: 920px){
+  .category-grid{grid-template-columns:repeat(2,1fr)}
+  .elementos{order:2}
+  .categorias{order:1}
+}
+@media (max-width: 620px){
+  .app-main{padding:14px}
+  .category-grid{grid-template-columns:1fr}
+  .item{width:80px;height:80px}
+  .dropzone{min-height:110px}
+  .app-header h1{font-size:1.4rem}
+}
