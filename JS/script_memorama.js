@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const allImages = [
     "plantas.png", "semillas.png", "agua.png", "sol.png", "abeja.png",
-    "pala.png", "maceta.png", "tierra.png", "regadera.png", "compost.png",
-    "arbol.png", "fruta.png", "hoja.png", "flor.png", "huerto.png"
+    "pala_jardin.png", "maceta.png", "tierra.png", "regadera.png", "composta.png",
+    "arbol.png", "fruta.png", "verdura.png", "animales.png", "huerto.png"
   ];
 
   let selectedImages = [];
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.classList.add("card");
 
       const image = document.createElement("img");
-      image.src = `../IMG/memorama/${img}`;
+      image.src = `Imagenes/${img}`; 
       image.alt = img.split(".")[0];
 
       card.appendChild(image);

@@ -1,5 +1,5 @@
 /* =========================
-   MEMORAMA GORRIÓN
+   MEMORAMA GORRIÓN (RESPONSIVO Y TARJETAS GRANDES)
    ========================= */
 
 /* ======== Paleta de colores institucional ======== */
@@ -27,6 +27,7 @@ body {
   min-height: 100vh;
 }
 
+/* ======== Encabezado ======== */
 .header-memorama {
   text-align: center;
   background-color: var(--blanco);
@@ -37,30 +38,33 @@ body {
 
 .header-memorama h1 {
   color: var(--verde-principal);
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 2vw + 1rem, 2.6rem);
 }
 
 .header-memorama p {
   color: var(--gris-medio);
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1vw + 0.3rem, 1.2rem);
 }
 
-/* ======== Tablero del juego ======== */
+/* ======== Contenedor del juego ======== */
 .game-container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px 10px;
+  width: 100%;
 }
 
 .game-board {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* tarjetas más anchas */
+  gap: 15px;
   width: 90%;
-  max-width: 700px;
+  max-width: 1100px; /* más ancho para escritorio */
+  transition: all 0.3s ease;
 }
 
+/* ======== Tarjetas ======== */
 .card {
   background-color: var(--blanco);
   border: 3px solid var(--verde-medio);
@@ -68,8 +72,8 @@ body {
   cursor: pointer;
   position: relative;
   transform: scale(1);
-  transition: transform 0.2s;
-  height: 100px;
+  transition: transform 0.2s ease;
+  height: 160px; /* tamaño grande base */
 }
 
 .card:hover {
@@ -95,10 +99,10 @@ body {
 .card::before {
   content: "";
   background-color: var(--verde-principal);
-  background-image: url('../IMG/hoja_icon.png');
+  background-image: url('Imagenes/hoja_icon.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 40px;
+  background-size: 45px;
   position: absolute;
   top: 0;
   left: 0;
@@ -123,17 +127,20 @@ body {
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  max-width: 90%;
 }
 
 .modal-content h2 {
   color: var(--verde-principal);
+  font-size: clamp(1.4rem, 1.2vw + 1rem, 2rem);
 }
 
+/* ===== Botón Reiniciar ===== */
 #restartBtn {
   background-color: var(--verde-principal);
   color: var(--blanco);
   border: none;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
@@ -154,13 +161,13 @@ body {
   border-top: 5px solid var(--verde-medio);
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   width: 90%;
-  max-width: 500px;
+  max-width: 550px;
 }
 
 .seleccion-nivel h2 {
   color: var(--verde-bosque);
   margin-bottom: 20px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .botones-nivel {
@@ -213,37 +220,63 @@ body {
   display: none;
 }
 
+/* ======== RESPONSIVIDAD ======== */
 
-/* ======== Responsividad ======== */
-@media (max-width: 768px) {
+/* TABLETS */
+@media (max-width: 992px) {
   .game-board {
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    max-width: 850px;
   }
 
   .card {
-    height: 80px;
-  }
-
-  .header-memorama h1 {
-    font-size: 1.6rem;
-  }
-
-  .header-memorama p {
-    font-size: 0.9rem;
+    height: 130px;
   }
 }
 
-@media (max-width: 480px) {
+/* CELULARES GRANDES */
+@media (max-width: 768px) {
   .game-board {
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    max-width: 600px;
   }
 
   .card {
-    height: 70px;
+    height: 110px;
+  }
+
+  .header-memorama h1 {
+    font-size: 1.8rem;
+  }
+
+  .header-memorama p {
+    font-size: 0.95rem;
+  }
+}
+
+/* CELULARES PEQUEÑOS */
+@media (max-width: 480px) {
+  .game-board {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    max-width: 400px;
+  }
+
+  .card {
+    height: 90px;
   }
 
   #restartBtn {
     padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .seleccion-nivel {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .botones-nivel button {
+    padding: 10px 15px;
     font-size: 0.9rem;
   }
 }
