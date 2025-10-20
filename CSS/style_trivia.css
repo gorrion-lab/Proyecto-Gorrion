@@ -8,10 +8,8 @@
 /* ======= ESTILOS GENERALES ======= */
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #f0fdf4;
-  margin: 0;
-  padding: 0;
-  color: #333333;
+  background: linear-gradient(135deg, #e0f4e0, #f0fdf4);
+  color: #333;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -19,11 +17,12 @@ body {
 
 /* ======= ENCABEZADO ======= */
 .encabezado-trivia {
-  background-color: #5fb55f;
-  color: #ffffff;
+  background: linear-gradient(90deg, #5fb55f, #00a000);
+  color: #fff;
   text-align: center;
   padding: 40px 10px;
-  border-bottom: 5px solid #00a000;
+  border-bottom: 5px solid #007500;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .encabezado-trivia h1 {
@@ -47,6 +46,70 @@ body {
   padding: 20px;
   width: 100%;
   max-width: 900px;
+}
+
+/* ======= PANTALLA DE SELECCIÓN DE TEMAS ======= */
+.tarjeta-temas {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+  border-top: 6px solid #00a000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-temas h2 {
+  color: #0f522e;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+}
+
+.subtitulo-temas {
+  font-size: 1rem;
+  margin-bottom: 25px;
+  color: #1b4332;
+}
+
+.temas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
+
+.tema {
+  background: #008000;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 20px 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.tema:hover {
+  background: #00a000;
+  transform: translateY(-3px);
+}
+
+.tema .emoji {
+  font-size: 2rem;
+}
+
+.tema .titulo-tema {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.tema .desc-tema {
+  font-size: 0.85rem;
+  color: #e0f4e0;
 }
 
 /* ======= TARJETA DE PREGUNTAS ======= */
@@ -93,7 +156,7 @@ body {
 }
 
 .opciones button:hover {
-  background-color: #006400;
+  background-color: #00a000;
   transform: scale(1.02);
 }
 
@@ -115,7 +178,7 @@ body {
 .btn-siguiente:hover,
 .btn-reiniciar:hover,
 .btn-volver:hover {
-  background-color: #006400;
+  background-color: #00a000;
   transform: scale(1.05);
 }
 
@@ -132,6 +195,7 @@ body {
   margin: 20px;
 }
 
+/* ======= OCULTO ======= */
 .oculto {
   display: none;
 }
@@ -144,88 +208,80 @@ strong {
 em {
   color: #1b4332;
 }
+/* ======= BARRA DE PROGRESO ======= */
+.progreso {
+  height: 8px;
+  background-color: #d1e7d1;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
 
-/* Tablet y pantallas medianas (hasta 900px) */
+.progreso-inner {
+  height: 100%;
+  width: 0%;
+  background-color: #00a000;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+/* ======= ANIMACIÓN DE PREGUNTA ======= */
+.pregunta-animada {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.pregunta-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ======= CONFETI ======= */
+.confeti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #00a000;
+  opacity: 0.9;
+  pointer-events: none;
+  border-radius: 50%;
+  animation: caer 1s linear forwards;
+}
+
+@keyframes caer {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ======= RESPONSIVE ======= */
 @media (max-width: 900px) {
-  .encabezado-trivia h1 {
-    font-size: 2rem;
-  }
-
-  .encabezado-trivia p {
-    font-size: 1rem;
-  }
-
-  .tarjeta-trivia {
-    padding: 30px 20px;
-  }
-
-  .tarjeta-trivia h2 {
-    font-size: 1.2rem;
-  }
-
-  .opciones button {
-    font-size: 0.95rem;
-    padding: 12px;
-  }
+  .encabezado-trivia h1 { font-size: 2rem; }
+  .encabezado-trivia p { font-size: 1rem; }
+  .tarjeta-trivia, .tarjeta-temas { padding: 30px 20px; }
+  .tarjeta-trivia h2, .tarjeta-temas h2 { font-size: 1.2rem; }
+  .opciones button { font-size: 0.95rem; padding: 12px; }
 }
 
-/* Celulares grandes y medianos (hasta 600px) */
 @media (max-width: 600px) {
-  .encabezado-trivia {
-    padding: 30px 10px;
-  }
-
-  .encabezado-trivia h1 {
-    font-size: 1.8rem;
-  }
-
-  .contenedor-trivia {
-    margin: 20px auto;
-    padding: 10px;
-  }
-
-  .tarjeta-trivia {
-    padding: 25px 15px;
-    width: 95%;
-  }
-
-  .tarjeta-trivia h2 {
-    font-size: 1.1rem;
-  }
-
-  .opciones {
-    gap: 12px;
-  }
-
-  .opciones button {
-    font-size: 0.9rem;
-    padding: 10px;
-  }
-
-  .btn-siguiente,
-  .btn-reiniciar,
-  .btn-volver {
-    font-size: 0.9rem;
-    padding: 10px 15px;
-  }
+  .encabezado-trivia { padding: 30px 10px; }
+  .encabezado-trivia h1 { font-size: 1.8rem; }
+  .contenedor-trivia { margin: 20px auto; padding: 10px; }
+  .tarjeta-trivia, .tarjeta-temas { padding: 25px 15px; width: 95%; }
+  .tarjeta-trivia h2, .tarjeta-temas h2 { font-size: 1.1rem; }
+  .opciones { gap: 12px; }
+  .opciones button, .tema { font-size: 0.9rem; padding: 10px; }
+  .btn-siguiente, .btn-reiniciar, .btn-volver { font-size: 0.9rem; padding: 10px 15px; }
 }
 
-/* Celulares pequeños (hasta 400px) */
 @media (max-width: 400px) {
-  .encabezado-trivia h1 {
-    font-size: 1.5rem;
-  }
-
-  .tarjeta-trivia {
-    padding: 20px 10px;
-  }
-
-  .tarjeta-trivia h2 {
-    font-size: 1rem;
-  }
-
-  .opciones button {
-    font-size: 0.85rem;
-    padding: 8px;
-  }
+  .encabezado-trivia h1 { font-size: 1.5rem; }
+  .tarjeta-trivia, .tarjeta-temas { padding: 20px 10px; }
+  .tarjeta-trivia h2, .tarjeta-temas h2 { font-size: 1rem; }
+  .opciones button, .tema { font-size: 0.85rem; padding: 8px; }
 }
