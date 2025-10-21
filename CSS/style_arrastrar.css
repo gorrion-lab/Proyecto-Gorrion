@@ -121,3 +121,49 @@ body{
   .dropzone{min-height:110px}
   .app-header h1{font-size:1.4rem}
 }
+/* ===== Ajustes para móviles pequeños ===== */
+@media (max-width: 480px) {
+  .app-main {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Elementos arrastrables: scroll horizontal */
+  .elementos {
+    order: 1;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    gap: 8px;
+  }
+
+  .item {
+    flex: 0 0 80px;
+    height: 80px;
+  }
+
+  /* Categorías: scroll vertical */
+  .categorias {
+    order: 2;
+    max-height: 60vh; /* altura máxima visible */
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+
+  .category-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .dropzone {
+    min-height: 120px;
+    margin-bottom: 12px;
+  }
+
+  .app-header h1 {
+    font-size: 1.4rem;
+  }
+}
