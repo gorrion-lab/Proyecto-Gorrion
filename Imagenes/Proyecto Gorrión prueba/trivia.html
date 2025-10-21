@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trivia Gorrión</title>
+  <link rel="stylesheet" href="CSS/style_trivia.css" />
+</head>
+<body>
+
+  <header class="encabezado-trivia">
+    <div class="encabezado-inner">
+      <h1>Trivia Gorrión</h1>
+      <p>Demuestra cuánto sabes sobre el proyecto Gorrión 🐦</p>
+    </div>
+  </header>
+
+  <main class="contenedor-trivia">
+
+    <!-- PANTALLA INICIAL: SELECCIÓN DE TEMA -->
+    <section id="pantalla-temas" class="tarjeta-temas">
+      <h2>Elige un tema para comenzar</h2>
+      <p class="subtitulo-temas">Selecciona el área sobre la que quieras responder preguntas.</p>
+
+      <div class="temas-grid" role="list" aria-label="Lista de temas">
+        <button class="tema" data-tema="redes" role="listitem" aria-pressed="false">
+          <span class="emoji">🌱</span>
+          <span class="titulo-tema">Redes colaborativas</span>
+          <small class="desc-tema">Colaboración en proyectos ambientales</small>
+        </button>
+
+        <button class="tema" data-tema="gestion" role="listitem" aria-pressed="false">
+          <span class="emoji">🌿</span>
+          <span class="titulo-tema">Gestión de recursos</span>
+          <small class="desc-tema">Sostenibilidad y manejo de recursos</small>
+        </button>
+
+        <button class="tema" data-tema="huertos" role="listitem" aria-pressed="false">
+          <span class="emoji">🍅</span>
+          <span class="titulo-tema">Huertos escolares</span>
+          <small class="desc-tema">Prácticas y diseño de huertos</small>
+        </button>
+
+        <button class="tema" data-tema="educacion" role="listitem" aria-pressed="false">
+          <span class="emoji">🌎</span>
+          <span class="titulo-tema">Educación ambiental</span>
+          <small class="desc-tema">Enseñanza y conciencia ecológica</small>
+        </button>
+
+        <button class="tema" data-tema="participacion" role="listitem" aria-pressed="false">
+          <span class="emoji">🤝</span>
+          <span class="titulo-tema">Participación comunitaria</span>
+          <small class="desc-tema">Involucramiento y acción local</small>
+        </button>
+      </div>
+
+      <div class="nota-tema">
+        <small>Tip: después de elegir el tema, la trivia cargará preguntas relacionadas. ¡Suerte!</small>
+      </div>
+    </section>
+
+    <!-- CONTENEDOR DE LA TRIVIA (usa tu markup original) -->
+    <section id="quiz-container" class="tarjeta-trivia oculto" aria-live="polite">
+      <div class="encabezado-pregunta">
+        <h2 id="pregunta">Pregunta aquí...</h2>
+        <div id="progreso" class="progreso" aria-hidden="true"></div>
+      </div>
+
+      <div id="opciones" class="opciones" role="list" aria-label="Opciones de respuesta"></div>
+
+      <div class="controles">
+        <button id="btn-siguiente" class="btn-siguiente" aria-hidden="true">Siguiente</button>
+      </div>
+    </section>
+
+    <!-- RESULTADO (conservar lógica existente) -->
+    <section id="resultado" class="resultado oculto" aria-live="polite">
+      <h2>¡Trivia completada!</h2>
+      <p id="puntaje"></p>
+      <div class="acciones-resultado">
+        <button id="btn-reiniciar" class="btn-reiniciar">Jugar otra vez</button>
+        <button id="btn-volver" class="btn-volver">Volver</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Script principal (tu JS se actualizará para usar la selección de temas) -->
+  <script src="JS/trivia.js"></script>
+</body>
+</html>

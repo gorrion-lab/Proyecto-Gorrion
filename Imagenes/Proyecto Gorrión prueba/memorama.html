@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memorama Gorrión - Naturaleza y Huertos Escolares</title>
+  <link rel="stylesheet" href="CSS/style_memorama.css">
+</head>
+<body>
+
+  <header class="header-memorama">
+    <h1>Memorama Gorrión</h1>
+    <p>Aprende sobre la naturaleza y los huertos escolares mientras te diviertes 🌿</p>
+  </header>
+
+  <!-- ======= SELECCIÓN DE DIFICULTAD ======= -->
+  <section class="seleccion-nivel" id="seleccionNivel">
+    <h2>Elige cuántos pares quieres jugar:</h2>
+    <div class="botones-nivel">
+      <button data-pares="6">Fácil (6 pares)</button>
+      <button data-pares="10">Medio (10 pares)</button>
+      <button data-pares="15">Completo (15 pares)</button>
+    </div>
+  </section>
+
+  <!-- ======= TABLERO DE JUEGO ======= -->
+  <main class="game-container oculto" id="gameContainer">
+    <section class="game-board" id="gameBoard"></section>
+  </main>
+
+  <!-- ======= MODAL DE VICTORIA ======= -->
+  <div class="modal" id="winModal">
+    <div class="modal-content">
+      <h2>¡Felicidades! 🎉</h2>
+      <p>Has completado el memorama de la naturaleza y los huertos escolares.</p>
+      <div class="botones-modal">
+        <button id="restartBtn">Jugar de nuevo</button>
+        <button id="volverBtn">Volver a ¿Qué es Gorrión?</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="JS/script_memorama.js"></script>
+</body>
+</html>

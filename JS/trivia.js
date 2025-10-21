@@ -315,3 +315,4 @@ btnVolver.addEventListener("click", () => {
 // ======= INICIAR PANTALLA POR DEFECTO =======
 quizContenedor.classList.add("oculto");
 resultadoElemento.classList.add("oculto");
+
