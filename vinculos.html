@@ -4,15 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GORRIÓN - Vínculos</title>
-
   <!-- CSS -->
   <link rel="stylesheet" href="CSS/style_vinculo.css"/>
   <!-- Tipografías -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <!-- HEADER -->
+  <!-- HEADER ORIGINAL -->
   <header>
     <img src="Imagenes/logo-universidad.png" alt="Logo Universidad" class="logo-universidad">
     <div class="titulo-proyecto">
@@ -21,7 +20,7 @@
     <img src="Imagenes/logo-proyecto.png" alt="Logo Proyecto Gorrión" class="logo-gorrion">
   </header>
 
-  <!-- MENÚ DE NAVEGACIÓN RESPONSIVE -->
+  <!-- MENÚ DE NAVEGACIÓN ORIGINAL -->
   <nav>
     <div class="menu-toggle" id="menu-toggle">☰ Menú</div>
     <ul id="menu-list">
@@ -33,117 +32,187 @@
       <li><a href="semillero.html">Semillero de Lectura</a></li>
       <li><a href="nido.html">Nido de Aprendizaje</a></li>
       <li><a href="voces.html">Voces Gorrión</a></li>
-      <li><a href="login.html">Acceso</a></li>
+      <li><a href="acceso.html">Acceso</a></li>
     </ul>
   </nav>
 
   <!-- LAYOUT: SIDEBAR IZQ + CONTENIDO DER -->
   <div class="layout">
     <!-- SIDEBAR (izquierda) -->
-    <aside class="sidebar">
-      <div class="item">
-        <a href="#atlautla">Atlautla</a>
-        <div class="acciones">
-          <span class="chip">Principal</span>
-          <a class="mas-info" href="vinculos_atlautla.html">Más info</a>
-        </div>
-      </div>
-
-      <div class="item">
-        <a href="#ozumba">Ozumba</a>
-        <div class="acciones">
-          <a class="mas-info" href="vinculos_ozumba.html">Más info</a>
-        </div>
-      </div>
-
-      <div class="item">
-        <a href="#tepetlixpa">Tepetlixpa</a>
-        <div class="acciones">
-          <a class="mas-info" href="vinculos_tepetlixpa.html">Más info</a>
-        </div>
-      </div>
-
-      <div class="item">
-        <a href="#ecatzingo">Ecatzingo</a>
-        <div class="acciones">
-          <a class="mas-info" href="vinculos_ecatzingo.html">Más info</a>
-        </div>
-      </div>
-
-      <div class="item">
-        <a href="#juchitepec">Juchitepec</a>
-        <div class="acciones">
-          <a class="mas-info" href="vinculos_juchitepec.html">Más info</a>
-        </div>
-      </div>
-    </aside>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <h3>Municipios</h3>
+  </div>
+  <div class="item">
+    <a href="#" class="municipio-name">Atlautla</a>
+    <div class="acciones">
+      <a href="vinculos_atlautla.html" class="mas-info">Más Info</a>
+      <a href="recorrido.html" class="ver-recorrido">Recorrido</a>
+    </div>
+    <div class="municipio-desc">Municipio principal del Proyecto Gorrión</div>
+  </div>
+  
+  <div class="item">
+    <a href="#" class="municipio-name">Ozumba</a>
+    <div class="acciones">
+      <a href="vinculos_ozumba.html" class="mas-info">Más Info</a>
+      <a href="recorrido.html" class="ver-recorrido">Recorrido</a>
+    </div>
+    <div class="municipio-desc">Comunidad con tradición agrícola</div>
+  </div>
+  
+  <div class="item">
+    <a href="#" class="municipio-name">Tepetlixpa</a>
+    <div class="acciones">
+      <a href="vinculos_tepetlixpa.html" class="mas-info">Más Info</a>
+      <a href="recorrido.html" class="ver-recorrido">Recorrido</a>
+    </div>
+    <div class="municipio-desc">Zona de importancia ecológica</div>
+  </div>
+  
+  <div class="item">
+    <a href="#" class="municipio-name">Ecatzingo</a>
+    <div class="acciones">
+      <a href="vinculos_ecatzingo.html" class="mas-info">Más Info</a>
+      <a href="recorrido_ecatzingo.html" class="ver-recorrido">Recorrido</a>
+    </div>
+    <div class="municipio-desc">Participación activa en proyectos</div>
+  </div>
+  
+  <div class="item">
+    <a href="#" class="municipio-name">Juchitepec</a>
+    <div class="acciones">
+      <a href="vinculos_juchitepec.html" class="mas-info">Más Info</a>
+      <a href="recorrido.html" class="ver-recorrido">Recorrido</a>
+    </div>
+    <div class="municipio-desc">Innovación en prácticas sustentables</div>
+  </div>
+</div>
 
     <!-- CONTENIDO (derecha) -->
     <section class="municipios">
-      <!-- ATLAUTLA -->
-      <article class="municipio" id="atlautla">
-        <div class="carrusel" data-auto="true">
-          <img src="Imagenes/atlautla1.jpg" alt="Atlautla 1" class="active">
-          <img src="Imagenes/atlautla2.jpg" alt="Atlautla 2">
-          <img src="Imagenes/atlautla3.jpg" alt="Atlautla 3">
-        </div>
-        <h2>Atlautla</h2>
+      <!-- Descripción del apartado -->
+      <div class="descripcion-apartado">
+        <h2>Explora los Vínculos GORRIÓN</h2>
+        <p>En esta sección podrás conocer los avances del Proyecto Gorrión en cada uno de los municipios participantes. Descubre las experiencias, logros y aprendizajes de cada comunidad, y realiza un recorrido virtual para conocer de cerca los espacios donde se desarrollan estas iniciativas transformadoras.</p>
+      </div>
+<!-- ATLAUTLA -->
+<article class="municipio" id="atlautla">
+  <div class="municipio-card">
+    <div class="municipio-header">
+      <h2>Atlautla</h2>
+      <div class="municipio-subtitle">Universidad Politécnica de Atlautla</div>
+    </div>
+    <div class="municipio-content">
+      <div class="municipio-imagen">
+        <img src="../Imagenes/VinculosAtlaulta.png" alt="Atlautla">
+      </div>
+      <div class="municipio-texto">
         <p>Atlautla es el municipio principal del Proyecto Gorrión por su riqueza natural y participación activa. Sus huertos académicos y comunitarios son un eje para la innovación social y la educación ambiental.</p>
-        <a class="btn-ver-mas" href="vinculos_atlautla.html">Vínculos Atlautla</a>
-      </article>
-
-      <!-- OZUMBA -->
-      <article class="municipio" id="ozumba">
-        <div class="carrusel" data-auto="true">
-          <img src="Imagenes/atlautla1.jpg" alt="Atlautla 1" class="active">
-          <img src="Imagenes/atlautla2.jpg" alt="Atlautla 2">
-          <img src="Imagenes/atlautla3.jpg" alt="Atlautla 3">
+        <p>Te damos la bienvenida al huerto de la Universidad Politécnica de Atlautla. Aquí la naturaleza es nuestra maestra: nos enseña a valorar lo pequeño, a cuidar con responsabilidad y a disfrutar del crecimiento día a día. Este espacio verde no solo nos regala frutos, también nos invita a compartir, convivir y crecer como comunidad. Cada rincón de este huerto es una lección viva de respeto hacia la tierra.</p>
+        <div class="municipio-acciones">
+          <a class="btn-ver-mas" href="vinculos_atlautla.html">Vínculos Atlautla</a>
+          <a class="btn-ver-mas" href="recorrido.html">Recorrido virtual</a>
         </div>
-        <h2>Ozumba</h2>
-        <p>Ozumba destaca por su tejido comunitario y tradiciones. Participa con huertos que fortalecen la soberanía alimentaria y la educación para el cuidado del entorno.</p>
-        <a class="btn-ver-mas" href="vinculos_ozumba.html">Vinculos Ozumba</a>
-      </article>
-
-      <!-- TEPETLIXPA -->
-      <article class="municipio" id="tepetlixpa">
-        <div class="carrusel" data-auto="true">
-          <img src="Imagenes/atlautla1.jpg" alt="Atlautla 1" class="active">
-          <img src="Imagenes/atlautla2.jpg" alt="Atlautla 2">
-          <img src="Imagenes/atlautla3.jpg" alt="Atlautla 3">
-        </div>
-        <h2>Tepetlixpa</h2>
-        <p>Municipio estratégico por su labor educativa. Sus experiencias de huertos escolares promueven capacidades locales y aprendizajes colaborativos.</p>
-        <a class="btn-ver-mas" href="vinculos_tepetlixpa.html">Vinculos Tepetlixpa</a>
-      </article>
-
-      <!-- ECATZINGO -->
-      <article class="municipio" id="ecatzingo">
-        <div class="carrusel" data-auto="true">
-          <img src="Imagenes/atlautla1.jpg" alt="Atlautla 1" class="active">
-          <img src="Imagenes/atlautla2.jpg" alt="Atlautla 2">
-          <img src="Imagenes/atlautla3.jpg" alt="Atlautla 3">
-        </div>
-        <h2>Ecatzingo</h2>
-        <p>Ecatzingo impulsa procesos de innovación social con un enfoque de cuidado del agua, biodiversidad y producción sustentable desde los huertos locales.</p>
-        <a class="btn-ver-mas" href="vinculos_ecatzingo.html">Vinculos Ecatzingo</a>
-      </article>
-
-      <!-- JUCHITEPEC -->
-      <article class="municipio" id="juchitepec">
-        <div class="carrusel" data-auto="true">
-          <img src="Imagenes/atlautla1.jpg" alt="Atlautla 1" class="active">
-          <img src="Imagenes/atlautla2.jpg" alt="Atlautla 2">
-          <img src="Imagenes/atlautla3.jpg" alt="Atlautla 3">
-        </div>
-        <h2>Juchitepec</h2>
-        <p>Con fuerte tradición agrícola, Juchitepec integra saberes locales y académicos para potenciar huertos comunitarios y experiencias formativas.</p>
-        <a class="btn-ver-mas" href="vinculos_juchitepec.html">Vinculos Juchitepec</a>
-      </article>
-    </section>
+      </div>
+    </div>
   </div>
+</article>
+
+<!-- OZUMBA -->
+<article class="municipio" id="ozumba">
+  <div class="municipio-card">
+    <div class="municipio-header">
+      <h2>Ozumba</h2>
+      <div class="municipio-subtitle">EPO 177</div>
+    </div>
+    <div class="municipio-content">
+      <div class="municipio-imagen">
+        <img src="Imagenes/Vinculos_Ozumba.png" alt="Ozumba">
+      </div>
+      <div class="municipio-texto">
+        <p>Ozumba destaca por su tejido comunitario y tradiciones. Participa con huertos que fortalecen la soberanía alimentaria y la educación para el cuidado del entorno.</p>
+        <p>En Ozumba, el proyecto ha florecido gracias a la participación activa de estudiantes y docentes de la EPO 177. El huerto escolar se ha convertido en un espacio de aprendizaje interdisciplinario donde convergen la ciencia, la cultura y el cuidado del medio ambiente.</p>
+        <div class="municipio-acciones">
+          <a class="btn-ver-mas" href="vinculos_ozumba.html">Vínculos Ozumba</a>
+          <a class="btn-ver-mas" href="recorrido.html">Recorrido virtual</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- TEPETLIXPA -->
+<article class="municipio" id="tepetlixpa">
+  <div class="municipio-card">
+    <div class="municipio-header">
+      <h2>Tepetlixpa</h2>
+      <div class="municipio-subtitle">Centro Tecnológico Tepetlixpa</div>
+    </div>
+    <div class="municipio-content">
+      <div class="municipio-imagen">
+        <img src="Imagenes/VinculosTepe.png" alt="Tepetlixpa">
+      </div>
+      <div class="municipio-texto">
+        <p>Municipio estratégico por su labor educativa. Sus experiencias de huertos escolares promueven capacidades locales y aprendizajes colaborativos.</p>
+        <p>El proyecto en Tepetlixpa se ha enfocado en la integración de saberes tradicionales con conocimientos académicos en el Centro Tecnológico Tepetlixpa. Los estudiantes han desarrollado técnicas de cultivo sostenible que respetan los ciclos naturales y promueven la biodiversidad local.</p>
+        <div class="municipio-acciones">
+          <a class="btn-ver-mas" href="vinculos_tepetlixpa.html">Vínculos Tepetlixpa</a>
+          <a class="btn-ver-mas" href="recorrido.html">Recorrido virtual</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ECATZINGO -->
+<article class="municipio" id="ecatzingo">
+  <div class="municipio-card">
+    <div class="municipio-header">
+      <h2>Ecatzingo</h2>
+      <div class="municipio-subtitle">EPO 50</div>
+    </div>
+    <div class="municipio-content">
+      <div class="municipio-imagen">
+        <img src="Imagenes/VinculosEcatzingo.png" alt="Ecatzingo">
+      </div>
+      <div class="municipio-texto">
+        <p>Ecatzingo impulsa procesos de innovación social con un enfoque de cuidado del agua, biodiversidad y producción sustentable desde los huertos locales.</p>
+        <p>En Ecatzingo, el proyecto ha destacado por su enfoque en la conservación del agua y la implementación de sistemas de riego eficientes en la EPO 50. Los estudiantes han aprendido técnicas ancestrales de captación de agua de lluvia y han aplicado principios de permacultura en el diseño de sus huertos.</p>
+        <div class="municipio-acciones">
+          <a class="btn-ver-mas" href="vinculos_ecatzingo.html">Vínculos Ecatzingo</a>
+          <a class="btn-ver-mas" href="recorrido.html">Recorrido virtual</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- JUCHITEPEC -->
+<article class="municipio" id="juchitepec">
+  <div class="municipio-card">
+    <div class="municipio-header">
+      <h2>Juchitepec</h2>
+      <div class="municipio-subtitle">CBT Dr. Carlos Sosa Moss</div>
+    </div>
+    <div class="municipio-content">
+      <div class="municipio-imagen">
+        <img src="Imagenes/VinculosJuchi.png" alt="Juchitepec">
+      </div>
+      <div class="municipio-texto">
+        <p>Con fuerte tradición agrícola, Juchitepec integra saberes locales y académicos para potenciar huertos comunitarios y experiencias formativas.</p>
+        <p>En Juchitepec, el proyecto ha revitalizado prácticas agrícolas tradicionales combinándolas con enfoques modernos de sostenibilidad en el CBT Dr. Carlos Sosa Moss. Los estudiantes han documentado conocimientos ancestrales sobre cultivos locales mientras implementan técnicas innovadoras de agricultura orgánica.</p>
+        <div class="municipio-acciones">
+          <a class="btn-ver-mas" href="vinculos_juchitepec.html">Vínculos Juchitepec</a>
+          <a class="btn-ver-mas" href="recorrido.html">Recorrido virtual</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
 
   <!-- FOOTER -->
-  <footer>© 2025 Proyecto Gorrión - Universidad Politécnica de Atlautla</footer>
+  <footer>© 2025 Proyecto Gorrión - Universidad Politécnica de Atlautla. Todos los derechos reservados.</footer>
 
   <!-- MASCOTA -->
   <div class="mascota-container">
@@ -161,5 +230,6 @@
       menu.classList.toggle('open');
     });
   </script>
+  
 </body>
-</html> 
+</html>
