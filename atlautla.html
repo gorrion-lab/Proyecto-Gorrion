@@ -4,9 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proyecto Gorrión — Climatología de Atlautla</title>
+
+  <!-- Estilos principales -->
   <link rel="stylesheet" href="CSS/estilosatlautla.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Leaflet MAPA -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+  </script>
+
+  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
@@ -27,13 +38,12 @@
     <aside class="sidebar">
       <h3>🌦️ Parámetros</h3>
       <ul>
-	    
         <li><a href="temperaturatlautla.html">🌡️ Temperatura del aire</a></li>
         <li><a href="humedadatlautla.html">💧 Humedad Relativa</a></li>
         <li><a href="presipitacionatlautla.html">🌧️ Precipitación</a></li>
         <li><a href="vientoatlautla.html">💨 Viento</a></li>
         <li><a href="sueloatlautla.html">🌱 Temperatura del Suelo</a></li>
-		<li><a href="antena.html">volver a la antena </a></li>
+        <li><a href="antena.html">← Volver a la antena</a></li>
       </ul>
 
       <h3>👨‍🌾 Útil para</h3>
@@ -46,21 +56,24 @@
     </aside>
 
     <main class="main-content">
+      <!-- Introducción -->
       <section class="intro card">
-        <h2>Bienvenido a la Universidad Politecnica de Atlautla</h2>
+        <h2>Bienvenido a la Universidad Politécnica de Atlautla</h2>
         <p>
-          Esta plataforma muestra datos meteorológicos recopilados por antenas en el huerto de la Uiversidad Politécnica de Atlautla.
+          Esta plataforma muestra datos meteorológicos recopilados por antenas en el huerto de la Universidad Politécnica de Atlautla.
           Con ellos se puede conocer la temperatura, humedad, viento y precipitación, fundamentales para planificar siembras,
           prevenir heladas y cuidar los cultivos.
         </p>
         <button onclick="window.location.href='parametros/temperatura.html'" class="btn">Ver Temperatura Actual</button>
       </section>
 
+      <!-- Mapa -->
       <section class="map card">
-        <h3>Mapa — Estación Meteorológica</h3>
+        <h3>🗺️ Mapa — Estación Meteorológica Atlautla</h3>
         <div id="map"></div>
       </section>
 
+      <!-- Información -->
       <section class="info card">
         <h3>¿Por qué medir el clima?</h3>
         <p>
@@ -70,50 +83,51 @@
         </p>
       </section>
 
+      <!-- Datos del clima -->
       <section class="card datos-clima">
-  <h3>📈 Datos meteorológicos recientes — Atlautla</h3>
-  <p>Lectura directa de la antena meteorológica.</p>
-  <p id="ultima-actualizacion">🔄 Última actualización: —</p>
+        <h3>📈 Datos meteorológicos recientes — Atlautla</h3>
+        <p>Lectura directa de la antena meteorológica.</p>
+        <p id="ultima-actualizacion">🔄 Última actualización: —</p>
 
-  <!-- 🔹 RESUMEN VISUAL -->
-  <div class="resumen-clima">
-    <div class="item-resumen">
-      <h4>🌡️ Temperatura</h4>
-      <p id="temp-actual">-- °C</p>
-    </div>
-    <div class="item-resumen">
-      <h4>💧 Humedad</h4>
-      <p id="humedad-actual">-- %</p>
-    </div>
-    <div class="item-resumen">
-      <h4>🌧️ Lluvia</h4>
-      <p id="lluvia-actual">-- mm</p>
-    </div>
-    <div class="item-resumen">
-      <h4>💨 Viento</h4>
-      <p id="viento-actual">-- km/h</p>
-    </div>
-  </div>
+        <!-- 🔹 RESUMEN VISUAL -->
+        <div class="resumen-clima">
+          <div class="item-resumen">
+            <h4>🌡️ Temperatura</h4>
+            <p id="temp-actual">-- °C</p>
+          </div>
+          <div class="item-resumen">
+            <h4>💧 Humedad</h4>
+            <p id="humedad-actual">-- %</p>
+          </div>
+          <div class="item-resumen">
+            <h4>🌧️ Lluvia</h4>
+            <p id="lluvia-actual">-- mm</p>
+          </div>
+          <div class="item-resumen">
+            <h4>💨 Viento</h4>
+            <p id="viento-actual">-- km/h</p>
+          </div>
+        </div>
 
-  <!-- 🔹 TABLA DE REGISTROS -->
-  <div class="tabla-contenedor">
-    <table id="tablaClima">
-      <thead>
-        <tr>
-          <th>Fecha</th>
-          <th>Hora</th>
-          <th>🌡 Temp (°C)</th>
-          <th>💧 Humedad (%)</th>
-          <th>🌧 Lluvia (mm)</th>
-          <th>💨 Viento (km/h)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td colspan="6">Cargando datos...</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+        <!-- 🔹 TABLA DE REGISTROS -->
+        <div class="tabla-contenedor">
+          <table id="tablaClima">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>🌡 Temp (°C)</th>
+                <th>💧 Humedad (%)</th>
+                <th>🌧 Lluvia (mm)</th>
+                <th>💨 Viento (km/h)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="6">Cargando datos...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </main>
   </div>
 
@@ -121,62 +135,76 @@
     © 2025 Proyecto Gorrión — Universidad Politécnica de Atlautla
   </footer>
 
-<script>
-  // === FUNCIÓN PRINCIPAL PARA CARGAR DATOS CSV ===
-  function cargarDatosClima() {
-    fetch('datos/datos_climaticos_prueba.csv?_=' + new Date().getTime()) // evitar caché
-      .then(response => response.text())
-      .then(csvText => {
-        const lineas = csvText.trim().split('\n');
-        const encabezado = lineas[0].split(',');
-        const registros = lineas.slice(1);
+  <!-- === SCRIPT GENERAL === -->
+  <script>
+    // === CARGAR Y MOSTRAR DATOS DEL CSV ===
+    function cargarDatosClima() {
+      fetch('datos/datos_climaticos_prueba.csv?_=' + new Date().getTime())
+        .then(response => response.text())
+        .then(csvText => {
+          const lineas = csvText.trim().split('\n');
+          const registros = lineas.slice(1);
 
-        const tablaBody = document.querySelector('#tablaClima tbody');
-        tablaBody.innerHTML = '';
+          const tablaBody = document.querySelector('#tablaClima tbody');
+          tablaBody.innerHTML = '';
 
-        // Mostrar cada fila en la tabla
-        registros.forEach(fila => {
-          const columnas = fila.split(',');
-          const tr = document.createElement('tr');
-          columnas.forEach(col => {
-            const td = document.createElement('td');
-            td.textContent = col.trim();
-            tr.appendChild(td);
+          // 🔹 Tomar solo las 10 últimas lecturas
+          const ultimos10 = registros.slice(-10);
+
+          ultimos10.forEach(fila => {
+            const columnas = fila.split(',');
+            const tr = document.createElement('tr');
+            columnas.forEach(col => {
+              const td = document.createElement('td');
+              td.textContent = col.trim();
+              tr.appendChild(td);
+            });
+            tablaBody.appendChild(tr);
           });
-          tablaBody.appendChild(tr);
+
+          // Última lectura como datos actuales
+          const ultimaFila = registros[registros.length - 1].split(',');
+          document.getElementById('temp-actual').textContent = `${ultimaFila[2]} °C`;
+          document.getElementById('humedad-actual').textContent = `${ultimaFila[3]} %`;
+          document.getElementById('lluvia-actual').textContent = `${ultimaFila[4]} mm`;
+          document.getElementById('viento-actual').textContent = `${ultimaFila[5]} km/h`;
+
+          // Actualizar fecha/hora
+          const fecha = new Date();
+          const opciones = { hour: '2-digit', minute: '2-digit' };
+          const horaLocal = fecha.toLocaleTimeString('es-MX', opciones);
+          const fechaLocal = fecha.toLocaleDateString('es-MX');
+          document.getElementById('ultima-actualizacion').textContent =
+            `🔄 Última actualización: ${fechaLocal} — ${horaLocal}`;
+        })
+        .catch(error => {
+          console.error('Error al cargar CSV:', error);
+          document.querySelector('#tablaClima tbody').innerHTML =
+            '<tr><td colspan="6">No se pudieron cargar los datos.</td></tr>';
         });
+    }
 
-        // Tomar el último registro como "dato actual"
-        const ultimaFila = registros[registros.length - 1].split(',');
-        document.getElementById('temp-actual').textContent = `${ultimaFila[2]} °C`;
-        document.getElementById('humedad-actual').textContent = `${ultimaFila[3]} %`;
-        document.getElementById('lluvia-actual').textContent = `${ultimaFila[4]} mm`;
-        document.getElementById('viento-actual').textContent = `${ultimaFila[5]} km/h`;
+    // === MAPA DE LEAFLET ===
+    document.addEventListener('DOMContentLoaded', () => {
+      const atlautlaCoords = [19.0569, -98.7631];
+      const map = L.map('map').setView(atlautlaCoords, 13);
 
-        // Mostrar fecha y hora de actualización
-        const fecha = new Date();
-        const opciones = { hour: '2-digit', minute: '2-digit' };
-        const horaLocal = fecha.toLocaleTimeString('es-MX', opciones);
-        const fechaLocal = fecha.toLocaleDateString('es-MX');
-        document.getElementById('ultima-actualizacion').textContent =
-          `🔄 Última actualización: ${fechaLocal} — ${horaLocal}`;
-      })
-      .catch(error => {
-        console.error('Error al cargar CSV:', error);
-        document.querySelector('#tablaClima tbody').innerHTML =
-          '<tr><td colspan="6">No se pudieron cargar los datos.</td></tr>';
-      });
-  }
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+      }).addTo(map);
 
-  // === CARGA INICIAL ===
-  cargarDatosClima();
+      L.marker(atlautlaCoords)
+        .addTo(map)
+        .bindPopup("📍 Estación Meteorológica Atlautla")
+        .openPopup();
 
-  // === ACTUALIZAR CADA 5 MINUTOS (300000 ms) ===
-  setInterval(cargarDatosClima, 300000);
-</script>
-
+      // Cargar datos CSV al iniciar
+      cargarDatosClima();
+      // Actualizar cada 5 minutos
+      setInterval(cargarDatosClima, 300000);
+    });
+  </script>
 
 </body>
 </html>
-
-
