@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Precipitación — Universidad Politécnica de Atlautla</title>
+  <link rel="stylesheet" href="../CSS/precipitacionatlautla.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <img src="../Imagenes/logo-universidad.png" alt="Logo UPA" class="logo">
+      <div class="title-center">
+        <h1>Precipitación</h1>
+        <h2>Municipio de Atlautla</h2>
+       
+      </div>
+      <img src="../Imagenes/logo-proyecto.png" alt="Logo Proyecto Gorrión" class="logo">
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>Parámetros Meteorológicos</h3>
+      <ul>
+        <li><a href="temperaturatlautla.html">🌡️ Temperatura del aire</a></li>
+        <li><a href="humedadatlautla.html">💧 Humedad Relativa</a></li>
+        <li><a href="presipitacionatlautla.html"class="activo">🌧️ Precipitación</a></li>
+        <li><a href="vientoatlautla.html">💨 Viento</a></li>
+        <li><a href="sueloatlautla.html">🌱 Temperatura del Suelo</a></li>
+		<li><a href="atlautla.html">🏡 Regresar </a></li>
+    </aside>
+
+    <main>
+      <section class="card">
+        <h2>¿Por qué es importante medir la precipitación?</h2>
+        <p>La <strong>precipitación</strong> indica la cantidad de lluvia, granizo o nieve que cae sobre el terreno.
+        Es fundamental para la <strong>agricultura, gestión del agua</strong> y planificación de cultivos.
+        Con esta información se pueden prevenir pérdidas por inundaciones y optimizar el riego.</p>
+      </section>
+
+      <section class="card">
+        <h3>Datos actuales — Estación Atlautla</h3>
+        <div class="data-box">
+          <p><b>Precipitación diaria:</b> <span id="pHoy"></span> mm</p>
+          <p><b>Promedio semanal:</b> <span id="pSemanal"></span> mm</p>
+          <p><b>Acumulado mensual:</b> <span id="pMensual"></span> mm</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>Precipitación semanal</h3>
+        <canvas id="chartPrecipitacion" style="max-height:300px"></canvas>
+      </section>
+
+      <section class="card">
+        <h3>Mapa de ubicación</h3>
+        <div id="map"></div>
+      </section>
+
+      <section class="card">
+        <h3>Aplicaciones agrícolas</h3>
+        <ul>
+          <li>Programar el riego según las lluvias acumuladas.</li>
+          <li>Evitar siembras durante semanas de alta precipitación.</li>
+          <li>Seleccionar cultivos resistentes a exceso o escasez de agua.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 Universidad Politécnica de Atlautla — Proyecto Gorrión
+  </footer>
+
+  <script>
+    // Datos simulados
+    const DATA = {
+      hoy: 14.3,
+      semanal: 52.1,
+      mensual: 118.5,
+      labels: ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"],
+      series: [0, 8.2, 6.5, 14.3, 10.4, 7.3, 5.4]
+    };
+
+    document.getElementById('pHoy').textContent = DATA.hoy;
+    document.getElementById('pSemanal').textContent = DATA.semanal;
+    document.getElementById('pMensual').textContent = DATA.mensual;
+
+    // Gráfica
+    new Chart(document.getElementById('chartPrecipitacion'), {
+      type: 'bar',
+      data: {
+        labels: DATA.labels,
+        datasets: [{
+          label: 'Precipitación (mm)',
+          data: DATA.series,
+          backgroundColor: '#1b5e20'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+
+    // Mapa
+    const map = L.map('map').setView([19.0415, -98.7780], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+    L.marker([19.0415, -98.7780]).addTo(map).bindPopup("Estación Meteorológica — Atlautla");
+  </script>
+</body>
+</html>

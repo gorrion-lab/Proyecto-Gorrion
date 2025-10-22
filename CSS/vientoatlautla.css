@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Merriweather:wght@700&display=swap');
+
+:root {
+  --verde-oscuro: #1b5e20;
+  --verde-medio: #2e7d32;
+  --verde-claro: #e8f5e9;
+  --blanco: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--verde-claro);
+  color: #1b1b1b;
+}
+
+/* HEADER */
+header {
+  background: var(--blanco);
+  border-bottom: 5px solid var(--verde-oscuro);
+  padding: 12px 0;
+  text-align: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.logo {
+  height: 70px;
+}
+
+.title-center h1 {
+  color: var(--verde-oscuro);
+  font-family: 'Merriweather', serif;
+  margin: 0;
+}
+
+.title-center h2, .title-center h3 {
+  margin: 0;
+  color: var(--verde-medio);
+}
+
+/* LAYOUT */
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+.sidebar {
+  background: var(--blanco);
+  padding: 14px;
+  border-radius: 10px;
+  border-left: 5px solid var(--verde-oscuro);
+}
+
+.sidebar h3 {
+  color: var(--verde-oscuro);
+  font-family: 'Merriweather', serif;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 10px;
+  color: var(--verde-medio);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+.sidebar ul li a:hover, .sidebar ul li a.active {
+  background: var(--verde-medio);
+  color: var(--blanco);
+}
+
+/* MAIN */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: var(--blanco);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 16px;
+}
+
+.card h2, .card h3 {
+  color: var(--verde-oscuro);
+  font-family: 'Merriweather', serif;
+}
+
+.data-box {
+  background: var(--verde-claro);
+  border-left: 4px solid var(--verde-oscuro);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+#map {
+  height: 280px;
+  border-radius: 10px;
+  border: 2px solid var(--verde-medio);
+}
+
+/* FOOTER */
+footer {
+  background: var(--verde-oscuro);
+  color: var(--blanco);
+  text-align: center;
+  padding: 12px;
+  font-size: 0.9em;
+  margin-top: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo {
+    height: 60px;
+  }
+}

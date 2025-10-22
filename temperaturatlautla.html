@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Temperatura del Aire — Atlautla</title>
+  <link rel="stylesheet" href="../CSS/temperaturatlautla.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <img src="../Imagenes/logo-universidad.png" alt="Logo UPA" class="logo">
+      <div class="title-center">
+        <h1>Temperatura del Aire</h1>
+		
+        <h2>Municipio de Atlautla</h2>
+       
+      </div>
+      <img src="../Imagenes/logo-proyecto.png" alt="Proyecto Gorrión" class="logo">
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>Parámetros</h3>
+      <ul>
+        <li><a href="temperaturatlautla.html" class="active">🌤️ Temperatura del Aire</a></li>
+        <li><a href="humedadatlautla.html">💧 Humedad Relativa</a></li>
+        <li><a href="presipitacionatlautla.html">🌧️ Precipitación</a></li>
+        <li><a href="vientoatlautla.html">💨 Viento</a></li>
+        <li><a href="sueloatlautla.html">🌱 Temperatura del Suelo</a></li>
+		<li><a href="atlautla.html">🏡  Regresar</a></li>
+      </ul>
+    </aside>
+
+    <main>
+      <section class="card">
+        <h2>Importancia</h2>
+        <p>La <b>temperatura del aire</b> es un parámetro esencial para la agricultura y el confort climático. 
+        Afecta la germinación de semillas, el crecimiento de cultivos y el comportamiento del ganado. 
+        Permite determinar qué especies son más adecuadas para sembrar en cada época.</p>
+      </section>
+
+      <section class="card">
+        <h3>Datos actuales — Estación Atlautla</h3>
+        <div class="data-box">
+          <p>Temperatura actual: <span id="tempActual"></span> °C</p>
+          <p>Temperatura máxima: <span id="tempMax"></span> °C</p>
+          <p>Temperatura mínima: <span id="tempMin"></span> °C</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>Evolución diaria</h3>
+        <canvas id="chartTemp" style="max-height:300px"></canvas>
+      </section>
+
+      <section class="card">
+        <h3>Mapa de ubicación</h3>
+        <div id="map"></div>
+      </section>
+
+      <section class="card">
+        <h3>Recomendaciones agrícolas</h3>
+        <ul>
+          <li>Si las temperaturas son mayores a 30 °C, se recomienda regar en horas frescas.</li>
+          <li>Evitar la siembra de cultivos sensibles durante olas de calor.</li>
+          <li>Monitorear temperaturas mínimas para evitar daños por heladas.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 Proyecto Gorrión – Universidad Politécnica de Atlautla
+  </footer>
+
+  <script>
+    // Datos simulados para ejemplo
+    const DATA = {
+      actual: 25.3,
+      max: 30.1,
+      min: 18.4,
+      labels: ["6 AM","9 AM","12 PM","3 PM","6 PM","9 PM"],
+      series: [18.4, 21.5, 26.8, 30.1, 27.5, 22.3]
+    };
+
+    // Mostrar datos
+    document.getElementById('tempActual').textContent = DATA.actual;
+    document.getElementById('tempMax').textContent = DATA.max;
+    document.getElementById('tempMin').textContent = DATA.min;
+
+    // Gráfica
+    new Chart(document.getElementById('chartTemp'), {
+      type: 'line',
+      data: {
+        labels: DATA.labels,
+        datasets: [{
+          label: 'Temperatura (°C)',
+          data: DATA.series,
+          borderColor: '#2e7d32',
+          backgroundColor: '#a5d6a7',
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } } }
+    });
+
+    // Mapa
+    const map = L.map('map').setView([19.0415, -98.7780], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+    L.marker([19.0415, -98.7780]).addTo(map).bindPopup("Estación meteorológica Atlautla");
+  </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Viento — Universidad Politécnica de Atlautla</title>
+  <link rel="stylesheet" href="../CSS/vientoatlautla.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <img src="../Imagenes/logo-universidad.png"  alt="Logo UPA" class="logo">
+      <div class="title-center">
+        <h1>Viento</h1>
+        <h2>Municipio de Atlautla</h2>
+       
+      </div>
+      <img src="../Imagenes/logo-proyecto.png"  alt="Logo Proyecto Gorrión" class="logo">
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>Parámetros Meteorológicos</h3>
+      <ul>
+        <li><a href="temperaturatlautla.html">🌡️ Temperatura del aire</a></li>
+        <li><a href="humedadatlautla.html">💧 Humedad Relativa</a></li>
+        <li><a href="presipitacionatlautla.html">🌧️ Precipitación</a></li>
+        <li><a href="vientoatlautla.html"class="activo">💨 Viento</a></li>
+        <li><a href="sueloatlautla.html">🌱 Temperatura del Suelo</a></li>
+		<li><a href="antena.html">volver a la antena </a></li>
+      </ul>
+    </aside>
+
+    <main>
+      <section class="card">
+        <h2>Importancia de medir el viento</h2>
+        <p>El <strong>viento</strong> influye en la dispersión de semillas, la polinización, la erosión del suelo 
+        y la evapotranspiración. Su dirección y velocidad son datos esenciales para la agricultura, 
+        la seguridad de estructuras y la generación de energía eólica.</p>
+      </section>
+
+      <section class="card">
+        <h3>Datos actuales — Estación Atlautla</h3>
+        <div class="data-box">
+          <p><b>Velocidad promedio:</b> <span id="vPromedio"></span> km/h</p>
+          <p><b>Ráfaga máxima:</b> <span id="vMax"></span> km/h</p>
+          <p><b>Dirección dominante:</b> <span id="vDireccion"></span> °</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>Velocidad del viento (últimas horas)</h3>
+        <canvas id="chartViento" style="max-height:300px"></canvas>
+      </section>
+
+      <section class="card">
+        <h3>Mapa de ubicación</h3>
+        <div id="map"></div>
+      </section>
+
+      <section class="card">
+        <h3>Aplicaciones agrícolas</h3>
+        <ul>
+          <li>Planificar fumigaciones y evitar pérdidas por deriva de agroquímicos.</li>
+          <li>Determinar el riesgo de erosión eólica.</li>
+          <li>Seleccionar especies más resistentes al viento.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 Universidad Politécnica de Atlautla — Proyecto Gorrión
+  </footer>
+
+  <script>
+    // Datos simulados
+    const DATA = {
+      promedio: 14.5,
+      max: 25.2,
+      direccion: 210,
+      labels: ["6am", "9am", "12pm", "3pm", "6pm", "9pm"],
+      series: [8.2, 10.4, 14.5, 22.1, 18.7, 12.3]
+    };
+
+    document.getElementById('vPromedio').textContent = DATA.promedio;
+    document.getElementById('vMax').textContent = DATA.max;
+    document.getElementById('vDireccion').textContent = DATA.direccion;
+
+    // Gráfica
+    new Chart(document.getElementById('chartViento'), {
+      type: 'line',
+      data: {
+        labels: DATA.labels,
+        datasets: [{
+          label: 'Velocidad del viento (km/h)',
+          data: DATA.series,
+          borderColor: '#1b5e20',
+          backgroundColor: 'rgba(27,94,32,0.25)',
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+
+    // Mapa
+    const map = L.map('map').setView([19.0415, -98.7780], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+    L.marker([19.0415, -98.7780]).addTo(map).bindPopup("Estación Meteorológica — Atlautla");
+  </script>
+</body>
+</html>

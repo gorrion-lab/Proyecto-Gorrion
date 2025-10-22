@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Humedad Relativa — Atlautla</title>
+  <link rel="stylesheet" href="../CSS/humedadatlautla.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <!-- Logo universidad -->
+      <img src="../Imagenes/logo-universidad.png" alt="Logo UPA" class="logo logo-izq">
+      
+      <div class="title-center">
+        <h1>Humedad Relativa</h1>
+        <h2>Municipio de Atlautla</h2>
+        <p>Datos de la antena meteorológica del Proyecto Gorrión</p>
+      </div>
+      
+      <!-- Logo proyecto -->
+      <img src="../Imagenes/logo-proyecto.png" alt="Proyecto Gorrión" class="logo logo-der">
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>Parámetros</h3>
+      <ul>
+        <li><a href="temperaturatlautla.html">🌤️ Temperatura del Aire</a></li>
+        <li><a href="humedadatlautla.html" class="active">💧 Humedad Relativa</a></li>
+        <li><a href="presipitacionatlautla.html">🌧️ Precipitación</a></li>
+        <li><a href="vientoatlautla.html">💨 Viento</a></li>
+        <li><a href="sueloatlautla.html">🌱 Temperatura del Suelo</a></li>
+        <li><a href="atlautla.html">🏡  Regresar</a></li>
+      </ul>
+    </aside>
+
+    <main>
+      <section class="card">
+        <h2>Importancia</h2>
+        <p>La <b>humedad relativa</b> mide la cantidad de vapor de agua en el aire. 
+        Es esencial para entender el confort climático, la formación de nubes y la sanidad de cultivos. 
+        Un ambiente demasiado seco puede afectar el crecimiento vegetal, mientras que uno muy húmedo 
+        puede favorecer enfermedades.</p>
+      </section>
+
+      <section class="card">
+        <h3>Datos actuales — Estación Atlautla</h3>
+        <div class="data-box">
+          <p>Humedad actual: <span id="hActual"></span> %</p>
+          <p>Humedad máxima: <span id="hMax"></span> %</p>
+          <p>Humedad mínima: <span id="hMin"></span> %</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>Evolución diaria</h3>
+        <canvas id="chartHumedad" style="max-height:300px"></canvas>
+      </section>
+
+      <section class="card">
+        <h3>Mapa de ubicación</h3>
+        <div id="map"></div>
+      </section>
+
+      <section class="card">
+        <h3>Recomendaciones agrícolas</h3>
+        <ul>
+          <li>Riegue en las primeras horas del día si la humedad es baja.</li>
+          <li>Evite cultivos sensibles a hongos cuando la humedad supera el 85%.</li>
+          <li>La humedad ideal para germinación oscila entre 60% y 75%.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 Proyecto Gorrión – Universidad Politécnica de Atlautla
+  </footer>
+
+  <script>
+    // Datos simulados
+    const DATA = {
+      actual: 65,
+      max: 88,
+      min: 42,
+      labels: ["6 AM", "9 AM", "12 PM", "3 PM", "6 PM", "9 PM"],
+      series: [88, 75, 60, 50, 55, 65]
+    };
+
+    // Mostrar datos
+    document.getElementById('hActual').textContent = DATA.actual;
+    document.getElementById('hMax').textContent = DATA.max;
+    document.getElementById('hMin').textContent = DATA.min;
+
+    // Gráfica
+    new Chart(document.getElementById('chartHumedad'), {
+      type: 'line',
+      data: {
+        labels: DATA.labels,
+        datasets: [{
+          label: 'Humedad relativa (%)',
+          data: DATA.series,
+          borderColor: '#2e7d32',
+          backgroundColor: '#a5d6a7',
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } } }
+    });
+
+    // Mapa
+    const map = L.map('map').setView([19.0415, -98.7780], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+    L.marker([19.0415, -98.7780]).addTo(map).bindPopup("Estación meteorológica Atlautla");
+  </script>
+</body>
+</html>

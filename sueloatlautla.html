@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Temperatura del Suelo — Universidad Politécnica de Atlautla</title>
+  <link rel="stylesheet" href="../CSS/sueloatlautla.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <img src="../Imagenes/logo-universidad.png"  alt="Logo UPA" class="logo">
+      <div class="title-center">
+        <h1>Temperatura del Suelo</h1>
+        <h2>Municipio de Atlautla</h2>
+        
+      </div>
+      <img src="../Imagenes/logo-proyecto.png"  alt="Logo Proyecto Gorrión" class="logo">
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>Parámetros Meteorológicos</h3>
+      <ul>
+        <li><a href="temperaturatlautla.html">🌡️ Temperatura del aire</a></li>
+        <li><a href="humedadatlautla.html">💧 Humedad Relativa</a></li>
+        <li><a href="presipitacionatlautla.html">🌧️ Precipitación</a></li>
+        <li><a href="vientoatlautla.html">💨 Viento</a></li>
+        <li><a href="sueloatlautla.html"class="activo">🌱 Temperatura del Suelo</a></li>
+		<li><a href="atlautla.html">🏡 Regresar </a></li>
+    </aside>
+
+    <main>
+      <section class="card">
+        <h2>Importancia de medir la temperatura del suelo</h2>
+        <p>La <strong>temperatura del suelo</strong> es fundamental para el desarrollo de las plantas, 
+        ya que influye en la germinación, la actividad microbiana y la absorción de nutrientes. 
+        Medirla a distintas profundidades permite conocer el comportamiento térmico del terreno, 
+        ideal para agricultores, alumnos y docentes interesados en prácticas agroecológicas.</p>
+      </section>
+
+      <section class="card">
+        <h3>Datos actuales — Estación Atlautla</h3>
+        <div class="data-box">
+          <p><b>5 cm:</b> <span id="t5"></span> °C</p>
+          <p><b>10 cm:</b> <span id="t10"></span> °C</p>
+          <p><b>20 cm:</b> <span id="t20"></span> °C</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>Comparativo por profundidad</h3>
+        <canvas id="chartSuelo" style="max-height:300px"></canvas>
+      </section>
+
+      <section class="card">
+        <h3>Mapa de ubicación</h3>
+        <div id="map"></div>
+      </section>
+
+      <section class="card">
+        <h3>Aplicaciones agrícolas</h3>
+        <ul>
+          <li>Determinar la profundidad óptima de siembra.</li>
+          <li>Predecir la emergencia de semillas según la temperatura.</li>
+          <li>Planificar cultivos que requieran temperaturas específicas del suelo.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 Universidad Politécnica de Atlautla — Proyecto Gorrión
+  </footer>
+
+  <script>
+    // Datos simulados
+    const DATA = {
+      suelo: {
+        t5: 19.5,
+        t10: 18.7,
+        t20: 17.8,
+        labels: ["5 cm", "10 cm", "20 cm"],
+        series: [19.5, 18.7, 17.8]
+      }
+    };
+
+    document.getElementById('t5').textContent = DATA.suelo.t5;
+    document.getElementById('t10').textContent = DATA.suelo.t10;
+    document.getElementById('t20').textContent = DATA.suelo.t20;
+
+    // Gráfica
+    new Chart(document.getElementById('chartSuelo'), {
+      type: 'bar',
+      data: {
+        labels: DATA.suelo.labels,
+        datasets: [{
+          label: 'Temperatura del suelo (°C)',
+          data: DATA.suelo.series,
+          backgroundColor: ['#388e3c', '#2e7d32', '#1b5e20']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: false } }
+      }
+    });
+
+    // Mapa
+    const map = L.map('map').setView([19.0415, -98.7780], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+    L.marker([19.0415, -98.7780]).addTo(map).bindPopup("Estación Meteorológica — Atlautla");
+  </script>
+</body>
+</html>

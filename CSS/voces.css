@@ -178,11 +178,11 @@ nav ul li a.activo {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 15px;
+  border-radius: 10px;
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -203,7 +203,7 @@ nav ul li a.activo {
 
 .tarjeta-front:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 25px rgba(0,0,0,0.3);
 }
 
 .tarjeta-back {
@@ -212,7 +212,9 @@ nav ul li a.activo {
   transform: rotateY(180deg);
   font-size: 0.9em;
   text-align: justify;
+  padding: 20px;
 }
+
 
 .tarjeta-lider .tarjeta-front { border: 3px solid #6B1C2D; }
 .tarjeta-representante .tarjeta-front { border: 3px solid #D38FFA; }
@@ -265,11 +267,143 @@ nav ul li a.activo {
 }
 
 .tarjeta-back .descripcion {
-  font-size: 0.95em;
-  line-height: 1.3;
+  font-size: 0.9em;        
+  line-height: 1.6;        
+  width: 90%;              /* ocupa todo el ancho de la tarjeta */
+  padding: 0 55px;          /* espacio interno izquierdo y derecho */
+  box-sizing: border-box;   /* incluye el padding dentro del ancho */
   text-align: justify;
   color: #fff;
+  word-wrap: break-word;    /* divide palabras largas */
 }
+
+
+
+
+
+
+.equipo-desarrollo {
+  display: flex;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  margin: 50px 0;
+}
+
+
+.tarjeta-grande {
+  background-color: #f0fdf4;
+  display: block;  
+  border-radius: 20px;
+  padding: 50px 80px;
+  max-width: 1100px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  width: 100%;         /* ocupa el ancho completo disponible */
+ 
+}
+
+.tarjeta-grande h2 {
+  text-align: center;
+  margin-bottom: 28px;
+  color:  var(--verde);
+}
+
+
+.contenido-principal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.foto-grupal {
+  background-color: #2ca58d;   /* mismo tono del marco de las fotos individuales */
+  padding: 10px;                /* ajusta el espacio alrededor de la foto */
+  border-radius: 6px;          /* esquinas redondeadas como las fotos individuales */
+  display: inline-block;       /* el contenedor se ajusta al tamaño de la imagen */
+  margin-bottom: 17px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* sombra ligera */
+}
+
+.foto-grupal img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.descripcion {
+  flex: 1;
+  min-width: 280px;
+  margin-left: 30px;
+  text-align: justify;
+  color: #333;
+}
+
+
+/* ---- Tarjetas individuales con marco ---- */
+.grid-integrantes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.tarjeta-integrante {
+  background-color: #ffffff;
+  border-radius: 15px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+   display: flex;
+  flex-direction: column;
+  align-items: center; /* ?? centra todo horizontalmente */
+  justify-content: flex-start;
+}
+
+.tarjeta-integrante:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+.marco-foto {
+  position: relative;
+  display: inline-block;
+  background-color: #2ca58d; /* tono verde azulado del marco */
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.marco-foto img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.tarjeta-integrante h3 {
+  font-size: 1.1rem;
+  margin: 8px 0 4px;
+  color: #1f4e3d;
+}
+
+.tarjeta-integrante .rol {
+  font-style: italic;
+  color: #2a7c6f;
+  margin-bottom: 8px;
+}
+
+.tarjeta-integrante .descripcion-integrante {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.3;
+}
+
+
+
 
 /* Mascota*/
 .mascota-container {
@@ -300,27 +434,35 @@ footer {
   box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
 }
 
-/* Responsividad completa */
+/* ----------------- RESPONSIVIDAD COMPLETA ----------------- */
 
-/* Encabezado una sola línea en móviles */
+/* --- Encabezado y logos en móviles --- */
 @media (max-width: 768px) {
   header {
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  header img {
-    width: 45px;
-    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px; /* separación entre logo-título-logo */
   }
 
   header h1 {
-    font-size: 1rem;
+    order: 2; /* título en medio */
+    font-size: clamp(20px, 5vw, 28px);
+  }
+
+  #logo-upa {
+    order: 1; /* logo superior */
+    max-height: 80px;
+  }
+
+  #logo-gorrion {
+    order: 3; /* logo inferior */
+    max-height: 80px;
   }
 }
 
-/* Menú desplegable verde */
+/* --- Menú desplegable para móviles --- */
 .menu-toggle {
   display: none;
   background-color: var(--verde);
@@ -367,7 +509,13 @@ footer {
   }
 }
 
-/* Tarjetas bien visibles en móviles */
+/* --- Tarjetas del semillero --- */
+@media (max-width: 1024px) {
+  .tarjetas-container {
+    gap: 40px;
+  }
+}
+
 @media (max-width: 768px) {
   .tarjetas-container {
     display: block !important;
@@ -376,7 +524,7 @@ footer {
   .tarjeta {
     width: 90%;
     max-width: 340px;
-    margin: 80px auto;
+    margin: 60px auto;
     display: block;
   }
 
@@ -384,29 +532,182 @@ footer {
     width: 50%;
     height: auto;
   }
+
+  .tarjeta-back .descripcion {
+    width: 100%;
+    padding: 0 10px;
+  }
 }
-/* Encabezado apilado en móviles */
-@media (max-width: 768px) {
-  header {
-    display: flex;
+
+/* --- Equipo de desarrollo y tarjeta grande --- */
+@media (max-width: 1024px) {
+  .equipo-desarrollo {
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    gap: 10px; /* separación entre logo-título-logo */
+    padding: 0 20px;
   }
 
-  header h1 {
-    order: 2; /* el título va en medio */
-    font-size: clamp(20px, 5vw, 28px);
+  .tarjeta-grande {
+    padding: 30px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .equipo-desarrollo {
+    padding: 0 10px;
   }
 
-  #logo-upa {
-    order: 1; /* logo superior */
-    max-height: 80px;
+  .tarjeta-grande {
+    width: 95%;
+    padding: 20px 15px;
   }
 
-  #logo-gorrion {
-    order: 3; /* logo inferior */
-    max-height: 80px;
+  .contenido-principal {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
+
+  .foto-grupal {
+    max-width: 90%;
+    margin-bottom: 15px;
+  }
+
+  .descripcion {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* --- Tarjetas individuales de integrantes --- */
+@media (max-width: 1024px) {
+  .grid-integrantes {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+
+  .tarjeta-integrante {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .marco-foto img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-integrantes {
+    grid-template-columns: 1fr; /* una columna en móviles */
+    gap: 15px;
+  }
+
+  .tarjeta-integrante {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .marco-foto img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .tarjeta-integrante h3 {
+    font-size: 1rem;
+  }
+
+  .tarjeta-integrante .descripcion-integrante {
+    font-size: 0.85rem;
+  }
+}
+
+/* --- Contenido de introducción y secciones --- */
+@media (max-width: 768px) {
+  .introduccion-voces {
+    font-size: 1em;
+    padding: 0 15px;
+  }
+
+  .section {
+    padding: 20px 15px;
+  }
+
+  .voces {
+    padding: 10px 20px;
+  }
+
+  .voces h2 {
+    font-size: 24px;
+  }
+}
+
+/* --- Footer --- */
+@media (max-width: 768px) {
+  footer {
+    padding: 15px;
+  }
+}
+
+/* --- Ajuste global para eliminar scroll horizontal --- */
+* {
+  box-sizing: border-box;   /* todos los elementos incluyen padding y border en su ancho */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;       /* evita desplazamiento horizontal */
+}
+
+/* Contenedores principales */
+body > * {
+  max-width: 100%;          /* ningún elemento puede exceder el ancho de la pantalla */
+}
+
+/* Para secciones y grids */
+.section, 
+.tarjetas-container,
+.equipo-desarrollo,
+.grid-integrantes,
+.tarjeta-grande {
+  width: 100%;              /* ocupan todo el ancho disponible */
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;       /* pequeño padding interno */
+  padding-right: 10px;
+}
+
+/* Tarjetas individuales y fotos */
+.tarjeta, 
+.tarjeta-integrante,
+.foto-grupal,
+.marco-foto img {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}
+
+/* Para asegurar que textos no se salgan */
+.descripcion,
+.descripcion-integrante,
+.tarjeta-back .descripcion {
+  word-wrap: break-word;    /* corta palabras largas */
+  overflow-wrap: break-word;
+}
+
+/* --- Ajuste específico para la tarjeta de Red Nacional --- */
+.tarjeta-red .tarjeta-front h3 {
+  font-size: clamp(0.9rem, 2.5vw, 1rem); /* tamaño adaptable según pantalla */
+  word-wrap: break-word;                  /* corta palabras largas */
+  overflow-wrap: break-word;
+  text-align: center;                     /* centra el texto dentro de la tarjeta */
+  margin: 0 5px;                          /* pequeño margen lateral para que no toque bordes */
+}
+
+.tarjeta-red .tarjeta-front {
+  padding-left: 12px;   /* menos padding lateral */
+  padding-right: 12px;
 }
