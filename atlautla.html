@@ -3,44 +3,179 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Universidad Politécnica de Atlautla</title>
+  <title>Proyecto Gorrión — Climatología de Atlautla</title>
   <link rel="stylesheet" href="CSS/estilosatlautla.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <div class="card">
-    <!-- ENCABEZADO -->
-    <header>
-      <img src="Imagenes/logo-universidad.png" alt="Logo Universidad Politécnica de Atlautla">
-      <h2>Proyecto GORRIÓN</h2>
-      <img src="Imagenes/logo-proyecto.png" alt="Logo Proyecto GORRIÓN">
-    </header>
-    
-    <!-- MASCOTA -->
-    <div class="mascota">
-      <img src="Imagenes/logoupa.png" alt="Mascota/Logo de la UPA">
+  <header>
+    <div class="header-content">
+      <img src="Imagenes/logo-universidad.png" alt="Logo UPA" class="logo left">
+      <div class="title-center">
+        <h1>Proyecto Gorrión</h1>
+        <h2>Climatología de Atlautla</h2>
+        <p>Monitoreo ambiental para agricultores, escuelas y comunidad</p>
+      </div>
+      <img src="Imagenes/logo-proyecto.png"  alt="Logo Municipio" class="logo right">
     </div>
+  </header>
 
-    <h1>Universidad Politécnica de Atlautla</h1>
-    <p>
-      Bienvenido al huerto de la UPA. Este es un lugar donde cada semilla que sembramos se convierte en una lección de vida. 
-      Aquí aprendemos que la tierra nos recompensa con paciencia, respeto y trabajo en comunidad. 
-      Este espacio es más que plantas, es un símbolo de unión, cuidado y esperanza
-      para todos los que formamos parte de esta gran NIDO.
-    </p>
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>🌦️ Parámetros</h3>
+      <ul>
+	    
+        <li><a href="temperaturatlautla.html">🌡️ Temperatura del aire</a></li>
+        <li><a href="humedadatlautla.html">💧 Humedad Relativa</a></li>
+        <li><a href="presipitacionatlautla.html">🌧️ Precipitación</a></li>
+        <li><a href="vientoatlautla.html">💨 Viento</a></li>
+        <li><a href="sueloatlautla.html">🌱 Temperatura del Suelo</a></li>
+		<li><a href="antena.html">volver a la antena </a></li>
+      </ul>
 
-    <!-- BOTONES -->
-    <div class="buttons">
-      <a href="antena.html" class="btn-back">⬅ Volver al mapa</a>
-      <a href="https://proyectosva.com.mx/RVUPA/" target="_blank" class="btn-tour">🎥 Recorrido Virtual</a>
+      <h3>👨‍🌾 Útil para</h3>
+      <ul>
+        <li>🌾 Agricultores</li>
+        <li>🏫 Escuelas rurales</li>
+        <li>📊 Investigación</li>
+        <li>👪 Comunidad</li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <section class="intro card">
+        <h2>Bienvenido a la Universidad Politecnica de Atlautla</h2>
+        <p>
+          Esta plataforma muestra datos meteorológicos recopilados por antenas en el huerto de la Uiversidad Politécnica de Atlautla.
+          Con ellos se puede conocer la temperatura, humedad, viento y precipitación, fundamentales para planificar siembras,
+          prevenir heladas y cuidar los cultivos.
+        </p>
+        <button onclick="window.location.href='parametros/temperatura.html'" class="btn">Ver Temperatura Actual</button>
+      </section>
+
+      <section class="map card">
+        <h3>Mapa — Estación Meteorológica</h3>
+        <div id="map"></div>
+      </section>
+
+      <section class="info card">
+        <h3>¿Por qué medir el clima?</h3>
+        <p>
+          Medir la temperatura, humedad y lluvia permite decidir qué sembrar y cuándo hacerlo.
+          Si el suelo está muy frío o seco, las semillas no germinan bien.
+          Estos datos también ayudan a escuelas y jóvenes a aprender sobre el medio ambiente local.
+        </p>
+      </section>
+
+      <section class="card datos-clima">
+  <h3>📈 Datos meteorológicos recientes — Atlautla</h3>
+  <p>Lectura directa de la antena meteorológica.</p>
+  <p id="ultima-actualizacion">🔄 Última actualización: —</p>
+
+  <!-- 🔹 RESUMEN VISUAL -->
+  <div class="resumen-clima">
+    <div class="item-resumen">
+      <h4>🌡️ Temperatura</h4>
+      <p id="temp-actual">-- °C</p>
     </div>
-
-    <!-- MAPA -->
-    <iframe 
-      src="https://www.google.com/maps?q=19.035162,-98.787918&hl=es;z=14&output=embed"
-      allowfullscreen=""
-      loading="lazy">
-    </iframe>
+    <div class="item-resumen">
+      <h4>💧 Humedad</h4>
+      <p id="humedad-actual">-- %</p>
+    </div>
+    <div class="item-resumen">
+      <h4>🌧️ Lluvia</h4>
+      <p id="lluvia-actual">-- mm</p>
+    </div>
+    <div class="item-resumen">
+      <h4>💨 Viento</h4>
+      <p id="viento-actual">-- km/h</p>
+    </div>
   </div>
+
+  <!-- 🔹 TABLA DE REGISTROS -->
+  <div class="tabla-contenedor">
+    <table id="tablaClima">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>🌡 Temp (°C)</th>
+          <th>💧 Humedad (%)</th>
+          <th>🌧 Lluvia (mm)</th>
+          <th>💨 Viento (km/h)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="6">Cargando datos...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 Proyecto Gorrión — Universidad Politécnica de Atlautla
+  </footer>
+
+<script>
+  // === FUNCIÓN PRINCIPAL PARA CARGAR DATOS CSV ===
+  function cargarDatosClima() {
+    fetch('datos/datos_climaticos_prueba.csv?_=' + new Date().getTime()) // evitar caché
+      .then(response => response.text())
+      .then(csvText => {
+        const lineas = csvText.trim().split('\n');
+        const encabezado = lineas[0].split(',');
+        const registros = lineas.slice(1);
+
+        const tablaBody = document.querySelector('#tablaClima tbody');
+        tablaBody.innerHTML = '';
+
+        // Mostrar cada fila en la tabla
+        registros.forEach(fila => {
+          const columnas = fila.split(',');
+          const tr = document.createElement('tr');
+          columnas.forEach(col => {
+            const td = document.createElement('td');
+            td.textContent = col.trim();
+            tr.appendChild(td);
+          });
+          tablaBody.appendChild(tr);
+        });
+
+        // Tomar el último registro como "dato actual"
+        const ultimaFila = registros[registros.length - 1].split(',');
+        document.getElementById('temp-actual').textContent = `${ultimaFila[2]} °C`;
+        document.getElementById('humedad-actual').textContent = `${ultimaFila[3]} %`;
+        document.getElementById('lluvia-actual').textContent = `${ultimaFila[4]} mm`;
+        document.getElementById('viento-actual').textContent = `${ultimaFila[5]} km/h`;
+
+        // Mostrar fecha y hora de actualización
+        const fecha = new Date();
+        const opciones = { hour: '2-digit', minute: '2-digit' };
+        const horaLocal = fecha.toLocaleTimeString('es-MX', opciones);
+        const fechaLocal = fecha.toLocaleDateString('es-MX');
+        document.getElementById('ultima-actualizacion').textContent =
+          `🔄 Última actualización: ${fechaLocal} — ${horaLocal}`;
+      })
+      .catch(error => {
+        console.error('Error al cargar CSV:', error);
+        document.querySelector('#tablaClima tbody').innerHTML =
+          '<tr><td colspan="6">No se pudieron cargar los datos.</td></tr>';
+      });
+  }
+
+  // === CARGA INICIAL ===
+  cargarDatosClima();
+
+  // === ACTUALIZAR CADA 5 MINUTOS (300000 ms) ===
+  setInterval(cargarDatosClima, 300000);
+</script>
+
+
 </body>
 </html>
 
